@@ -1,0 +1,69 @@
+site_name: Hyper Protect Virtual Servers (HPVS) Hosted Trial
+repo_url:  https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial
+edit_uri: edit/master/docs
+nav:
+    - Home: index.md
+    - Prerequisites: prerequisites.md
+    #- Lab Assignments: assignment.md
+    - Secure Image Build Lab:
+      - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild-lab/overview.md
+      - Configuring your Environment: securebuild-lab/securebuild-setup.md
+      - Create your HPVS Secure Build Server: securebuild-lab/create-server.md
+      - Securely Build your Application: securebuild-lab/build.md
+      - Deploy your Securely Built Application as a Hyper Protect Virtual Server: securebuild-lab/deploy-app.md
+    #  - Welcome to the Secure Bitcoin Wallet on IBM LinuxONE: securebuild-lab/bitcoin_wallet.md
+      - Clean up your Environment: securebuild-lab/cleanup.md
+    - GREP11 Lab:
+      - Lab overview: grep11-lab/overview.md
+      - How to set up a GREP11 server: grep11-lab/grep11-setup.md
+      - Displaying your GREP11 environment: grep11-lab/grep11-display.md
+      #- Run the GREP11 sample code: grep11-lab/run-grep11-samples.md
+      #- Run the Lab exercises:
+      #  - An overview of the Exercises: grep11-lab/exercise-overview.md
+      #  - Exercise 1 (List PKCS Mechanisms): grep11-lab/lab-exercise1.md
+      #  - Exercise 2 (Encryption and Decryption): grep11-lab/lab-exercise2.md
+      #  - Exercise 3 (Sign and Verify): grep11-lab/lab-exercise3.md
+      #  - Exercise 4 (Wrap and Unwrap Key): grep11-lab/lab-exercise4.md
+    - Glossary of terms: glossary.md
+    - Other resources: resources.md
+    - Propose a change: proposechange.md
+
+theme:
+  name: material
+  palette:
+    scheme: preference
+  favicon: images/hpvs-logo.svg
+  logo: images/hpvs-logo.svg
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ibm-wsc
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/s390x
+google_analytics:
+  - UA-174658170-2
+  - auto
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - attr_list
+  - toc:
+      permalink: true
