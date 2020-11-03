@@ -7,10 +7,10 @@ The Hyper Protect Virtual Servers Hosted Trial provides a primer on Hyper Protec
 ## Agenda
 * [Introduction to Hyper Protect Virtual Servers](HPVS-Intro.pdf)
 * [Hyper Protect Use Cases & Demo](HPVS-Intro.pdf)
-* [Introduction to the Secure Image Build Process](securebuild-lab/overview.md)
-* [Trial: Build and Deploy Your First Hyper Protect Virtual Server Image](securebuild-lab/overview.md)
+* [Introduction to the Secure Image Build Process](securebuild/overview.md)
+* [Trial: Build and Deploy Your First Hyper Protect Virtual Server Image](securebuild/overview.md)
 * [Introduction to HSM-backed Crypto Service](GREP11-Intro.pdf)
-* [Trial: Crypto Service Exploitation](grep11-lab/overview.md)
+* [Trial: Crypto Service Exploitation](grep11/overview.md)
 
 ## Hosted Trial owners
 * [Anthony Cocuzza](mailto:amcocuzz@us.ibm.com)
