@@ -18,13 +18,13 @@ The following are the prerequisites for being able to deploy your own image into
 
 Complete the following steps with root user authority.  
 
-1. [Sign your image by using Docker Content Trust](#docker_content_trust)
-2. [Adding the registry](#add_registry)
-3. [Generating the signing keys](#gen_signing_key)
-4. [Preparing the configuration](#byoi_config)
-3. [Deploy your image](#deploy_image)
+1. [Sign your image by using Docker Content Trust](#step_1)
+2. [Adding the registry](#step_2)
+3. [Generating the signing keys](#step_3)
+4. [Preparing the configuration](#step_4)
+5. [Deploy your image](#step_5)
 
-### docker_content_trust
+### step_1
 Sign your image by using Docker Content Trust
 
 - Run the following command to load the image from the DockerHub onto your management server.
@@ -48,7 +48,7 @@ Sign your image by using Docker Content Trust
    Enter your root passphrase and repository passphrase when you are prompted to. The generated public key is stored in `~/.docker/trust/tuf/docker.io/<your_docker_id>/<result_image_name>/metadata/root.json`/
 
 
-### add_registry
+### step_2
 Adding the registry
 
    Verify whether you already have a registry by running the following command.
@@ -63,12 +63,12 @@ Adding the registry
    name - Specify a name for your registry.  
    user - Docker registry username.
 
-### gen_signing_key
+### step_3
 Generating the signing keys
 
 To generate the signing keys, follow the instructions listed in the topic ([`Generating the signing keys`](gen_sign_key.md){target=_blank}).
 
-### byoi_config
+### step_4
 Preparing the configuration
 
 - Create the configuration yaml `secure_create.yaml` file so that the repository registration file for your image can be generated. You can use the `$HOME/hpvs/config/securebuild/secure_create.yaml.example` example file as a reference when updating the file.    
@@ -99,7 +99,7 @@ Preparing the configuration
    hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/encryptedRegfile.enc
    ```
 
-### deploy_image
+### step_5
 Deploy your image
 
 **Complete the following steps to deploy your own image by using the `hpvs deploy` command.**
