@@ -1,5 +1,4 @@
-# Hyper Protect Virtual Servers (HPVS) Hosted Trial BYOI Overview
-
+# BYOI Overview
 
 ## Prerequisites
 

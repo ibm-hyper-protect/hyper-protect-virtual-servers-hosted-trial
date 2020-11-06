@@ -5,7 +5,7 @@ nav:
     - Home: index.md
     - Prerequisites: prerequisites.md
     #- Lab Assignments: assignment.md
-    - Secure Image Build Lab:
+    - Secure Image Build:
       - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
       - Configuring your Environment: securebuild/securebuild-setup.md
       - Create your HPVS Secure Build Server: securebuild/create-server.md
@@ -13,7 +13,10 @@ nav:
       - Deploy your Securely Built Application as a Hyper Protect Virtual Server: securebuild/deploy-app.md
     #  - Welcome to the Secure Bitcoin Wallet on IBM LinuxONE: securebuild-lab/bitcoin_wallet.md
       - Clean up your Environment: securebuild/cleanup.md
-    - Bring your own image: byoi/byoi.md
+    - BYOI:
+      - Overview: byoi/overview_byoi.md
+      - Generating signing keys: byoi/gen_sign_key.md
+      - Bring your own image: byoi/byoi.md
     - GREP11 Lab:
       - Lab overview: grep11/overview.md
       - How to set up a GREP11 server: grep11/grep11-setup.md
