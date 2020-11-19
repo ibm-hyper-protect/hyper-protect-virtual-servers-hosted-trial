@@ -1,4 +1,4 @@
-# Create your HPVS Secure Build Server
+# Create your HPVS Secure Build Server by using the hpvs vs create command
 
 ## Export Variables set in previous sections to current terminal session
 
