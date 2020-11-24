@@ -1,4 +1,4 @@
-# Create your HPVS Secure Build Server by using the yaml configuration file and `hpvs deploy` command
+# Create your HPVS Secure Build Server by using the YAML configuration file and `hpvs deploy` command
 
 ## Export Variables set in previous sections to current terminal session
 
@@ -246,7 +246,7 @@ Create the Secure Build virtual server by using the configurations in the yaml f
 hpvs deploy --config $HOME/hpvs/config/securebuild/demo_securebuild.yml
 ```
 
-Your secure build server is now up and running. 
+Your secure build server is now up and running.
 
 It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified.
 
