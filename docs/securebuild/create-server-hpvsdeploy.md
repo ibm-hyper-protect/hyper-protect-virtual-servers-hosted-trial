@@ -112,9 +112,7 @@ You will be assigned a number for the lab so as not to interfere with other user
     echo "export SB_PORT='${SB_PORT}'" >> "${HOME}/.bashrc"
     ```
 
-5. Create the Secure Build virtual server by using the hpvs deploy command
-   You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command. You can update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. The `vs_securebuild.yml` that has the configuration details for the virtual server refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file. The `network: ref` value refers to the `networktemplates` definition in the template file. The following is an example of the virtual srever template file.
-
+5. You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command. You can update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary.
 
 ??? example "Example of a virtualserver-template file"
 
@@ -195,7 +193,8 @@ You will be assigned a number for the lab so as not to interfere with other user
        memory: 32565   
     ```
 
-Create the configuration yaml file $HOME/hpvs/config/securebuild/demo_securebuild.yml for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The following is an example of a `vs_securebuild.yml` file. In this example, the network definition is for an external network.
+   - The `vs_securebuild.yml` that has the configuration details for the virtual server refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file. The `network: ref` value refers to the `networktemplates` definition in  the template file. The following is an example of the virtual srever template file.  
+    Create the configuration yaml file $HOME/hpvs/config/securebuild/demo_securebuild.yml for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The following is an example of a `vs_securebuild.yml` file. In this example, the network definition is for an external network.
 
 
 ??? example "Example of a Secure Build virtual server configuration file"
@@ -241,10 +240,10 @@ Create the configuration yaml file $HOME/hpvs/config/securebuild/demo_securebuil
     ```
 
 
-Create the Secure Build virtual server by using the configurations in the yaml file.  
-```
-hpvs deploy --config $HOME/hpvs/config/securebuild/demo_securebuild.yml
-```
+   - Create the Secure Build virtual server by using the configurations in the yaml file.  
+     ```
+     hpvs deploy --config $HOME/hpvs/config/securebuild/demo_securebuild.yml
+     ```
 
 Your secure build server is now up and running.
 
