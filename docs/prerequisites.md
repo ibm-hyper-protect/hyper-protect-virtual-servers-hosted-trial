@@ -9,7 +9,7 @@ Create a Docker Hub account (if you do not already have one) by following the in
 ## Create a Docker access Token
 Create an access token for Docker Hub access during the trial (you will delete it if after finishing the trial) by following the instructions [here](https://docs.docker.com/docker-hub/access-tokens/#create-an-access-token){target=_blank}.
 
-## Creating the server configuration YAML file.
+## Creating the server configuration YAML file
 
 You can find examples of the virtual server template file and virtual server configuration files in the *$HOME/hpvs/config/* directory. The  virtual server configuration files contain the configuration details of the virtual server, and this configuration file refers to the corresponding sections of the `virtualserver.template.yml` file when you run the `hpvs deploy` command. You can find the `virtualserver.template.yml` file in the *$HOME/hpvs/config/templates/* directory.
 

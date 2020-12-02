@@ -6,14 +6,7 @@ See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete t
 
 ## The Big Picture
 
-Here is a big picture of what is going on in the lab (i.e. lab architecture).
-
-![Secure Build Big Picture](Overview_Images/SecureBuild_BigPicture.png)
-
-!!! note
-    Student 1 and Student 2 in the illustration are 2 example students. In the actual lab, more students will be present.
-
-The 5 different pieces of this puzzle:
+There are 5 steps of the Secure Build process:
 
 1. [SETUP](#setup)
 2. [BUILD](#build)
@@ -29,14 +22,14 @@ Configure your environment with the necessary credentials to connect to [GitHub]
 
 ### BUILD
 
-Securely build a Docker Image for the [Secure Electrum Bitcoin Wallet Application](https://github.com/IBM/secure-bitcoin-wallet){target=_blank}. ([see `Create your HPVS Secure Build Server`](create-server.md){target=_blank} and [`Securely Build your Application`](build.md){target=_blank}). This uses the Secure Build Process detailed below[^1]:
+Securely build a Docker Image. see [`Create your HPVS Secure Build Server`](create-server.md){target=_blank}, or [`Create your HPVS Secure Build Server by using the YAML configuration file and `hpvs deploy` command`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your Application`](build.md){target=_blank}). This uses the Secure Build Process detailed below[^1]:
 
 ![Secure Build Overview](Overview_Images/Secure_Build_Overview.png)
 
-!!! tip "Securely Seeding Docker Content Trust"
-    This Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
 
-    However, those aren't the  only keys used throughout the lab. The table below illustrates all of the different keys used throughout the secure build process, what they do, how they are created, and who is ultimately responsible for them.
+The Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
+
+However, those aren't the  only keys used throughout the lab. The table below illustrates all of the different keys used throughout the secure build process, what they do, how they are created, and who is ultimately responsible for them.
 
 ???+ example "List of the keys employed during the Secure Build Lab in order of creation. [^2]"
     | Key Name                    | Key Type | Key Function                                                                                                                             | Private Key Location                        | How Created                                 | Owner                        |
@@ -63,14 +56,14 @@ Register your securely built Docker Image with your Secure Service Container to 
 
 ### DEPLOY
 
-Deploy your Secure Bitcoin Wallet application `(from the verified repository created in step 3)` as a Hyper Protect Virtual Server within its own secure enclave[^4] (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}).
+Deploy your xxxx application `(from the verified repository created in step 3)` as a Hyper Protect Virtual Server within its own secure enclave[^4] (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}).
 ![Hyper Protect Virtual Servers Overview](Overview_Images/Hyper_Protect_Virtual_Server_Overview.png)
 
 [^4]: The `Hyper Protect Virtual Server Experience` graphic is adapted from charts provided by the Hyper Protect Virtual Servers On-Premises development team.
 
 ### ACCESS
 
-Access your [Secure Electrum Bitcoin Wallet Application](https://github.com/IBM/secure-bitcoin-wallet){target=_blank} application to use it with security built-in (see [`Welcome to the Secure Bitcoin Wallet on IBM LinuxONE`](bitcoin_wallet.md){target=_blank}).
+Access your application. xxxx- ToDo
 
 ### CLEANUP
 

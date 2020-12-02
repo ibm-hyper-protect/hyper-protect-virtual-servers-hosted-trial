@@ -5,7 +5,7 @@ nav:
     - Home: index.md
     - Prerequisites: prerequisites.md
     #- Lab Assignments: assignment.md
-    - Secure Image Build:
+    - Secure Build:
       - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
       - Configuring your Environment: securebuild/securebuild-setup.md
       - Create your HPVS Secure Build Server by using the hpvs vs create command: securebuild/create-server.md
@@ -18,10 +18,12 @@ nav:
       - Overview: byoi/overview_byoi.md
       - Generating signing keys: byoi/gen_sign_key.md
       - Bring your own image: byoi/byoi.md
-    - GREP11 Lab:
+    - GREP11:
       - Lab overview: grep11/overview.md
       - How to set up a GREP11 server: grep11/grep11-setup.md
       - Displaying your GREP11 environment: grep11/grep11-display.md
+    - Reference:
+      - Undeploying virtual servers: reference/hpvs_undeploy.md
       #- Run the GREP11 sample code: grep11-lab/run-grep11-samples.md
       #- Run the Lab exercises:
       #  - An overview of the Exercises: grep11-lab/exercise-overview.md
@@ -34,7 +36,7 @@ nav:
     - Propose a change: proposechange.md
 
 theme:
-  name: material
+  name: gitbook
   palette:
     scheme: preference
   favicon: images/hpvs-logo.svg

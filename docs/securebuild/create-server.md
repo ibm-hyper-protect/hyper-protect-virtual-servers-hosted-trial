@@ -70,52 +70,11 @@ source "${HOME}/.bashrc"
 
         `LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURUVENDQWpXZ0F3SUJBZ0lVUERITlQ3Y3YrZWNzZ1Y0QnZHSmhhaVAyOERnd0RRWUpLb1pJaHZjTkFRRUwKQlFBd05qRUxNQWtHQTFVRUJoTUNWVk14RERBS0JnTlZCQW9NQTBsQ1RURVpNQmNHQTFVRUF3d1FhSEIyY3k1bAplR0Z0Y0d4bExtTnZiVEFlRncweU1EQTJNall3TXpVM016RmFGdzB6TURBMk1qUXdNelUzTXpGYU1EWXhDekFKCkJnTlZCQVlUQWxWVE1Rd3dDZ1lEVlFRS0RBTkpRazB4R1RBWEJnTlZCQU1NRUdod2RuTXVaWGhoYlhCc1pTNWoKYjIwd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURWbTBveGI5N3pnYTc2REtwWAptSC9XaWh0OGJCOUZMMEY0U3dxRjdhQ3I4RkZBUHhIYnFieVQvTVhZcVYwdGlWU1JNSHhDd2hhR1FlSXJhWDlKCjRVZ2FCaUEwQ2krWVFZWmF1SXcvVmI4SEtUYkxERC9SblMwai9SSFk1Tzl1TXJ3NXNpQzBydElTRXBwa1VFdFEKWGZTdGFDMU82bmlLUXY1NDZkRGdRRmVGbUI5WHZVeHdzK2pES1g4aW1XaWhIeERLYVN1cEkwRk9JQ094dVhVWQpZSTVPeWVrbDVNaGttMitVTjhFekowY3JtSGJTQnh2Rlg2amh4UkhWNTd6VjR2Tm5VTGQwL1ZCNTBxZ2ZtcmVPCk5PMUJOMGtOMk1vV1N1R3lRdDZNS0NvSHAyUzgxTmJMcXRERndjMkxtbGxkc21hVEFqTVdkTjFyNjlXdVlkTmUKYjlJaEFnTUJBQUdqVXpCUk1CMEdBMVVkRGdRV0JCVFMrNEJKTUhZbG9RS2kvZjVlR2N1MDg3U3Q4VEFmQmdOVgpIU01FR0RBV2dCVFMrNEJKTUhZbG9RS2kvZjVlR2N1MDg3U3Q4VEFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQTBHCkNTcUdTSWIzRFFFQkN3VUFBNElCQVFDQk9KdjVkbllLSUpmdXQ3VlVyWS9FYThzby9oaDhTdTQwK0NoRTYreVcKazFPSkV6NnorU3FrTFlwZ0hqV1JQL1VVY3ZzdCtnZVVNR2dZeThCZ01HaGFRVUdESm9NYzdvcDcyN2w1akdMcApjWGE3cDU0aWtqYnN3QzllL000a0tKRVVRWTEyUU42TDQrVDZBRUtZcnRUVnZCMURGLzhndW9ZNjFLbDEzOVNFCmVockllWGE4THVGTmY3STc1bHpJZHpTSHpieXp0empUeW9IYTN1cmloNUNnMkhISkpsTXlNaVIwQUVKMURMQmMKMmo0SFp2V0hrYWZaTEtuRnBKUHJNa01DSXpwdFQ1SnlHOW5pUlh3RmkxdzR6UDlJRHBCRVh1UGNuU1ZacFJFawpRSHNrSzY1Nm1xRndvY2pBMXNSMmZjS1pUbkJjMlhmM0NUelVxSVoyYStSVQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==`
 
-## Set your provided number and save it for later use
-
-You will be assigned a number for the lab so as not to interfere with other users.
-
-!!! note
-    [This table](../assignment.md){target=_blank} tells you which number you are assigned.
-
-1. Set the `HPVS_NUMBER` variable with your assigned 2 digit number
-
-    === "Command Syntax"
-
-        ``` bash
-        export HPVS_NUMBER="your_assigned_number"
-        ```
-
-    === "Example Command"
-
-        ``` bash
-        export HPVS_NUMBER="00"
-        ```
-
-    !!! warning
-        Your user will **NOT** be `00`. Please set the appropriate user you have been assigned.
-
-2. Save your number to `bashrc` for later use.
-
-    ``` bash
-    echo "export HPVS_NUMBER='${HPVS_NUMBER}'" >> "${HOME}/.bashrc"
-    ```
-
-3. Set Secure Build Server Port
-
-    ``` bash
-    export SB_PORT=300${HPVS_NUMBER}
-    ```
-
-4. Save `SB_PORT` to `bashrc` for later use.
-
-    ``` bash
-    echo "export SB_PORT='${SB_PORT}'" >> "${HOME}/.bashrc"
-    ```
 
 ## Create Quotagroup with storage for secure build server
 
 ``` bash
-hpvs quotagroup create --name "sb_user${HPVS_NUMBER}" --size=40GB
+hpvs quotagroup create --name "sb_user" --size=40GB
 ```
 
 ???+ example "Example Output"
@@ -135,11 +94,11 @@ hpvs quotagroup create --name "sb_user${HPVS_NUMBER}" --size=40GB
 ## Create Securebuild server
 
 ``` bash
-hpvs vs create --name sbserver_${HPVS_NUMBER} --repo SecureDockerBuild \
+hpvs vs create --name sbserver_ --repo SecureDockerBuild \
 --tag 1.2.1-release-9b63b43 --cpu 2 --ram 2048 \
---quotagroup "{quotagroup = sb_user${HPVS_NUMBER}, mountid = new, mount = /newroot, filesystem = ext4, size = 10GB}" \
---quotagroup "{quotagroup = sb_user${HPVS_NUMBER}, mountid = data, mount = /data, filesystem = ext4, size = 2GB}" \
---quotagroup "{quotagroup = sb_user${HPVS_NUMBER}, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}" \
+--quotagroup "{quotagroup = sb_user, mountid = new, mount = /newroot, filesystem = ext4, size = 10GB}" \
+--quotagroup "{quotagroup = sb_user, mountid = data, mount = /data, filesystem = ext4, size = 2GB}" \
+--quotagroup "{quotagroup = sb_user, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}" \
 --env={EX_VOLUMES="/docker,/data",ROOTFS_LOCK=y,CLIENT_CRT=$cert} \
 --ports "{containerport = 443, protocol = tcp, hostport = ${SB_PORT}}"
 ```
@@ -174,7 +133,7 @@ hpvs vs create --name sbserver_${HPVS_NUMBER} --repo SecureDockerBuild \
 We can see the quotagroup is now being used with
 
 ``` bash
-hpvs quotagroup show --name "sb_user${HPVS_NUMBER}"
+hpvs quotagroup show --name "sb_user"
 ```
 
 ???+ example "Example Output"
@@ -199,7 +158,7 @@ hpvs quotagroup show --name "sb_user${HPVS_NUMBER}"
 The show output for the Hyper Protect Virtual Server was shown when it was deployed but we can bring it back up with
 
 ``` bash
-hpvs vs show --name "sbserver_${HPVS_NUMBER}"
+hpvs vs show --name "sbserver"
 ```
 
 ???+ example "Example Output"
@@ -208,7 +167,7 @@ hpvs vs show --name "sbserver_${HPVS_NUMBER}"
     ╭─────────────┬──────────────────────────────╮
     │ PROPERTIES  │ VALUES                       │
     ├─────────────┼──────────────────────────────┤
-    │ Name        │ sbserver_00                  │
+    │ Name        │ sbserver                  │
     │ Status      │ Up About a minute            │
     │ CPU         │ 2                            │
     │ Memory      │ 2048                         │
@@ -229,7 +188,7 @@ hpvs vs show --name "sbserver_${HPVS_NUMBER}"
     ╰─────────────┴──────────────────────────────╯
     ```
 
-Your secure build server is now up and running! :fire:
+Your secure build server is now up and running!
 
 It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified.
 
