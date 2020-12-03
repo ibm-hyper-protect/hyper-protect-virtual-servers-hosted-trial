@@ -25,26 +25,86 @@ Complete the following steps with root user authority.
 5. [Deploy your image](#step_5)
 
 ### step_1
-Sign your image by using Docker Content Trust
+**Sign your image by using Docker Content Trust**
 
-- Run the following command to load the image from the DockerHub onto your management server.
+Login to Docker hub using your Docker Hub credentials, if you are not logged-in yet.
+
+
+???+ example "Example output"
+
+   ```bash
+   docker login
+   Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, go to https://hub.docker.com to create one.
+   Username: hpvsdemo
+   Password:
+   WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+   Configure a credential helper to remove this warning. See
+   https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+   Login Succeeded
+   ```  
+
+
+- Run the following command to load the image (nginx application) from the DockerHub onto your management server.
    ```
    docker image pull <your_docker_id>/<result_image_name>:<tag>
    ```
+
+    ??? example "Example output"
+
+       ```bash
+       docker image pull s390x/nginx:latest
+       latest: Pulling from s390x/nginx
+       405e75bf6bb0: Pull complete
+       513ab99245be: Pull complete
+       0057372a1eb7: Pull complete
+       e8a2963860c1: Pull complete
+       ed9d8c330029: Pull complete
+       Digest: sha256:9b47e7c64b1f9149832d1ef7cbf9d80b9b55466a9c6c8212f30d15966fd9f1a6
+       Status: Downloaded newer image for s390x/nginx:latest
+       docker.io/s390x/nginx:latest
+       ```
+
 - Enable Docker Content Trust (DCT), specify the server for the Docker Content Trust service by running the following command.
    ```
    export DOCKER_CONTENT_TRUST=1
    export DOCKER_CONTENT_TRUST_SERVER=https://notary.docker.io
    ```
-- Re-tag your docker images by running the following command.
+- Re-tag your docker images by running the following command. Build your Linux-based container image for s390x architecture by using a build tool such as `docker build`. For example, your source code is stored in a github repository and the result s390x architecture container image will be pushed to a remote Docker repository with DCT enabled.
    ```
    docker tag <your_docker_id>/<result_image_name>:<tag> <your_docker_id>/<result_image_name>:<new-tag>
    ```
-   Build your Linux-based container image for s390x architecture by using a build tool such as `docker build`. For example, your source code is stored in a github repository and the result s390x architecture container image will be pushed to a remote Docker repository with DCT enabled.
+
+    ??? example "Example output"
+
+       ```bash
+       docker tag s390x/nginx:latest hpvsdemo/hpvsdemo_secureapp:secureapp
+       ```
+
 - Push your images to the DockerHub by running the following command.
    ```
    docker push <your_docker_id>/<result_image_name>:<new-tag>
    ```
+
+    ??? example "Example output"
+
+       ```bash
+       docker push hpvsdemo/hpvsdemo_secureapp:secureapp
+       The push refers to repository [docker.io/hpvsdemo/hpvsdemo_secureapp]
+       ac2dc34ad3c9: Mounted from hpvsdemo/secure_app_nginx_new
+       b2ef6e716a0f: Mounted from hpvsdemo/secure_app_nginx_new
+       cb2071142d0b: Mounted from hpvsdemo/secure_app_nginx_new
+       b60202bb076f: Mounted from hpvsdemo/secure_app_nginx
+       563b53cd7a3f: Mounted from hpvsdemo/secure_app_nginx_new
+       secureapp: digest: sha256:9b47e7c64b1f9149832d1ef7cbf9d80b9b55466a9c6c8212f30d15966fd9f1a6 size: 1362
+       Signing and pushing trust metadata
+       Enter passphrase for root key with ID 1bec86a:
+       Enter passphrase for root key with ID 1bec86a:
+       Enter passphrase for new repository key with ID 3237039:
+       Repeat passphrase for new repository key with ID 3237039:
+       Finished initializing "docker.io/hpvsdemo/hpvsdemo_secureapp"
+       Successfully signed docker.io/hpvsdemo/hpvsdemo_secureapp:secureapp
+       ```
+
    Enter your root passphrase and repository passphrase when you are prompted to. The generated public key is stored in `~/.docker/trust/tuf/docker.io/<your_docker_id>/<result_image_name>/metadata/root.json`/
 
 
@@ -216,7 +276,7 @@ Deploy your image
    ```
    hpvs deploy --config $HOME/hpvs/config/demo_byoi.yml
    ```
-   **Note**: You can use the `hpvs undeploy` command to delete this virtual server. This command is supported in Hyper Protect Virtual Servers version 1.2.2, or later. For more information, see ([`Undeploying virtual servers`](../hpvs_undeploy.md){target=_blank}).
+   **Note**: You can use the `hpvs undeploy` command to delete this virtual server. This command is supported in Hyper Protect Virtual Servers version 1.2.2, or later. For more information, see [`Undeploying virtual servers`](../reference/hpvs_undeploy.md){target=_blank}.
 - You can update the resources or configuration of a virtual server after the completion of the deploy operation by using the `-u`, or the `--update` flag of the `hpvs deploy` command. The information about the parameters to be updated are read from the configuration yaml file. You can edit the configuration file with the details of the update you want to perform and use this configuration file to run the command. This flag is applicable for Hyper Protect Virtual Servers version 1.2.2, or later. Run the following command to update the virtual server instance.
    ```
    hpvs deploy --update --config $HOME/hpvs/config/demo_byoi.yml

@@ -9,7 +9,7 @@ nav:
       - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
       - Configuring your Environment: securebuild/securebuild-setup.md
       - Create your HPVS Secure Build Server by using the hpvs vs create command: securebuild/create-server.md
-      - Create your HPVS Secure Build Server by using the yaml configuration file and `hpvs deploy` command: securebuild/create-server-hpvsdeploy.md
+      - Create your HPVS Secure Build Server by using the yaml configuration file and hpvs deploy command: securebuild/create-server-hpvsdeploy.md
       - Securely Build your Application: securebuild/build.md
       - Deploy your Securely Built Application as a Hyper Protect Virtual Server: securebuild/deploy-app.md
     #  - Welcome to the Secure Bitcoin Wallet on IBM LinuxONE: securebuild-lab/bitcoin_wallet.md
