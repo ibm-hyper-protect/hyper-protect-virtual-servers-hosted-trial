@@ -34,7 +34,7 @@ Login to Docker hub using your Docker Hub credentials, if you are not logged-in 
 
    ```bash
    docker login
-   Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, go to https://hub.docker.com to create one.
+   Login with your Docker ID to push and pull images from Docker Hub. If you do not have a Docker ID, go to https://hub.docker.com to create one.
    Username: hpvsdemo
    Password:
    WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
@@ -126,7 +126,7 @@ Adding the registry
 ### step_3
 Generating the signing keys
 
-To generate the signing keys, follow the instructions listed in the topic ([`Generating the signing keys`](gen_sign_key.md){target=_blank}).
+To generate the signing keys, follow the instructions listed in the topic [`Generating the signing keys`](gen_sign_key.md){target=_blank}.
 
 ### step_4
 Preparing the configuration

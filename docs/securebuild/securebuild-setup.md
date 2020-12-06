@@ -3,7 +3,7 @@
 ## Explore the Hyper Protect Virtual Servers CLI
 
 !!! info
-    In this lab, we will use the Hyper Protect Virtual Servers CLI (`hpvs` command) to interact with our Hyper Protect Virtual Servers Hosting Appliance in order to perform the various actions necessary for the Secure Build. Below is a quick introduction to the commands available through this CLI.
+    In this trial, we will use the Hyper Protect Virtual Servers CLI (`hpvs` command) to interact with our Hyper Protect Virtual Servers Hosting Appliance in order to perform the various actions necessary for the Secure Build. Below is a quick introduction to the commands available through this CLI.
 
 1. See the different commands you could enter with:
 
@@ -54,7 +54,7 @@
 ## Add Docker registry to use for secure build
 
 !!! info
-    In this section you will add the details to connect to your Docker Hub Registry so your secure build container can push your securely built images there. Don't worry, your Docker token is safely encrypted on your Skytap Linux VM using the `HPVS Registry CLI Encryption Key` referenced in the [key table](overview.md#fnref:2).
+    In this section you will add the details to connect to your Docker Hub Registry so your secure build container can push your securely built images there.Your Docker token is safely encrypted on your Linux VM using the `HPVS Registry CLI Encryption Key` referenced in the [key table](overview.md#fnref:2).
 
 1. See your current Docker registries with:
 
@@ -261,7 +261,7 @@
         Your public key has been saved in /home/multiarch-lab/securebuild-lab/github_keys/github_rsa.pub.
         The key fingerprint is:
         SHA256:sbEfCzwyOz/LaZ4jSeKT+Aw7IWUr7YT6m8Hxv9Dq90k multiarch-lab@ubuntu
-        The key's randomart image is:
+        The randomart image of the key is:
         +---[RSA 4096]----+
         |                 |
         |                 |
@@ -333,7 +333,7 @@
 
         ``` bash
         Warning: Permanently added the RSA host key for IP address '140.82.114.3' to the list of known hosts.
-        Hi siler23! You've successfully authenticated, but GitHub does not provide shell access.
+        Hi siler23! You have successfully authenticated, but GitHub does not provide shell access.
         ```
 
     !!! failure "Your key was **NOT** added :disappointed: Please redo [this section](#create-ssh-key-and-grant-github-access)"
@@ -343,4 +343,4 @@
         git@github.com: Permission denied (publickey).
         ```
 
-10. Feel at ease knowing you will delete this key from your Github account in the cleanup phase of this lab so access will be revoked soon enough :relaxed:
+10. Feel at ease knowing you will delete this key from your Github account in the cleanup phase of this trial so access will be revoked soon enough.
