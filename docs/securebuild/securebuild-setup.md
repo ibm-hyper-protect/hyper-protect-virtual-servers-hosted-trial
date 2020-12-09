@@ -128,7 +128,7 @@
         Removing login credentials for https://index.docker.io/v1/
         ```
 
-    ???+ failure "Failed Login :disappointed: Please redo [this section](#add-docker-registry-to-use-for-secure-build)"
+    ???+ failure "Failed Login: Please redo [this section](#add-docker-registry-to-use-for-secure-build)"
 
         ``` bash
         Error response from daemon: Get https://registry-1.docker.io/v2/: unauthorized: incorrect username or password
@@ -336,7 +336,7 @@
         Hi siler23! You have successfully authenticated, but GitHub does not provide shell access.
         ```
 
-    !!! failure "Your key was **NOT** added :disappointed: Please redo [this section](#create-ssh-key-and-grant-github-access)"
+    !!! failure "Your key was **NOT** added: Please redo [this section](#create-ssh-key-and-grant-github-access)"
 
         ``` bash
         Warning: Permanently added the RSA host key for IP address '140.82.113.3' to the list of known hosts.

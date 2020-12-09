@@ -33,8 +33,7 @@ nav:
       #  - Exercise 4 (Wrap and Unwrap Key): grep11-lab/lab-exercise4.md
     - Glossary of terms: glossary.md
     - Other resources: resources.md
-    - Propose a change: proposechange.md
-
+    
 theme:
   name: gitbook
   palette:
