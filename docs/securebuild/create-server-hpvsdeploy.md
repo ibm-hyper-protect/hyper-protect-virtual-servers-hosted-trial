@@ -1,4 +1,4 @@
-# Create your HPVS Secure Build Server by using the YAML configuration file and `hpvs deploy` command
+# Create your Secure Build Server using yaml file
 
 You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command.
 
