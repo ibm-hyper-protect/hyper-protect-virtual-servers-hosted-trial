@@ -317,7 +317,7 @@
 
     !!! example "Example Output"
 
-        ``` bash
+        ```
         # github.com:22 SSH-2.0-babeld-ffbef2ae
         # github.com:22 SSH-2.0-babeld-ffbef2ae
         # github.com:22 SSH-2.0-babeld-ffbef2ae
@@ -343,4 +343,4 @@
         git@github.com: Permission denied (publickey).
         ```
 
-10. Feel at ease knowing you will delete this key from your Github account in the cleanup phase of this trial so access will be revoked soon enough.
+10. You can delete this key from your Github account in the cleanup phase.

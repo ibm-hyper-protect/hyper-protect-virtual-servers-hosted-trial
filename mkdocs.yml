@@ -8,7 +8,9 @@ nav:
     - Secure Build:
       - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
       - Configuring your Environment: securebuild/securebuild-setup.md
+      - Create Certificate and Key: securebuild/certificate-create.md
       - Create your Secure Build Server: securebuild/create-server.md
+      - Enabling ports: securebuild/sbs-ports-setup.md
       - Create your Secure Build Server using yaml file: securebuild/create-server-hpvsdeploy.md
       - Securely Build your Application: securebuild/build.md
       - Deploy your Securely Built Application as a Hyper Protect Virtual Server: securebuild/deploy-app.md

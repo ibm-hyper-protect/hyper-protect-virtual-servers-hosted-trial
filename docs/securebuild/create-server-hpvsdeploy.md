@@ -140,11 +140,32 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
         ![Sample output of secure build](Overview_Images/sbs_build.png)
 
 
-Your secure build server is now up and running.
+Your secure build server is now up and running. It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. You will use this secure build server to securely build your application in the next section.
 
-It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified.
+**Note**: You can use the `hpvs undeploy` command to delete this virtual server. This command is supported in Hyper Protect Virtual Servers version 1.2.2, or later. For more information, see [`Undeploying virtual servers`](../reference/hpvs_undeploy.md){target=_blank}.
+- You can update the resources or configuration of a virtual server after the completion of the deploy operation by using the `-u`, or the `--update` flag of the `hpvs deploy` command. The information about the parameters to be updated are read from the configuration yaml file. You can edit the configuration file with the details of the update you want to perform and use this configuration file to run the command. This flag is applicable for Hyper Protect Virtual Servers version 1.2.2, or later. Run the following command to update the virtual server instance.
+```
+hpvs deploy --update --config $HOME/hpvs/config/demo_byoi.yml
+```
+When you have a large number of virtual servers to update, you can use the following flags to simplify the deploy update operation.
+* `--exclude`: To exclude virtual servers from the deploy update operation. You can specify a single virtual server, or a comma separated list of virtual servers.
+* `--include`: To include the virtual servers from the deploy update operation. You can specify a single virtual server, or a comma separated list of virtual servers.
+* If you do not use the `--exclude` or `--include` flag, all virtual servers that are listed in the configuration yaml file are updated. The `--exclude` or `--include` flags are mutually exclusive and you must specify only one of them when you run the `hpvs deploy`  command along with the `--update` flag.
 
-You will use this secure build server to securely build your application in the next section.
+You can use the `--update` flag of the `hpvs deploy` command in the following scenarios:    
+- Increase the size of the mountpoint (you might need to increase the size of the quotagroup to accommodate the increase in mountpoint size).
+- Update the repository definition file.
+- Update the network by modifying the network config section in configuration yaml file. If the network not exist, a new network can be created with the specified details. Similarly, you can change an existing IP address.      
+
+You cannot use the `--update` flag of the `hpvs deploy` command in the following scenarios:  
+- Add a new mount ID, reduce the size of the mountpoint or reduce the size of the quotagroup.  
+- Detach a quotagroup (you cannot detach a quotagtoup by using the `hpvs vs update` command as well). Doing so might cause errors or lead to an irrecoverable state of the quotagroup and the virtual server.  
+
+
+**Note**:   
+* Networks that are detached when you run the `hpvs deploy` command by specifying the `--update` flag, are deleted if they not used by any other virtual server.  
+* You cannot update the settings of an existing network in the virtual server template file.
+
 
 !!! note
     You can assign IP addresses and hostnames for containers as necessary for your purposes but using the docker network and host ports is a nice way to quickly get running without having to use up IP addresses on your network.
