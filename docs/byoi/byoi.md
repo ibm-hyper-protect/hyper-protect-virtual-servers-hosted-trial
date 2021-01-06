@@ -1,19 +1,13 @@
 # Deploying your applications securely
 
-You can deploy your own Linux-based container image as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers. This feature is also known as bring your own image.
-
-This procedure is intended for users with the role _cloud administrator_ and _app developer or ISV_.
-
-  * App developer or ISV prepares Linux-based container image for s390x architecture.
-  * Cloud administrator registers the repository for the App developer or ISV.
-  * App developer or ISV can later deploy the images into the IBM Hyper Protect Virtual Servers.
+This topic provides information about how you can deploy your own Linux-based container image as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers.
 
 ## Prerequisites
 The following are the prerequisites for being able to deploy your own image into the IBM Hyper Protect Virtual Servers:
 
 * Ensure your Linux-based container image are built for the IBM LinuxONE and IBM Z platform (s390x architecture), and available either on [DockerHub](https://docker.io) or [IBM Container Registry](https://cloud.ibm.com/docs/Registry?topic=registry-getting-started).
 
-* Ensure your Linux-based container images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/). If not signed using Docker Content Trust , follow the steps listed in [Sign your image by using Docker Content Trust](#sign_image_dct).
+* Ensure your Linux-based container images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/). If not signed using Docker Content Trust, follow the steps listed in [Sign your image by using Docker Content Trust](#sign_image_dct).
 
 
 Complete the following steps with root user authority.  
