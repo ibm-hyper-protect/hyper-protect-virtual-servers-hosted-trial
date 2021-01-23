@@ -39,7 +39,7 @@ The table details The full list of the keys used during the Secure Build lifecyc
 
 ### REGISTER
 
-Register your securely built Docker Image with your Secure Service Container to verify its validity. See [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy.md){target=_blank}.
+Register your securely built Docker Image with your Secure Service Container to verify its validity. See [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}.
 
 
 ### DEPLOY
