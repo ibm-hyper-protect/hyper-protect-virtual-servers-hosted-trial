@@ -4,8 +4,8 @@
 
 Hyper Protect Virtual Servers runs in an LPAR that is defined in Secure Service Container (SSC) mode. Defining an LPAR is a normal task for an IBM Z or LinuxONE systems administrator, typically performed from the Hardware Management Console (HMC).
 
-The systems administrator must[^1] dedicate one or more domains of one or more Crypto Express cards to the Hyper Protect Virtual Servers LPAR in order to use the GREP11 server. These Crypto Express cards must be defined in EP11 mode to your IBM Z or LinuxONE server in order to be used by a GREP11 server. 
-These tasks are documented in the Hyper Protect Virtual Servers documentation, or in IBM publications referenced in the Hyper Protect Virtual Servers documentation. 
+The systems administrator must[^1] dedicate one or more domains of one or more Crypto Express cards to the Hyper Protect Virtual Servers LPAR in order to use the GREP11 server. These Crypto Express cards must be defined in EP11 mode to your IBM Z or LinuxONE server in order to be used by a GREP11 server.
+These tasks are documented in the Hyper Protect Virtual Servers documentation, or in IBM publications referenced in the Hyper Protect Virtual Servers documentation.
 
 The version of Hyper Protect Virtual Servers that we will be using in this lab is version 1.2.1, which became generally available on July 17, 2020.
 
@@ -38,7 +38,7 @@ The following steps are required:
 
 The *openssl* utility is used to generate a private key and a certificate that will act as a certification authority (CA). This will be used in later steps to issue certificates for the GREP11 server and for the client application which will connect to the GREP11 server.
 
-Whenever you browse the web to a site with _https_, the server presents its certificate to your browser. This is known as _server-side_ or _one-way_ TLS authentication.  Most websites do not ask you to present a certificate. The website makes itself available to anybody who browses to it. 
+Whenever you browse the web to a site with _https_, the server presents its certificate to your browser. This is known as _server-side_ or _one-way_ TLS authentication.  Most websites do not ask you to present a certificate. The website makes itself available to anybody who browses to it.
 
 With mutual TLS authentication, the client does need to present a certificate.  The server will only establish a session with a client who presents a certificate that is trusted by the server. This prevents our GREP11 server from being used by unauthorized clients.
 
@@ -135,9 +135,9 @@ openssl x509 -in ca.pem -text
                         ad:eb
                     Exponent: 65537 (0x10001)
             X509v3 extensions:
-                X509v3 Subject Key Identifier: 
+                X509v3 Subject Key Identifier:
                     9B:D8:7D:1B:C2:7F:44:21:CB:18:54:0D:0A:E2:B6:E4:78:F4:F3:E5
-                X509v3 Authority Key Identifier: 
+                X509v3 Authority Key Identifier:
                     keyid:9B:D8:7D:1B:C2:7F:44:21:CB:18:54:0D:0A:E2:B6:E4:78:F4:F3:E5
 
                 X509v3 Basic Constraints: critical
@@ -183,8 +183,8 @@ openssl x509 -in ca.pem -text
     -----END CERTIFICATE-----
     ```
 
-A few lines of the output above have been highlighted. Notice the highlighted line that says `CA: TRUE`. This attribute indicates that this certificate is acting as a certification authority and can issue other certificates. Notice the lines above it which have values for *Subject Key Identifier* and *Authority Key Identifier*.  Subject Key Identifier is the identity of the holder of the certificate.  Authority Key Identifier is the identity of the issuer of the certificate. You can see that the values for these are the same.  This is known as a *self-signed certificate*.  Certification authorities (CA) exist in a hierarchy-  one CA can issue a certificate to another CA with the *CA: TRUE* attribute, and so forth.  In our lab we have this single, homegrown certification authority that we created, with its self-signed certificate that we created per the instructions in the Hyper Protect Virtual Servers documentation. 
-   
+A few lines of the output above have been highlighted. Notice the highlighted line that says `CA: TRUE`. This attribute indicates that this certificate is acting as a certification authority and can issue other certificates. Notice the lines above it which have values for *Subject Key Identifier* and *Authority Key Identifier*.  Subject Key Identifier is the identity of the holder of the certificate.  Authority Key Identifier is the identity of the issuer of the certificate. You can see that the values for these are the same.  This is known as a *self-signed certificate*.  Certification authorities (CA) exist in a hierarchy-  one CA can issue a certificate to another CA with the *CA: TRUE* attribute, and so forth.  In our lab we have this single, homegrown certification authority that we created, with its self-signed certificate that we created per the instructions in the Hyper Protect Virtual Servers documentation.
+
 ## Create a GREP11 server X.509 certificate for TLS authentication
 
 Once we created a "homegrown" certification authority, we next created an X.509 certificate for our GREP11 server. This certificate was issued by our certification authority.
@@ -209,6 +209,7 @@ The certificate signing request will be passed to our certification authority wh
 ```bash
 openssl x509 -sha256 -req -in server80-9876-19876.csr -CA ca.pem -CAkey ca.key -set_serial 8086 -extfile openssl.cnf -extensions server -days 365 -outform PEM -out server80-9876-19876.pem
 ```
+For more information about creating the openssl.cnf file, [see OpenSSL configuration examples](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/openssl_conf_files.html){target=_blank}.
 
 The file name of the certificate that was created by the preceding command is the value of the `-out` argument, `server80-9876-19876.pem`.  `openssl` allows us to list this certificate in human-friendly form:
 
@@ -217,7 +218,7 @@ openssl x509 -in server80-9876-19876.pem -noout -text
 ```
 
 ??? example "Example output"
- 
+
     ```
     Certificate:
         Data:
@@ -253,20 +254,20 @@ openssl x509 -in server80-9876-19876.pem -noout -text
                         92:63
                     Exponent: 65537 (0x10001)
             X509v3 extensions:
-                X509v3 Basic Constraints: 
+                X509v3 Basic Constraints:
                     CA:FALSE
-                X509v3 Key Usage: 
+                X509v3 Key Usage:
                     Digital Signature, Key Encipherment, Data Encipherment
-                X509v3 Extended Key Usage: 
+                X509v3 Extended Key Usage:
                     TLS Web Server Authentication
-                Netscape Cert Type: 
+                Netscape Cert Type:
                     SSL Server
-                X509v3 CRL Distribution Points: 
+                X509v3 CRL Distribution Points:
 
                     Full Name:
                     URI:http://localhost/ca.crl
 
-                X509v3 Subject Alternative Name: 
+                X509v3 Subject Alternative Name:
                     DNS:192.168.22.80:9876, DNS:192.168.22.80:19876, IP Address:192.168.22.80
         Signature Algorithm: sha256WithRSAEncryption
             8f:f2:7e:60:69:de:80:85:7b:9a:3e:c8:8a:c7:ee:ee:66:29:
@@ -404,11 +405,11 @@ This is the YAML file for a GREP11 server that will listen for client connection
 ??? example "GREP11 server YAML configuration file"
 
     ``` bash hl_lines="16 19 38"
-    version: v1 
+    version: v1
     #
     # use this file with the 'hpvs deploy' command, e.g.,
     #
-    #  hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11_80-9876.yml 
+    #  hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11_80-9876.yml
     #
     type: virtualserver
     virtualservers:
@@ -487,5 +488,5 @@ If you looked carefully at the JSON file and the YAML file in the previous secti
 
 !!! Important
     **Starting now, as you navigate to the next section of the lab, you should enter all the commands shown in the lab.**  Only the commands in this section were for reference.
-    
+
 [^1]: The GREP11 server is a feature provided by Hyper Protect Virtual Servers. You are not required to use it. If you do not use this feature, you do not have to define Crypto Express domains to the LPAR.  You may wish to for other purposes, and you can use the other modes offered by Crypto Express cards for those purposes, but you must use EP11 mode for usage by the GREP11 server.

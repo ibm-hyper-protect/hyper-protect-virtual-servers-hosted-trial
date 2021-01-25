@@ -9,7 +9,7 @@
     cd ${HOME}/go/src/github.com/ibm-developer
     ```
 
-2. Ensure you are in the directory mentioned in the prior step[^1]. You may be able to tell from the command prompt. 
+2. Ensure you are in the directory mentioned in the prior step[^1]. You may be able to tell from the command prompt.
 You can also enter the `pwd` ("print working directory") to be sure, e.g.,:
 
     ``` bash
@@ -51,7 +51,7 @@ You can also enter the `pwd` ("print working directory") to be sure, e.g.,:
 
 ## Run the GREP11 sample code
 
-1. Start Visual Studio Code within your current directory:
+1. Start your code editor (Visual Studio Code is the code editor used in the examples provided, you can use any code editor) within your current directory:
 
     ``` bash
     code .  # if typing by hand don't forget the period (for current directory)
@@ -81,7 +81,7 @@ You can also enter the `pwd` ("print working directory") to be sure, e.g.,:
     ``` bash
     cd golang/examples
     ```
-    
+
     Your terminal will look like this:
 
     ![Change to golang/examples](images/grep11-0050_cd-golang-examples.png)
@@ -100,7 +100,7 @@ You can also enter the `pwd` ("print working directory") to be sure, e.g.,:
     ```
 
     ???+ example "Example Output"
-    
+
         ```
         === RUN   Example_getMechanismInfo
         --- PASS: Example_getMechanismInfo (0.29s)
