@@ -7,7 +7,7 @@ The following are the prerequisites for being able to deploy your own image into
 
 * Ensure your Linux-based container image are built for the IBM LinuxONE and IBM Z platform (s390x architecture), and available either on [DockerHub](https://docker.io) or [IBM Container Registry](https://cloud.ibm.com/docs/Registry?topic=registry-getting-started).
 
-* Ensure your Linux-based container images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/). If not signed using Docker Content Trust, follow the steps listed in [Sign your image by using Docker Content Trust](#sign_image_dct).
+* Ensure your Linux-based container images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/). If not signed by using Docker Content Trust, follow the steps listed in [Sign your image by using Docker Content Trust](#step_1).
 
 
 Complete the following steps with root user authority.  

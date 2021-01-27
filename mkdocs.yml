@@ -4,11 +4,11 @@ edit_uri: edit/master/docs
 nav:
     - Home: index.md
     - Prerequisites: prerequisites.md
-    #- Lab Assignments: assignment.md
+    - Explore the Hyper Protect Virtual Servers CLI: setenv.md
     - Secure Build:
       - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
-      - Configuring your Environment: securebuild/securebuild-setup.md
-      - Create Certificate and Key: securebuild/certificate-create.md
+      #- Configuring your Environment: securebuild/securebuild-setup.md
+      - Create certificate and key: securebuild/certificate-create.md
       - Create your Secure Build Server: securebuild/create-server.md
       - Enabling ports: securebuild/sbs-ports-setup.md
       - Create your Secure Build Server using yaml file: securebuild/create-server-hpvsdeploy.md

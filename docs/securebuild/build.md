@@ -4,7 +4,7 @@
 ## Prerequisites
 
 - Ensure that you have all the user IDs and passwords to pull the base images, push the built images, and pull the built images from the remote Docker registry server.
-- When you are using IBM Hyper Protect Virtual Servers version 1.2.2, or later, before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see [`Enabling ports`](sbs-ports-setup.md){target=_blank}.
+- Before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see [`Enabling ports`](sbs-ports-setup.md){target=_blank}.
 
 ## Procedure
 

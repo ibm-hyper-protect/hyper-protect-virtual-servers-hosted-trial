@@ -1,12 +1,32 @@
 # Create your Secure Build Server
 
-## Export Variables set in previous sections to current terminal session
+Complete the steps detailed in this topic to create the Secure Build virtual server.
 
-Source `bashrc` to set necessary variables if unset
 
-``` bash
-source "${HOME}/.bashrc"
-```
+## Creating the certificate and key to securely communicate with secure build server
+
+1. Run the following command.
+   ```
+   cd $HOME/hpvs/config/securebuild/keys
+   ```
+
+2. Create the certificate and key to securely communicate with secure build server.
+   ```
+   openssl req -newkey rsa:2048 \
+   -new -nodes -x509 \
+   -days 3650 \
+   -out sbs.cert \
+   -keyout sbs.key \
+   -subj "/C=GB/O=IBM/CN=johndoe.example.com"
+    ```
+   **Note**: If you see errors like `random number generator:RAND_load_file:Cannot open file`, then run the following commands.
+   ```
+   openssl rand -out $HOME/.rnd -hex 256
+   ```
+3. Run the following command to change the certificate to base64 encoding.
+   ```
+   echo $(cat sbs.cert | base64) | tr -d ' ' >> sbs_base64.cert
+   ```
 
 ## Create Quotagroup with storage for secure build server
 
@@ -18,7 +38,7 @@ hpvs quotagroup create --name "sb_user" --size=40GB
 
     ``` bash
     +-------------+--------------+
-    | name        | sb_user00    |
+    | name        | sb_user      |
     | filesystem  | btrfs        |
     | passthrough | false        |
     | pool_id     | lv_data_pool |
@@ -32,12 +52,12 @@ hpvs quotagroup create --name "sb_user" --size=40GB
 
 ``` bash
 hpvs vs create --name sbserver_ --repo SecureDockerBuild \
---tag 1.2.1-release-9b63b43 --cpu 2 --ram 2048 \
+--tag 1.2.21-release-4dbd783 --cpu 2 --ram 2048 \
 --quotagroup "{quotagroup = sb_user, mountid = new, mount = /newroot, filesystem = ext4, size = 10GB}" \
 --quotagroup "{quotagroup = sb_user, mountid = data, mount = /data, filesystem = ext4, size = 2GB}" \
 --quotagroup "{quotagroup = sb_user, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}" \
 --env={EX_VOLUMES="/docker,/data",ROOTFS_LOCK=y,CLIENT_CRT=$cert} \
---ports "{containerport = 443, protocol = tcp, hostport = ${SB_PORT}}"
+--ports "{containerport = 443, protocol = tcp, hostport = 30000}"
 ```
 
 ???+ example "Example Output"

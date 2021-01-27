@@ -2,7 +2,7 @@
 
 You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command.
 
-1. See the topic [`Create your HPVS Secure Build Server by using the hpvs vs create command`](create-server.md){target=_blank} for details about the certificate generation.
+1. See the topic [`Create your Secure Build Server`](create-server.md){target=_blank} for details about the certificate generation.
 
 2. Update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary.
 
