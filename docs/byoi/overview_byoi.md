@@ -10,7 +10,7 @@ This procedure is intended for users with the role _cloud administrator_ and _ap
 
 ## Prerequisites
 
-See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank} for the lab. Also, Ensure your Linux-based container images are built for the IBM LinuxONE and IBM Z platform (s390x architecture). 
+See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial. This includes creating accounts and credentials to access the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank}. Also, ensure that your Linux-based container images are built for the IBM LinuxONE and IBM Z platform (s390x architecture).
 
 
 The following are the steps that comprises this process:  
