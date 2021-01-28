@@ -10,10 +10,10 @@ Create a Docker Hub account (if you do not already have one) by following the in
 Create an access token for Docker Hub access during the trial (you will delete it if after finishing the trial) by following the instructions [here](https://docs.docker.com/docker-hub/access-tokens/#create-an-access-token){target=_blank}.
 
 ## Accessing the Linux management server and the Secure Service Container Partition
-You will be provided the details of how to connect by using the VPN, with details about the IP addresses, username, and password by email.
+You will be provided the details to connect to the Linux management server by using the VPN. The details about the IP addresses, username, and password will be provided by email.
 
 ## Support contact
-You can contact support personnel by using the **"ToDo: name of the slack channel"** slack channel, for troubleshooting or queries about using IBM Hyper Protect Virtual Servers. 
+You can contact support personnel by using the **"ToDo: name of the slack channel"** slack channel, for troubleshooting or queries about using IBM Hyper Protect Virtual Servers.
 
 ## Creating the server configuration YAML file
 

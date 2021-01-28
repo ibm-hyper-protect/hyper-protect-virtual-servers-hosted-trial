@@ -2,26 +2,26 @@
 
 ## Prerequisites
 
-See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank} for the lab. For more information about creating the certificate and key to securely communicate with secure build server, see [Building your application with the Secure Build virtual server](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html#create-sign-key-for-regfile){target=_blank}.
+See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank} for the lab. For more information about creating the certificate and key to securely communicate with secure build server, see [Create your Secure Build Server](create-server.md){target=_blank}.
 
 ## The Big Picture
 
 There are 5 steps of the Secure Build process:
 
 1. [SETUP](#setup)
-2. [SBSPORTS](#portsetup)
+2. [ENABLEPORTS](#enableports)
 2. [BUILD](#build)
 3. [REGISTER](#register)
 4. [DEPLOY](#deploy)
 5. [ACCESS](#access)
-
-(and how to [CLEAN UP](#cleanup)) are explained in more detail in their respective sections below.
+6. [CLEAN UP](#cleanup)
+   Each of  explained in more detail in their respective sections below.
 
 ### SETUP
 
-Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively see [`Configuring your Environment`](securebuild-setup.md){target=_blank}). Then you must create the certificate and key to securely communicate with secure build server. See [`Create Certificate and Key`](certificate-create.md){target=_blank}.
+Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively see [`Configuring your Environment`](securebuild-setup.md){target=_blank}. Then you must create the certificate and key to securely communicate with the secure build server, and for more information see [Create your Secure Build Server](create-server.md){target=_blank}.
 
-### SBSPORTS
+### ENABLEPORTS
 
 Before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see [`Enabling ports`](sbs-ports-setup.md){target=_blank}.
 

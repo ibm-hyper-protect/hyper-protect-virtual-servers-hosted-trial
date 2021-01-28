@@ -24,4 +24,4 @@ The following are the steps that comprises this process:
 
 ### CLEANUP
 
-Clean up your environment for future users
+Clean up your environment for future users. 

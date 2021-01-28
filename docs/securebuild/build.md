@@ -1,6 +1,5 @@
 # Securely Build your Application
 
-
 ## Prerequisites
 
 - Ensure that you have all the user IDs and passwords to pull the base images, push the built images, and pull the built images from the remote Docker registry server.

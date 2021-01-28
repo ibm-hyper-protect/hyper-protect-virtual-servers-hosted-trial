@@ -5,9 +5,9 @@ This topic provides information about how you can deploy your own Linux-based co
 ## Prerequisites
 The following are the prerequisites for being able to deploy your own image into the IBM Hyper Protect Virtual Servers:
 
-* Ensure your Linux-based container image are built for the IBM LinuxONE and IBM Z platform (s390x architecture), and available either on [DockerHub](https://docker.io) or [IBM Container Registry](https://cloud.ibm.com/docs/Registry?topic=registry-getting-started).
+* Ensure your Linux-based container image are built for the IBM LinuxONE and IBM Z platform (s390x architecture), and available on [DockerHub](https://docker.io){target=_blank}.
 
-* Ensure your Linux-based container images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/). If not signed by using Docker Content Trust, follow the steps listed in [Sign your image by using Docker Content Trust](#step_1).
+* Ensure your Linux-based container images are signed using [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank}. If not signed by using Docker Content Trust, follow the steps listed in [Sign your image by using Docker Content Trust](#step_1){target=_blank}.
 
 
 Complete the following steps with root user authority.  
@@ -18,7 +18,7 @@ Complete the following steps with root user authority.
 4. [Preparing the configuration](#step_4)
 5. [Deploy your image](#step_5)
 
-### step_1
+### step_1  
 **Sign your image by using Docker Content Trust**
 
 Login to Docker hub using your Docker Hub credentials, if you are not logged-in yet.
@@ -37,8 +37,13 @@ Login to Docker hub using your Docker Hub credentials, if you are not logged-in 
    Login Succeeded
    ```  
 
+- Enable Docker Content Trust (DCT), specify the server for the Docker Content Trust service by running the following command.
+  ```
+  export DOCKER_CONTENT_TRUST=1
+  export DOCKER_CONTENT_TRUST_SERVER=https://notary.docker.io
+  ```
 
-- Run the following command to load the image (nginx application) from the DockerHub onto your management server.
+- Run the following command to load the image (digital banking application) from the DockerHub onto your management server.
    ```
    docker image pull <your_docker_id>/<result_image_name>:<tag>
    ```
@@ -58,11 +63,7 @@ Login to Docker hub using your Docker Hub credentials, if you are not logged-in 
        docker.io/s390x/nginx:latest
        ```
 
-- Enable Docker Content Trust (DCT), specify the server for the Docker Content Trust service by running the following command.
-   ```
-   export DOCKER_CONTENT_TRUST=1
-   export DOCKER_CONTENT_TRUST_SERVER=https://notary.docker.io
-   ```
+
 - Re-tag your docker images by running the following command. Build your Linux-based container image for s390x architecture by using a build tool such as `docker build`. For example, your source code is stored in a github repository and the result s390x architecture container image will be pushed to a remote Docker repository with DCT enabled.
    ```
    docker tag <your_docker_id>/<result_image_name>:<tag> <your_docker_id>/<result_image_name>:<new-tag>
@@ -103,7 +104,7 @@ Login to Docker hub using your Docker Hub credentials, if you are not logged-in 
 
 
 ### step_2
-Adding the registry
+**Adding the registry**
 
    Verify whether you already have a registry by running the following command.
    ```
@@ -118,12 +119,12 @@ Adding the registry
    user - Docker registry username.
 
 ### step_3
-Generating the signing keys
+**Generating the signing keys**
 
 To generate the signing keys, follow the instructions listed in the topic [`Generating the signing keys`](gen_sign_key.md){target=_blank}.
 
 ### step_4
-Preparing the configuration
+**Preparing the configuration**
 
 - Create the configuration yaml `secure_create.yaml` file so that the repository registration file for your image can be generated. You can use the `$HOME/hpvs/config/securebuild/secure_create.yaml.example` example file as a reference when updating the file.    
 
@@ -132,34 +133,40 @@ Preparing the configuration
     ```
     repository_registration:
        docker:
-          repo: 'docker_user_name/docker_image_name'
-          pull_server: '<get this from hpvs registry list. e.g - docker_pull>'
+          repo: 'hpvsdemo/nginx'
+          pull_server: 'docker_reg'
           # this root.json you will get after once you will push image to DockerHub using Docker Content Trust
-          # optional - if you signed your image from the same management server that you are running the commands from, then this     parameter is optional.
-          # Otherwise, you must copy the ~/.docker/trust/tuf/docker.io/<your_docker_id>/<result_image_name>/metadata/root.json to the machine you are running the commands from and provide the complete path to the root.
-          content_trust_json_file_path: '~/.docker/trust/tuf/docker.io/<your_docker_id>/<result_image_name>/metadata/root.json'
-       # Add all whitelist environment variables that are required in your virtual server. You cannot create a virtual server if you try to create a virtual server with environment variables that are not added to the whitelist. This is an optional parameter and if you do not have any environment variable for the virtual server, you can comment this parameter.
+          content_trust_json_file_path: 'home/hpvs_user/HPVS1221_Production/config/yaml/demo/root.json'
        env:
-          whitelist: ["env_var1","env_var2"]
+          whitelist: ["ROOT_SSH_KEY","SERVER_KEY", "RUNQ_ROOTDISK", "LOGTARGET", "ROOTFS_LOCK"]
        signing_key:
        # complete path of signing private key
-          private_key_path: '/root/hpvs/config/isv_user.private'
+          private_key_path: '/home/hpvs_user/.ssh/hpvs_user/isv_user.private'
        # complete path of signing public key
-          public_key_path: '/root/hpvs/config/isv_user.pub'.
+          public_key_path: '/home/hpvs_user/.ssh/hpvs_user/isv_user.pub'.
     ```
+
+**Note**: If you want to use your own image, see [Deploying your applications securely](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/byoi.html){target=_blank}, for instructions.
 
 - Generate the repository registration file for your image.
    ```
    hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/encryptedRegfile.enc
    ```
 
+??? example "Example of the command"
+
+    ```
+    hpvs regfile create --config secure_create.yaml --out Ngnix.enc
+    ```
+
+
 ### step_5
-Deploy your image
+**Deploy your image**
 
 **Complete the following steps to deploy your own image by using the `hpvs deploy` command.**
 
 
-- Update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup and resource settings of the Hyper Protect Virtual Server instance if necessary. The `vs_regfiledeployexample.yml` that has the configuration details for the virtual server refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file. The `network: ref` value refers to the `networktemplates` definition in the template file.
+<!--- Update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup and resource settings of the Hyper Protect Virtual Server instance if necessary. The `vs_regfiledeployexample.yml` that has the configuration details for the virtual server refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file. The `network: ref` value refers to the `networktemplates` definition in the template file.
 
 ??? example "Example of a virtualserver-template file"
 
@@ -239,38 +246,64 @@ Deploy your image
        cpu: 12
        memory: 32565   
     ```
-- Create the configuration yaml file $HOME/hpvs/config/demo_byoi.yml for the instance by referring to the example file $HOME/hpvs/config/vs_regfiledeployexample.yml.
+    -->
 
-??? example "Example of a vs_regfiledeployexample.yml file"
+- Create the configuration yaml file by the name "nginx_demo_byoi.yml"
+
+??? example "Example of the nginx_demo_byoi.yml file"
 
     ```
     version: v1
     type: virtualserver
     virtualservers:
-    - name: testcontainer
-      host: SSC_LPAR_NAME
-      repoid: MyOwnRepo
+    - name: test-nginx
+      host: test2
+      repoid: Nginx
       imagetag: latest
-      reporegfile: /root/hpvs/config/encryptedRegfile.enc
+      reporegfile: /home/hpvs_user/HPVS1221_Production/config/yaml/demo/Nginx.enc
       resourcedefinition:
          ref: small
       networks:
-       - ref:  external_network
-         ipaddress: 10.20.4.61
+      # - ref:  external_network
+      #  ipaddress: 129.40.15.20
+      environment:
+      - key: LOGTARGET
+      - value: /dev/console
+      - key: ROOTFS_LOCK
+      - value: Y
+      - key: ROOT_SSH_KEY
+      - value: '@/home/hpvs_user/.ssh/id-rsa'
+      - key: RUNQ_ROOTDISK
+      - value: new_qg_nginx
       volumes:
-       - name: myquotagroup
+      - mounts:
+      - filesystem: ext4
+        mount_id: new_qg_nginx
+        mountpoint: /newroot         
+        size: 10GB
+      - filesystem: ext4
+        mount_id: data
+        mountpoint: /data        
+        size: 10GB
+       - name: qg_hpvs_nginx
          ref : np-medium
-         mounts:
-          - mount_id: new
-            mountpoint: /new
-            filesystem: ext4
-            size: 10GB
+
     ```
+
 - Deploy the image by using the configurations in the yaml file.  
    ```
    hpvs deploy --config $HOME/hpvs/config/demo_byoi.yml
    ```
-   **Note**: You can use the `hpvs undeploy` command to delete this virtual server. This command is supported in Hyper Protect Virtual Servers version 1.2.2, or later. For more information, see [`Undeploying virtual servers`](../reference/hpvs_undeploy.md){target=_blank}.
+
+??? example "Example of the command"
+
+       ```
+       hpvs deploy --config nginx_demo.yml
+       ```
+
+??? example "Example output"
+   ![Sample output](byoi_images/byoi_create.png)
+
 - You can update the resources or configuration of a virtual server after the completion of the deploy operation by using the `-u`, or the `--update` flag of the `hpvs deploy` command. The information about the parameters to be updated are read from the configuration yaml file. You can edit the configuration file with the details of the update you want to perform and use this configuration file to run the command. This flag is applicable for Hyper Protect Virtual Servers version 1.2.2, or later. Run the following command to update the virtual server instance.
    ```
    hpvs deploy --update --config $HOME/hpvs/config/demo_byoi.yml

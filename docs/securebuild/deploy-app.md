@@ -1,7 +1,7 @@
 # Deploy your Securely Built Application as a Hyper Protect Virtual Server
 
 
-1. Register the repository on the {{site.data.keyword.ssc}} partition for the application image by using the generated repository registration file.
+1. Register the repository on the secure service partition for the application image by using the generated repository registration file. See [Securely Build your Application](build.md){target=_blank} for details of how this repository registration file is generated.
    ```
    hpvs repository register --pgp=$HOME/hpvs/config/MyDockerAppImageRegfile.enc --id=MyDockerRepo
    ```
