@@ -43,7 +43,7 @@ Login to Docker hub using your Docker Hub credentials, if you are not logged-in 
   export DOCKER_CONTENT_TRUST_SERVER=https://notary.docker.io
   ```
 
-- Run the following command to load the image (digital banking application) from the DockerHub onto your management server.
+- Run the following command to load the image (Nginx application) from the DockerHub onto your management server.
    ```
    docker image pull <your_docker_id>/<result_image_name>:<tag>
    ```
