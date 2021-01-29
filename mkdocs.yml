@@ -33,6 +33,7 @@ nav:
         - Exercise 4 (Wrap and Unwrap Key): grep11/lab-exercise4.md
     - Reference:
       - Undeploying virtual servers: reference/hpvs_undeploy.md
+      - Updating virtual servers: reference/hpvs_update.md
     - Glossary of terms: glossary.md
     - Other resources: resources.md
 

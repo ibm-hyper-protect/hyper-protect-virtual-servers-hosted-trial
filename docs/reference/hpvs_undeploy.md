@@ -1,6 +1,6 @@
 # Undeploying virtual servers
 
-When the IBM Hyper Protect virtual Servers is at Version 1.2.2, or later, you can use the `hpvs undeploy` command to delete existing virtual server instances along with resources like networks, and quotagroups, that were allocated to that virtual server. Only resources that are not shared with other virtual servers are deleted. This command also deletes all images, and repositories that are not shared with other virtual servers.
+You can use the `hpvs undeploy` command to delete existing virtual server instances along with resources like networks, and quotagroups, that were allocated to that virtual server. Only resources that are not shared with other virtual servers are deleted. This command also deletes all images, and repositories that are not shared with other virtual servers.
 
 This procedure is intended for users with the role _cloud administrator_.
 
@@ -58,7 +58,7 @@ On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management ser
    hpvs undeploy --config $HOME/hpvs/config/yaml/vs_hpvsopbasessh.yml
    ```
    A message is displayed stating that virtual server(s) and associated networks, storage, images, and repository will be deleted. You are prompted to enter either `Yes` or `No`. If you enter `Yes`, the command execution continues, otherwise it exits the command execution.   
-   When you have a large number of virtual servers to undeploy, you can use the following flags to simplify the undeploy operation.
+   When you have a large number of virtual servers to undeploy, you can use the following flags to simplify the undeploy operation:
 
    * `--exclude`: To exclude virtual servers from the undeploy operation. You can specify a single virtual server, or a comma separated list of virtual servers.
    * `--include`: To include the virtual servers from the undeploy operation. You can specify a single virtual server, or a comma separated list of virtual servers.
