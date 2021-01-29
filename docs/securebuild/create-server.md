@@ -31,61 +31,37 @@ Complete the steps detailed in this topic to create the Secure Build virtual ser
 ## Create Quotagroup with storage for secure build server
 
 ``` bash
-hpvs quotagroup create --name "sb_user" --size=40GB
+hpvs quotagroup create --name "qg_securebuild" --size=40GB
 ```
 
 ???+ example "Example Output"
 
     ``` bash
-    +-------------+--------------+
-    | name        | sb_user      |
-    | filesystem  | btrfs        |
-    | passthrough | false        |
-    | pool_id     | lv_data_pool |
-    | size        | 40GB         |
-    | available   | 40GB         |
-    | containers  | []           |
-    +-------------+--------------+
+    +-------------+----------------+
+    | name        | qg_securebuild |
+    | filesystem  | btrfs          |
+    | passthrough | false          |
+    | pool_id     | lv_data_pool   |
+    | size        | 40GB           |
+    | available   | 40GB           |
+    | containers  | []             |
+    +-------------+----------------+
     ```
 
 ## Create Secure Build server
 
 ``` bash
-hpvs vs create --name sbserver_ --repo SecureDockerBuild \
---tag 1.2.21-release-4dbd783 --cpu 2 --ram 2048 \
---quotagroup "{quotagroup = sb_user, mountid = new, mount = /newroot, filesystem = ext4, size = 10GB}" \
---quotagroup "{quotagroup = sb_user, mountid = data, mount = /data, filesystem = ext4, size = 2GB}" \
---quotagroup "{quotagroup = sb_user, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}" \
+hpvs vs create --name test_securebuild --repo SecureDockerBuild \
+--tag 1.2.2.1-release-4dbd783 --cpu 2 --ram 2048 \
+--quotagroup "{quotagroup = qg_securebuild, mountid = new, mount = /newroot, filesystem = ext4, size = 16GB}" \
+--quotagroup "{quotagroup = qg_securebuild, mountid = data, mount = /data, filesystem = ext4, size = 16GB}" \
+--quotagroup "{quotagroup = qg_securebuild, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}" \
 --env={EX_VOLUMES="/docker,/data",ROOTFS_LOCK=y,CLIENT_CRT=$cert} \
---ports "{containerport = 443, protocol = tcp, hostport = 30000}"
+--ports "{containerport = 443, protocol = tcp, hostport = 21443}"
 ```
 
 ???+ example "Example Output"
-
-    ``` bash
-    ╭─────────────┬──────────────────────────────╮
-    │ PROPERTIES  │ VALUES                       │
-    ├─────────────┼──────────────────────────────┤
-    │ Name        │ sbserver_00                  │
-    │ Status      │ Up Less than a second        │
-    │ CPU         │ 2                            │
-    │ Memory      │ 2048                         │
-    │ Networks    │ Network:bridge               │
-    │             │ IPAddress:172.31.0.5         │
-    │             │ Gateway:172.31.0.1           │
-    │             │ Subnet:16                    │
-    │             │ MacAddress:02:42:ac:1f:00:05 │
-    │             │                              │
-    │             │                              │
-    │ Ports       │ LocalPort:443/tcp            │
-    │             │ GuestPort:30000              │
-    │             │                              │
-    │ Quotagroups │ appliance_data               │
-    │             │ sb_user00                    │
-    │             │                              │
-    │ State       │ running                      │
-    ╰─────────────┴──────────────────────────────╯
-    ```
+  ![Create Server](securebuild-Images/create_server.png)
 
 We can see that the quotagroup is now being used
 
@@ -99,55 +75,22 @@ hpvs quotagroup show --name "sb_user"
     +-------------+--------------------------------+
     | PROPERTIES  | VALUES                         |
     +-------------+--------------------------------+
-    | name        | sb_user00                      |
+    | name        | qg_securebuild                 |
     | filesystem  | btrfs                          |
     | passthrough | false                          |
     | pool_id     | lv_data_pool                   |
     | size        | 40GB                           |
-    | available   | 12GB                            |
-    | containers  | Container:sbserver_00          |
+    | available   | 12GB                           |
+    | containers  | Container:test_securebuild     |
     |             | Mountids:"new","data","docker" |
     |             |                                |
     |             |                                |
     +-------------+--------------------------------+
     ```
-
-The show output for the Hyper Protect Virtual Server was shown when it was deployed but we can bring it back up with
-
-``` bash
-hpvs vs show --name "sbserver"
-```
-
-???+ example "Example Output"
-
-    ``` bash
-    ╭─────────────┬──────────────────────────────╮
-    │ PROPERTIES  │ VALUES                       │
-    ├─────────────┼──────────────────────────────┤
-    │ Name        │ sbserver                  │
-    │ Status      │ Up About a minute            │
-    │ CPU         │ 2                            │
-    │ Memory      │ 2048                         │
-    │ Networks    │ Network:bridge               │
-    │             │ IPAddress:172.31.0.5         │
-    │             │ Gateway:172.31.0.1           │
-    │             │ Subnet:16                    │
-    │             │ MacAddress:02:42:ac:1f:00:05 │
-    │             │                              │
-    │             │                              │
-    │ Ports       │ LocalPort:443/tcp            │
-    │             │ GuestPort:30000              │
-    │             │                              │
-    │ Quotagroups │ appliance_data               │
-    │             │ sb_user00                    │
-    │             │                              │
-    │ State       │ running                      │
-    ╰─────────────┴──────────────────────────────╯
-    ```
-
 Your secure build server is now up and running!
 
-It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified.
+It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. The application used for this SBS trial requires 2 virtual servers to be created, one for the digital banking application image, and another one for the Mongo DB Docker image.
+You will use these secure build servers to securely build your application in the next section.
 
 You will use this secure build server to securely build your application in the next section.
 
