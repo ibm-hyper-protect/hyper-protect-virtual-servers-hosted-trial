@@ -1,6 +1,6 @@
 # Create your Secure Build Server
 
-Complete the steps detailed in this topic to create the Secure Build virtual server.
+Complete the steps detailed in this topic to create the Secure Build virtual server. This method uses atomic commands to create the virtual server and requires you to enter several configuration information using multiple commands. All of this is automated and creating the virtual server is simplified when you use the `hpvs dpeloy` command, which is explained in the next topic.  
 
 
 ## Creating the certificate and key to securely communicate with secure build server
@@ -18,11 +18,15 @@ Complete the steps detailed in this topic to create the Secure Build virtual ser
    -out sbs.cert \
    -keyout sbs.key \
    -subj "/C=GB/O=IBM/CN=johndoe.example.com"
-    ```
-   **Note**: If you see errors like `random number generator:RAND_load_file:Cannot open file`, then run the following commands.
    ```
-   openssl rand -out $HOME/.rnd -hex 256
-   ```
+
+    !!! note
+
+       If you see errors like `random number generator:RAND_load_file:Cannot open file`, then run the following commands.
+       ```
+       openssl rand -out $HOME/.rnd -hex 256
+       ```
+
 3. Run the following command to change the certificate to base64 encoding.
    ```
    echo $(cat sbs.cert | base64) | tr -d ' ' >> sbs_base64.cert
@@ -89,10 +93,9 @@ hpvs quotagroup show --name "sb_user"
     ```
 Your secure build server is now up and running!
 
-It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. The application used for this SBS trial requires 2 virtual servers to be created, one for the digital banking application image, and another one for the Mongo DB Docker image.
-You will use these secure build servers to securely build your application in the next section.
+It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. This Secure Build virtual Server will be used to build the MongoDB image. To build the banking application image, another Secure Build virtual sever is required, see [`Create your Secure Build Server using a yaml file`](create-server.md){target=_blank} for details.
 
-You will use this secure build server to securely build your application in the next section.
+
 
 !!! note
     You can assign IP addresses and hostnames for containers as necessary for your purposes but using the docker network and host ports is a nice way to quickly get running without having to use up IP addresses on your network.

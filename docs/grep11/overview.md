@@ -1,8 +1,8 @@
-# GREP11 Overview
+# IBM Hyper Protect Virtual Servers GREP11 Overview
 
-## GREP11 Overview
 
-You will be working with the GREP11 feature of the [Hyper Protect Virtual Servers on-premises](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/kc_welcome_page.html){target=_blank} offering.
+
+You will be working with the GREP11 feature of the [Hyper Protect Virtual Servers on-premises](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/create_grp11.html){target=_blank} offering.
 
 GREP11 is a shorthand term for *gRPC protocol-based Enterprise PKCS#11*.
 
@@ -24,11 +24,11 @@ The PKCS #11 standard covers the following cryptographic categories, and the GRE
 
 ## Environment
 
-You will be working with the Hyper Protect Virtual Servers command line interface (CLI) running on an x86_64 virtual machine running the Ubuntu 18.04.4 Linux distribution. You will also be using this virtual machine to run programs, written in the Go programming language, that will communicate with the GREP11 server. This virtual machine is provisioned on SkyTap in the IBM Cloud, and you will access it through your web browser. **Your instructor will provide you the information needed to access your virtual machine under separate cover.**
+You will be working with the Hyper Protect Virtual Servers command line interface (CLI) running on an x86_64 virtual machine running the Ubuntu 18.04.4 Linux distribution. You will also be using this virtual machine to run programs, written in the Go programming language, that will communicate with the GREP11 server.
 
 The GREP11 server runs as a Docker container running in a Hyper Protect Virtual Servers LPAR that runs as a Secure Service Container (SSC) LPAR on an IBM z15 server in the IBM Washington Systems Center in Herndon, Virginia, USA.
 
-The Hyper Protect Virtual Servers LPAR is in a private network at the IBM Washington Systems Center and your Ubuntu virtual machine communicates with it through a VPN connection. **You will receive the information needed to establish a VPN connection in email communication.**
+The Hyper Protect Virtual Servers LPAR is in a private network at the IBM Washington Systems Center and your Ubuntu virtual machine communicates with it through a VPN connection. The details about how you can connect by using the VPN will be shared with you by email
 
 !!! note
 

@@ -51,7 +51,7 @@ You can also enter the `pwd` ("print working directory") to be sure, e.g.,:
 
 ## Run the GREP11 sample code
 
-1. Start your code editor (Visual Studio Code is the code editor used in the examples provided, you can use any code editor) within your current directory:
+1. Start your code editor (Visual Studio Code is the code editor used in the examples provided, you can use any code editor of your choice) within your current directory:
 
     ``` bash
     code .  # if typing by hand don't forget the period (for current directory)

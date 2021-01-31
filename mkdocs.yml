@@ -19,7 +19,7 @@ nav:
       - Bring your own image: byoi/byoi.md
       - Generating signing keys: byoi/gen_sign_key.md
     - GREP11:
-      - Lab overview: grep11/overview.md
+      - IBM Hyper Protect Virtual Servers GREP11 Overview: grep11/overview.md
       - How to set up a GREP11 server: grep11/grep11-setup.md
       - Displaying your GREP11 environment: grep11/grep11-display.md
       - Run the GREP11 sample code: grep11/run-grep11-samples.md

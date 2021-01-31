@@ -7,7 +7,7 @@ Hyper Protect Virtual Servers runs in an LPAR that is defined in Secure Service 
 The systems administrator must[^1] dedicate one or more domains of one or more Crypto Express cards to the Hyper Protect Virtual Servers LPAR in order to use the GREP11 server. These Crypto Express cards must be defined in EP11 mode to your IBM Z or LinuxONE server in order to be used by a GREP11 server.
 These tasks are documented in the Hyper Protect Virtual Servers documentation, or in IBM publications referenced in the Hyper Protect Virtual Servers documentation.
 
-The version of Hyper Protect Virtual Servers that we will be using in this lab is version 1.2.1, which became generally available on July 17, 2020.
+The version of Hyper Protect Virtual Servers that we will be using in this hosted trial is version 1.2.2.1.
 
 A GREP11 server communicates with one and only one Crypto Express domain, and vice versa.  You can run multiple GREP11 servers if you have multiple domains configured to your Hyper Protect Virtual Servers LPAR.
 
@@ -32,7 +32,7 @@ The following steps are required:
 6. Start the GREP11 server
 
 !!! Important
-    **The commands shown on this page are for reference only**- they have already been performed by the lab instructors in order to set up the lab environment for you.
+    **The commands shown on this page are for reference only**- they have already been performed in order to set up the environment for you.
 
 ## Create a Certification Authority (CA) certificate and key
 
@@ -45,25 +45,25 @@ With mutual TLS authentication, the client does need to present a certificate.  
 The following command was used to create the RSA private key which will be used by our soon to be created CA
 
 ``` bash
-openssl genrsa -out ca.key 2048
+openssl genrsa -out atgz-hpvs-ca.key 2048
 ```
 
-This created a file named `ca.key` which is an RSA private key.  
+This created a file named `atgz-hpvs-ca.key` which is an RSA private key.  
 
 In most cases (and mandatory from PKCS #11 version 2.4 onwards) the RSA private key contains enough information to reconstitute the public key. It is for this reason that the private key is used as input to the following command, which will create a Certification Authority X.509 certificate. X.509 certificates contain information identifying the certificate holder, the attributes of the certificate, including what the certificate can be used for, and, importantly, the public key.  
 
 We used this command to create this certificate.
 
 ``` bash
-openssl req -new -x509 -key ca.key -out ca.pem
+openssl req -new -x509 -key atgz-hpvs-ca.key -out atgz-hpvs-ca.pem
 ```
 
-The `ca.key` file was input to this command, and the `ca.pem` file is the output of this command.  This `ca.pem` file is our "homegrown" certification authority root certificate.  
+The `atgz-hpvs-ca.key` file was input to this command, and the `atgz-hpvs-ca.pem` file is the output of this command.  This `atgz-hpvs-ca.pem` file is our "homegrown" certification authority root certificate.  
 
 I will use the Linux `cat` command to get a raw listing of the root certificate we just created:
 
 ``` bash
-cat ca.pem
+cat atgz-hpvs-ca.pem
 ```
 
 ??? example "Example output"
@@ -94,7 +94,7 @@ cat ca.pem
 The first and last lines are meant to assure you that this is a certificate, but the lines in between are less insightful, as it is [base64-encoded](https://en.wikipedia.org/wiki/Base64){target=_blank} binary data. Fortunately the *openssl* utility comes to our rescue and allows us to print the certificate in a form that a human can hope to understand:
 
 ``` bash
-openssl x509 -in ca.pem -text
+openssl x509 -in atgz-hpvs-ca.pem -text
 ```
 
 ??? example "Example output"
@@ -183,7 +183,7 @@ openssl x509 -in ca.pem -text
     -----END CERTIFICATE-----
     ```
 
-A few lines of the output above have been highlighted. Notice the highlighted line that says `CA: TRUE`. This attribute indicates that this certificate is acting as a certification authority and can issue other certificates. Notice the lines above it which have values for *Subject Key Identifier* and *Authority Key Identifier*.  Subject Key Identifier is the identity of the holder of the certificate.  Authority Key Identifier is the identity of the issuer of the certificate. You can see that the values for these are the same.  This is known as a *self-signed certificate*.  Certification authorities (CA) exist in a hierarchy-  one CA can issue a certificate to another CA with the *CA: TRUE* attribute, and so forth.  In our lab we have this single, homegrown certification authority that we created, with its self-signed certificate that we created per the instructions in the Hyper Protect Virtual Servers documentation.
+A few lines of the output above have been highlighted. Notice the highlighted line that says `CA: TRUE`. This attribute indicates that this certificate is acting as a certification authority and can issue other certificates. Notice the lines above it which have values for *Subject Key Identifier* and *Authority Key Identifier*.  Subject Key Identifier is the identity of the holder of the certificate.  Authority Key Identifier is the identity of the issuer of the certificate. You can see that the values for these are the same.  This is known as a *self-signed certificate*.  Certification authorities (CA) exist in a hierarchy-  one CA can issue a certificate to another CA with the *CA: TRUE* attribute, and so forth.  In our hosted trial we have this single, homegrown certification authority that we created, with its self-signed certificate that we created per the instructions in the Hyper Protect Virtual Servers documentation.
 
 ## Create a GREP11 server X.509 certificate for TLS authentication
 
@@ -300,10 +300,10 @@ openssl req -new -key client-key.pem -out client.csr
 ```
 
 ``` bash
-openssl x509 -req -days 1000 -in client.csr -CA ca.pem -CAcreateserial -CAkey ca.key -out client.pem
+openssl x509 -req -days 1000 -in client.csr -CA atgz-hpvs-ca.pem -CAcreateserial -CAkey atgz-hpvs-ca.key -out client.pem
 ```
 
-Here is a listing of the client certificate that you will be using in the lab. It will be configured properly for you so that your client program can present it to the GREP11 server:
+Here is a listing of the client certificate that you will be using in the hosted trial. It will be configured properly for you so that your client program can present it to the GREP11 server:
 
 ``` bash
 openssl x509 -in client.pem -noout -text
@@ -365,7 +365,7 @@ openssl x509 -in client.pem -noout -text
     ```
 
 !!! note
-    For the lab, each student will use a copy of the same client certificate. In most production use cases each client would use their own certificate which uniquely identifies them.
+    For the hosted trial, you will use a copy of the same client certificate. In most production use cases each client would use their own certificate which uniquely identifies them.
 
 ## List Crypto Domains on your Hyper Protect Virtual Servers LPAR
 
@@ -487,6 +487,6 @@ If you looked carefully at the JSON file and the YAML file in the previous secti
     I like the simplicity of the `hpvs deploy`method much better than the long syntax of the `hpvs vs create` command.  But the `hpvs vs create` command has a benefit-  the `hpvs deploy` command uploads the GREP11 server Docker image from your workstation where you run the CLI to the Hyper Protect Virtual Servers LPAR, every single time.  This Docker image only needs to be sent up once.  The `hpvs vs create` command is smart enough to have this figured out and not do the unnecessary upload of the Docker image the second and subsequent times you run it.
 
 !!! Important
-    **Starting now, as you navigate to the next section of the lab, you should enter all the commands shown in the lab.**  Only the commands in this section were for reference.
+    **Starting now, as you navigate to the next section of the hosted trial, you should enter all the commands shown in the lab.**  Only the commands in this section were for reference.
 
 [^1]: The GREP11 server is a feature provided by Hyper Protect Virtual Servers. You are not required to use it. If you do not use this feature, you do not have to define Crypto Express domains to the LPAR.  You may wish to for other purposes, and you can use the other modes offered by Crypto Express cards for those purposes, but you must use EP11 mode for usage by the GREP11 server.
