@@ -15,7 +15,7 @@ There are 5 steps of the Secure Build process:
 4. [DEPLOY](#deploy)
 5. [ACCESS](#access)
 6. [CLEAN UP](#cleanup)
-   Each of  explained in more detail in their respective sections below.
+   These points are explained in more detail in their respective sections below.
 
 ### SETUP
 
@@ -57,4 +57,4 @@ Access your application with security built-in. See [`Welcome to the Digital Ban
 
 ### CLEANUP
 
-Clean up your environment for future users (see [`Clean up your environment`](cleanup.md){target=_blank}).
+Clean up your environment for future users. See [`Clean up your environment`](cleanup.md){target=_blank}.
