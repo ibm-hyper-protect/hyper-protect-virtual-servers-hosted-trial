@@ -76,7 +76,7 @@ Your secure build server is now up and running. It is available at the IP Addres
 
 ## Procedure to create the MongoDB virtual server
 
-You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the MongoDB virtual server. To run the digital banking application, the digital virtual server requires the MongoDB virtual to be up and running.
+You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the MongoDB virtual server. To run the digital banking application, the digital virtual server requires the MongoDB virtual to be up and running already.
 
 1. Create the configuration file for the MongoDB virtual server. This following is an example of the configuration file:
 
@@ -128,14 +128,14 @@ You will follow the same steps as mentioned in the section: Procedure to create 
 
 You can use the same configuration file that had you created earlier for deploying the Secure Build virtual server by deleting the virtual server that was created (test_securebuild), and running the same steps as listed in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image). The Secure Build virtual server thus created is used to build the digital banking application image.    
 
-Alternatively, you can also create another configuration file with the details of the Secure Build server and create another virtual server, and use this virtual server to build the application image.
+Alternatively, you can also create another configuration file with the details of the Secure Build server and create another virtual server, and use this virtual server to build the digital banking application image.
 
 
 ## Procedure to create the digital virtual server
 
 You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the digital virtual server.
 
-1. Create the configuration file for the MongoDB virtual server. This following is an example of the configuration file:
+1. Create the configuration file for the digital application virtual server. This following is an example of the configuration file:
 
     ??? example "digital_demo.yml"
 
