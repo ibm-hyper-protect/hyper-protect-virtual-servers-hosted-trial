@@ -484,7 +484,7 @@ If you looked carefully at the JSON file and the YAML file in the previous secti
     ```
 
 !!! note "Difference between the two commands"
-    I like the simplicity of the `hpvs deploy`method much better than the long syntax of the `hpvs vs create` command.  But the `hpvs vs create` command has a benefit-  the `hpvs deploy` command uploads the GREP11 server Docker image from your workstation where you run the CLI to the Hyper Protect Virtual Servers LPAR, every single time.  This Docker image only needs to be sent up once.  The `hpvs vs create` command is smart enough to have this figured out and not do the unnecessary upload of the Docker image the second and subsequent times you run it.
+  The `hpvs deploy` method simpler than the long syntax of the `hpvs vs create` command.  But the `hpvs vs create` command has a benefit-  the `hpvs deploy` command uploads the GREP11 server Docker image from your workstation where you run the CLI to the Hyper Protect Virtual Servers LPAR, every single time.  This Docker image only needs to be sent up once.  The `hpvs vs create` command is smart enough to have this figured out and not do the unnecessary upload of the Docker image the second and subsequent times you run it.
 
 !!! Important
     **Starting now, as you navigate to the next section of the hosted trial, you should enter all the commands shown in the lab.**  Only the commands in this section were for reference.

@@ -57,13 +57,13 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
 
 4. Create the Secure Build virtual server by using the configurations in the yaml file.  
      ```
-     hpvs deploy --config <path to the file location>/demo_securebuild.yml
+     hpvs deploy --config $HOME/hpvs/config/<containername>/vs_configfile.yml --templatefile ../../templates/virtualserver.template.yml
      ```
 
     ??? example "Example of the command"
 
         ```
-        hpvs deploy --config securebuild.yml
+        hpvs deploy --config securebuild.yml --templatefile ../../templates/virtualserver.template.yml
         ```
 
 Your secure build server is now up and running. It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. This Secure Build virtual Server will be used to build the MongoDB image.
@@ -110,13 +110,13 @@ You will follow the same steps as mentioned in the section: Procedure to create 
 2. Create the MongoDB virtual server by using the configurations in the yaml file (in this step, the MongoDB image is pulled from DockerHub).
 
      ```
-     hpvs deploy --config <path to the file location>/demo.yml
+     hpvs deploy --config $HOME/hpvs/config/<containername>/vs_configfile.yml hpvs deploy --config $HOME/hpvs/config/<containername>/vs_configfile.yml
      ```
 
     ??? example "Example of the command"
 
         ```
-        hpvs deploy --config mongo_demo.yml
+        hpvs deploy --config mongo_demo.yml hpvs deploy --config $HOME/hpvs/config/<containername>/vs_configfile.yml
         ```
 
 
@@ -180,13 +180,13 @@ You will follow the same steps as mentioned in the section: Procedure to create 
 2. Create the digital application virtual server by using the configurations in the yaml file (in this step, the digital banking application image is pulled from DockerHub).
 
      ```
-     hpvs deploy --config <path to the file location>/demo.yml
+     hpvs deploy --config $HOME/hpvs/config/<containername>/vs_configfile.yml  --templatefile ../../templates/virtualserver.template.yml
      ```
 
     ??? example "Example of the command"
 
         ```
-        hpvs deploy --config digital_demo.yml
+        hpvs deploy --config digital_demo.yml  --templatefile ../../templates/virtualserver.template.yml
         ```
 
 
