@@ -2,7 +2,7 @@
 
 
 !!! info
-    In this trial, we will use the Hyper Protect Virtual Servers CLI (`hpvs` command) to interact with our Hyper Protect Virtual Servers Hosting Appliance in order to perform the various actions necessary for the Secure Build. Below is a quick introduction to the commands available through this CLI.
+    In this trial, we will use the Hyper Protect Virtual Servers CLI (`hpvs` command) to interact with our Hyper Protect Virtual Servers Hosting Appliance in order to perform the various actions necessary for the Secure Build, or bring your own image. Here is a quick introduction to the commands available through this CLI.
 
 1. See the different commands you could enter with:
 
