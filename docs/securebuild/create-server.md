@@ -3,14 +3,14 @@
 Complete the steps detailed in this topic to create the Secure Build virtual server. This method uses atomic commands to create the virtual server and requires you to enter several configuration information using multiple commands. All of this is automated and creating the virtual server is simplified when you use the `hpvs dpeloy` command, which is explained in the next topic.  
 
 
-## Creating the certificate and key to securely communicate with secure build server
+## Creating the certificate and key to securely communicate with Secure Build Server
 
 1. Run the following command.
    ```
    cd $HOME/hpvs/config/securebuild/keys
    ```
 
-2. Create the certificate and key to securely communicate with secure build server.
+2. Create the certificate and key to securely communicate with Secure Build Server.
    ```
    openssl req -newkey rsa:2048 \
    -new -nodes -x509 \
@@ -32,7 +32,7 @@ Complete the steps detailed in this topic to create the Secure Build virtual ser
    echo $(cat sbs.cert | base64) | tr -d ' ' >> sbs_base64.cert
    ```
 
-## Create Quotagroup with storage for secure build server
+## Creating the quotagroup for the Secure Build Server
 
 ``` bash
 hpvs quotagroup create --name "qg_securebuild" --size=40GB
@@ -52,7 +52,7 @@ hpvs quotagroup create --name "qg_securebuild" --size=40GB
     +-------------+----------------+
     ```
 
-## Create Secure Build server
+## Creating the Secure Build Server
 
 ``` bash
 hpvs vs create --name test_securebuild --repo SecureDockerBuild \
@@ -91,7 +91,7 @@ hpvs quotagroup show --name "sb_user"
     |             |                                |
     +-------------+--------------------------------+
     ```
-Your secure build server is now up and running!
+Your Secure Build Server is now up and running!
 
 It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. This Secure Build virtual Server will be used to build the MongoDB image. To build the banking application image, another Secure Build virtual sever is required, see [`Create your Secure Build Server using a yaml file`](create-server.md){target=_blank} for details.
 

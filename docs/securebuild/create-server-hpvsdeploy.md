@@ -1,4 +1,4 @@
-# Create your Secure Build Server using a config file
+# Create your Secure Build Server by using a config file
 
 You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command. This is the recommended option to provision the instance because of it's ease of use, and is also an easier method of creating multiple instances quickly.
 
@@ -66,7 +66,7 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
         hpvs deploy --config securebuild.yml --templatefile ../../templates/virtualserver.template.yml
         ```
 
-Your secure build server is now up and running. It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. This Secure Build virtual Server will be used to build the MongoDB image.
+Your Secure Build Server is now up and running. It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. This Secure Build virtual Server will be used to build the MongoDB image.
 
 
 ???+ example "Example Output"
@@ -128,7 +128,7 @@ You will follow the same steps as mentioned in the section: Procedure to create 
 
 You can use the same configuration file that had you created earlier for deploying the Secure Build virtual server by deleting the virtual server that was created (test_securebuild), and running the same steps as listed in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image). The Secure Build virtual server thus created is used to build the digital banking application image.    
 
-Alternatively, you can also create another configuration file with the details of the Secure Build server and create another virtual server, and use this virtual server to build the digital banking application image.
+Alternatively, you can also create another configuration file with the details of the Secure Build Server and create another virtual server, and use this virtual server to build the digital banking application image.
 
 
 ## Procedure to create the digital virtual server

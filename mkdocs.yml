@@ -5,16 +5,16 @@ nav:
     - Home: index.md
     - Prerequisites: prerequisites.md
     - Explore the Hyper Protect Virtual Servers CLI: setenv.md
-    - Secure Build:
+    - Secure Build Server (SBS):
       - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
       - Create your Secure Build Server: securebuild/create-server.md
       - Enabling ports: securebuild/sbs-ports-setup.md
-      - Create your Secure Build Server using yaml file: securebuild/create-server-hpvsdeploy.md
+      - Create your Secure Build Server by using a configuration file: securebuild/create-server-hpvsdeploy.md
       - Securely Build your Application: securebuild/build.md
       - Deploy your Securely Built Application as a Hyper Protect Virtual Server: securebuild/deploy-app.md
       - Welcome to the Digital Banking Application: securebuild/digital_banking.md
       - Clean up your Environment: securebuild/cleanup.md
-    - BYOI:
+    - Bring your own image (BYOI):
       - Overview: byoi/overview_byoi.md
       - Bring your own image: byoi/byoi.md
       - Generating signing keys: byoi/gen_sign_key.md
@@ -22,8 +22,8 @@ nav:
       - IBM Hyper Protect Virtual Servers GREP11 Overview: grep11/overview.md
       - How to set up a GREP11 server: grep11/grep11-setup.md
       - Displaying your GREP11 environment: grep11/grep11-display.md
-      - Run the GREP11 sample code: grep11/run-grep11-samples.md
-      - Run the Lab exercises:
+      - Running the GREP11 sample code: grep11/run-grep11-samples.md
+      - Running the sample exercises:
         - An overview of the Exercises: grep11/exercise-overview.md
         - Exercise 1 (List PKCS Mechanisms): grep11/lab-exercise1.md
         - Exercise 2 (Encryption and Decryption): grep11/lab-exercise2.md

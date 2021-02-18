@@ -1,6 +1,6 @@
-# BYOI Overview
+# Overview of bring your own image
 
-You can deploy your own Linux-based container image as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers. This feature is also known as bring your own image.
+You can deploy your own Linux-based container image as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers. This feature is also known as bring your own image (BYOI).
 
 This procedure is intended for users with the role _cloud administrator_ and _app developer or ISV_.
 
@@ -12,6 +12,7 @@ This procedure is intended for users with the role _cloud administrator_ and _ap
 
 See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial. This includes creating accounts and credentials to access the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank}. Also, ensure that your Linux-based container images are built for the IBM LinuxONE and IBM Z platform (s390x architecture).
 
+## BYOI Process
 
 The following are the steps that comprises this process:  
 1. Setup  
@@ -21,7 +22,4 @@ The following are the steps that comprises this process:
 5. Preparing the configuration  
 6. Deploy your image   
 
-
-### CLEANUP
-
-Clean up your environment for future users. 
+After you complete the process listed above, you can clean up your environment for future users.
