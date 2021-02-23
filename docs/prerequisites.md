@@ -105,4 +105,4 @@ The following is an example of the `virtualserver.template.yml` file in the *$HO
 
 You can find examples of the virtual server configuration file in the following topics:  
 - [`Create your HPVS Secure Build Server by using a configuration file`](securebuild/create-server-hpvsdeploy.md){target=_blank}  
-- [`Deploying your applications securely`](byoi/byoi.md){target=_blank}
+- [`Deploying your applications securely (bring your own image)`](byoi/byoi.md){target=_blank}
