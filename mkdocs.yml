@@ -6,7 +6,7 @@ nav:
     - Prerequisites: prerequisites.md
     - Explore the Hyper Protect Virtual Servers CLI: setenv.md
     - Secure Build Server (SBS):
-      - Hyper Protect Virtual Servers (HPVS) Lab Process Overview: securebuild/overview.md
+      - Overview of Hyper Protect Virtual Servers (HPVS) Secure Build: securebuild/overview.md
       - Create your Secure Build Server: securebuild/create-server.md
       - Enabling ports: securebuild/sbs-ports-setup.md
       - Create your Secure Build Server by using a configuration file: securebuild/create-server-hpvsdeploy.md
@@ -15,7 +15,7 @@ nav:
       - Welcome to the Digital Banking Application: securebuild/digital_banking.md
       - Clean up your Environment: securebuild/cleanup.md
     - Bring your own image (BYOI):
-      - Overview: byoi/overview_byoi.md
+      - Bring your own image Overview: byoi/overview_byoi.md
       - Bring your own image: byoi/byoi.md
       - Generating signing keys: byoi/gen_sign_key.md
     - GREP11:

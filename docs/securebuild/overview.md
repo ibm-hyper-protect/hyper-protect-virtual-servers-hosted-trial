@@ -1,4 +1,4 @@
-# Hyper Protect Virtual Servers (HPVS) Secure Build process overview
+# Overview of Hyper Protect Virtual Servers (HPVS) Secure Build 
 
 ## Prerequisites
 
