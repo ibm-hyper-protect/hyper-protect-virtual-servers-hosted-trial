@@ -1,6 +1,6 @@
-# Deploying your applications securely (bring your own image)
+# Deploying your applications securely
 
-This topic provides information about how you can deploy your own Linux-based container image as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers.
+This topic provides information about how you can deploy your own Linux-based container image (bring your own image) as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers.
 
 ## Prerequisites
 The following are the prerequisites for being able to deploy your own image into the IBM Hyper Protect Virtual Servers:
