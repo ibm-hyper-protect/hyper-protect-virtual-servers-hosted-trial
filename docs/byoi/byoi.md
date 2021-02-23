@@ -146,7 +146,7 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
           public_key_path: '/home/hpvs_user/.ssh/hpvs_user/isv_user.pub'.
     ```
 
-**Note**: If you want to use your own image, see [Deploying your applications securely](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/byoi.html){target=_blank}, for instructions.
+**Note**: If you want to use your own image instead of the sample application provided, see [Deploying your applications securely](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/byoi.html){target=_blank}, for instructions.
 
 - Generate the repository registration file for your image.
    ```

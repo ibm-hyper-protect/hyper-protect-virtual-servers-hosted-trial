@@ -1,5 +1,5 @@
 site_name: Hyper Protect Virtual Servers (HPVS) Hosted Trial
-repo_url:  https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial
+repo_url: https://github.com/ibm-hyper-protect/hyper-protect-virtual-servers-hosted-trial/
 edit_uri: edit/master/docs
 nav:
     - Home: index.md
