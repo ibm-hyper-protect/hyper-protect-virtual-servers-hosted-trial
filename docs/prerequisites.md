@@ -10,7 +10,7 @@ Create a Docker Hub account (if you do not already have one) by following the in
 Create an access token for Docker Hub access during the trial (you will delete it if after finishing the trial) by following the instructions [here](https://docs.docker.com/docker-hub/access-tokens/#create-an-access-token){target=_blank}.
 
 ## Registering base images in the remote registry server
-Register the base images in the remote docker repository by using your ID and password. For more information, see [`Registering base images in the remote registry server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/120x_topics/register_base_images.html){target=_blank}.
+Register the base images in the remote docker repository by using your ID and password. For more information, see [`Registering base images in the remote registry server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/120x_topics/register_base_images.html){target=_blank}. In the hosted trial environment, the images are located at `/home/hpvs_user/HPVS1221_Production/images`
 
 ## Accessing the Linux management server and the Secure Service Container Partition
 You will be provided the details to connect to the Linux management server by using the VPN. The details about the IP addresses, username, and password will be shared with you by email.

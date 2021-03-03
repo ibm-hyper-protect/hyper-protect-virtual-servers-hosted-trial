@@ -5,6 +5,8 @@ IBM Hyper Protect Virtual Servers is a software solution built on the IBM Secure
 
 The Hyper Protect Virtual Servers Hosted Trial provides a primer on Hyper Protect Virtual Servers and practical use cases relevant to the enterprise. In addition, you will gain hands-on experience with IBM’s unique secure image build process to build a secure image and deploy it inside a FIPS 197-compliant protected memory enclave. Also, you can deploy your own Linux-based container image as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers. This feature is also known as bring your own image. Next, you can also learn about Hyper Protect Virtual Servers' crypto service built on a FIPS 140-2 Level 4-compliant HSM. Lastly, you will gain hands-on experience by exploring the crypto service.
 
+**Note:** In the hosted trial, the environment has already been setup by using the setup script. You do not have to run the setup script to start exploring the features of the environment. 
+
 
 ## Hosted Trial owners
 * [Anthony Cocuzza](mailto:amcocuzz@us.ibm.com)
