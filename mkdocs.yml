@@ -4,6 +4,7 @@ edit_uri: edit/master/docs
 nav:
     - Home: index.md
     - Prerequisites: prerequisites.md
+    - Setting up the environment: setting_upenv.md
     - Explore the Hyper Protect Virtual Servers CLI: setenv.md
     - Secure Build Server (SBS):
       - Hyper Protect Virtual Servers (HPVS) Secure Build overview: securebuild/overview.md
