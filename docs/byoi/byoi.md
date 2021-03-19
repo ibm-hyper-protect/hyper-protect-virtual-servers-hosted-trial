@@ -207,6 +207,8 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
 
     ```
 
+    **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+
 - Deploy the image by using the configurations in the yaml file.  
    ```
    hpvs deploy --config $HOME/hpvs/config/vs_configfile_readme.yaml --templatefile ../../templates/virtualserver.template.yml

@@ -55,6 +55,8 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
         ```
         This Secure Build virtual server is used to build the MongoDB image.
 
+        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+
 4. Create the Secure Build virtual server by using the configurations in the yaml file.  
      ```
      hpvs deploy --config $HOME/hpvs/config/securebuild/securebuild.yaml --templatefile ../../templates/virtualserver.template.yml
@@ -108,7 +110,7 @@ You will follow the same steps as mentioned in the section: Procedure to create 
          ```
 
     !!! tip
-        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your Application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file.
+        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your Application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file. You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
 
 2. Create the MongoDB virtual server by using the configurations in the yaml file (in this step, the MongoDB image is pulled from DockerHub).
@@ -180,6 +182,8 @@ You will follow the same steps as mentioned in the section: Procedure to create 
               ref: np-medium
          ```
 
+
+         **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
 2. Create the digital application virtual server by using the configurations in the yaml file (in this step, the digital banking application image is pulled from DockerHub).
 
