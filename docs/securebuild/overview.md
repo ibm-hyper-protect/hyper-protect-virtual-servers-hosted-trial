@@ -47,7 +47,7 @@ Register your securely built Docker image with your Secure Service Container to 
 
 ### DEPLOY
 
-Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}). The hosted trial setup that is available allows you to experience the digital banking application. If you want to try any other application, follow the instruction at
+Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}). 
 
 ### ACCESS
 

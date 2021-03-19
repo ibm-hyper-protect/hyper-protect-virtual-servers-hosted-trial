@@ -6,7 +6,7 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
 
 1. See the topic [`Create your Secure Build Server`](create-server.md){target=_blank} for details about the certificate generation.
 
-2. Update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. For details of the virtual server template file, see the [`Prerequisites` page](../prerequisites.md){target=_blank}.
+2. Update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. For details about the virtual server template file, see the [`Prerequisites` page](../prerequisites.md){target=_blank}.
 
 3. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
 
@@ -108,7 +108,7 @@ You will follow the same steps as mentioned in the section: Procedure to create 
          ```
 
     !!! tip
-        Step 3 of the Procedure to create the MongoDB image from the topic [`Securely Build your Application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file.
+        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your Application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file.
 
 
 2. Create the MongoDB virtual server by using the configurations in the yaml file (in this step, the MongoDB image is pulled from DockerHub).
