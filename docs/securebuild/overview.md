@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial. You must complete the prerequisites listed if you want to use your own image. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank} for the lab. For more information about creating the certificate and key to securely communicate with Secure Build Server, see [Create your Secure Build Server](create-server.md){target=_blank}.
+See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank} for the lab. For more information about creating the certificate and key to securely communicate with Secure Build Server, see [Create your Secure Build Server](create-server.md){target=_blank}.
 
 ## The Big Picture
 
@@ -15,7 +15,7 @@ There are 5 steps of the Secure Build process:
 4. [DEPLOY](#deploy)
 5. [ACCESS](#access)
 6. [CLEAN UP](#cleanup)  
-   These points are explained in more detail in their respective sections below.
+   These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic: [`Building your application with the Secure Build virtual server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html){target=_blank} for detailed instructions.
 
 ### SETUP
 
@@ -47,7 +47,7 @@ Register your securely built Docker image with your Secure Service Container to 
 
 ### DEPLOY
 
-Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}). The hosted trial setup that is available allows you to experience the digital banking application. If you want to try any other application, follow the instruction at [`Building your application with the Secure Build virtual server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html){target=_blank}.
+Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}). The hosted trial setup that is available allows you to experience the digital banking application. If you want to try any other application, follow the instruction at
 
 ### ACCESS
 

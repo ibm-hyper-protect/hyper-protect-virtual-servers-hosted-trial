@@ -2,7 +2,7 @@
 
 The example application used to showcase the Secure Build virtual server is the digital banking application, that requires two Secure Build virtual servers, one for building the MongoDB application and the second one for the digital banking application. Two virtual servers are created for the images, one for MongoDB, and one for the digital banking application. The following steps are required to deploy this application:  
 
-1. Create a Secure Build virtual server for building the MongoDB image. See the section: "Procedure to create a Secure Build virtual server (for building the MongoDB image" in the topic [`Create your HPVS Secure Build Server`](create-server.md){target=_blank}, or [`Create your HPVS Secure Build Server by using a configuration file`](create-server-hpvsdeploy.md){target=_blank}.
+1. Create a Secure Build virtual server for building the MongoDB image. See the section: "Procedure to create a Secure Build virtual server (for building the MongoDB image) in the topic [`Create your HPVS Secure Build Server by using a configuration file`](create-server-hpvsdeploy.md){target=_blank}, or  [`Create your HPVS Secure Build Server`](create-server.md){target=_blank}.
 
 2. Build the MongoDB image by using the Secure Build process. See the section: "Procedure to create the MongoDB image" in the topic [`Securely Build your Application`](build.md){target=_blank}.
 

@@ -1,6 +1,6 @@
 # Setting up the environment
 
-When you want to use your own applications for the Secure Build, you must register the base images in the remote registry server (Docker Hub or IBM Cloud Container Registry) by using your Docker Hub or IBM Cloud Container Registry user ID and password. In the hosted trial environment, the base images are located at `/home/hpvs_user/HPVS1221_Production/images`.
+When you want to use your own applications for the Secure Build, you must register the base images in the remote registry server (Docker Hub or IBM Cloud Container Registry) by using your Docker Hub or IBM Cloud Container Registry user ID and password. In the hosted trial environment, the base images are located at `/home/hpvs_user/hpvs/config/hpvsopbase/images`, and `/home/hpvs_user/hpvs/config/hpvsopbasessh`.
 
 ## Before you begin
 

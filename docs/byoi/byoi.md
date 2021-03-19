@@ -136,7 +136,7 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
           repo: 'hpvsdemo/nginx'
           pull_server: 'docker_reg'
           # this root.json you will get after once you will push image to DockerHub using Docker Content Trust
-          content_trust_json_file_path: 'home/hpvs_user/HPVS1221_Production/config/yaml/demo/root.json'
+          content_trust_json_file_path: 'home/hpvs_user/hpvs/config/reg.json'
        env:
           whitelist: ["ROOT_SSH_KEY","SERVER_KEY", "RUNQ_ROOTDISK", "LOGTARGET", "ROOTFS_LOCK"]
        signing_key:
@@ -150,13 +150,13 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
 
 - Generate the repository registration file for your image.
    ```
-   hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/encryptedRegfile.enc
+   hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRegfile.enc
    ```
 
 ??? example "Example of the command"
 
     ```
-    hpvs regfile create --config secure_create.yaml --out Ngnix.enc
+    hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/securebuild/regfiles/Ngnix.enc
     ```
 
 
@@ -165,7 +165,7 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
 
 **Complete the following steps to deploy your own image by using the `hpvs deploy` command.**
 
-- Create the "nginx_demo_byoi.yml" file
+- Create the "nginx_demo_byoi.yml" file by referring to the example `vs_configfile_readme.yaml` available in `$HOME/home/hpvs/config`.
 
 ??? example "Example of the nginx_demo_byoi.yml file"
 
@@ -177,7 +177,7 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
       host: test2
       repoid: Nginx
       imagetag: latest
-      reporegfile: /home/hpvs_user/HPVS1221_Production/config/yaml/demo/Nginx.enc
+      reporegfile: $HOME/hpvs/config/securebuild/regfiles/Nginx.enc
       resourcedefinition:
          ref: small
       networks:
@@ -209,13 +209,13 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
 
 - Deploy the image by using the configurations in the yaml file.  
    ```
-   hpvs deploy --config $HOME/hpvs/config/demo_byoi.yml --templatefile ../../templates/virtualserver.template.yml
+   hpvs deploy --config $HOME/hpvs/config/vs_configfile_readme.yaml --templatefile ../../templates/virtualserver.template.yml
    ```
 
 ??? example "Example of the command"
 
        ```
-       hpvs deploy --config nginx_demo.yml --templatefile ../../templates/virtualserver.template.yml
+       hpvs deploy --config $HOME/home/hpvs/config/nginx_demo.yml --templatefile ../../templates/virtualserver.template.yml
        ```
 
 ??? example "Example output"

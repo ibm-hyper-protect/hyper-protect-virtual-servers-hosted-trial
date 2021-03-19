@@ -59,12 +59,12 @@ On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management ser
 
     - Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
     ```
-    hpvs sb init --config mongo_secure_build.yml --out encryptedRepoRegistration_mongo.enc --build
+    hpvs sb init --config $HOME/hpvs/config/mongo_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_mongo.enc --build
     ```
     - Use individual commands to perform each step of building the application by using the Secure Build virtual server. This option is recommended if you plan to build the application by using the Secure Build multiple times. In this scenario, you can run the `hpvs sb build` command for subsequent builds.
     ```    
-    hpvs sb build --config mongo_secure_build.yml
-    hpvs sb regfile --config mongo_secure_build.yml --out encryptedRepoRegistration_mongo.enc
+    hpvs sb build --config $HOME/hpvs/config/securebuild/mongo_secure_build.yml
+    hpvs sb regfile --config $HOME/hpvs/config/securebuild/mongo_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_mongo.enc
     ```
 
    You can use the  `hpvs sb status` command to view the progress of the secure build.
@@ -129,12 +129,12 @@ You will follow the same steps as mentioned in the section above but use a confi
 
     - Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
     ```
-    hpvs sb init --config digital_secure_build.yml --out encryptedRepoRegistration_digital.enc --build
+    hpvs sb init --config $HOME/hpvs/config/securebuild/digital_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_digital.enc --build
     ```
     - Use individual commands to perform each step of building the application by using the Secure Build virtual server. This option is recommended if you plan to build the application by using the Secure Build multiple times. In this scenario, you can run the `hpvs sb build` command for subsequent builds.
     ```    
-    hpvs sb build --config digital_secure_build.yml
-    hpvs sb regfile --config digital_secure_build.yml --out encryptedRepoRegistration_digital.enc
+    hpvs sb build --config $HOME/hpvs/config/securebuiild/digital_secure_build.yml
+    hpvs sb regfile --config $HOME/hpvs/config/securebuild/digital_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_digital.enc
     ```
 
    You can use the  `hpvs sb status` command to view the progress of the secure build.
