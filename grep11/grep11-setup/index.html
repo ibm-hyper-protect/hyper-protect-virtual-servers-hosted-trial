@@ -879,7 +879,6 @@
 <p>Hyper Protect Virtual Servers runs in an LPAR that is defined in Secure Service Container (SSC) mode. Defining an LPAR is a normal task for an IBM Z or LinuxONE systems administrator, typically performed from the Hardware Management Console (HMC).</p>
 <p>The systems administrator must<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> dedicate one or more domains of one or more Crypto Express cards to the Hyper Protect Virtual Servers LPAR in order to use the GREP11 server. These Crypto Express cards must be defined in EP11 mode to your IBM Z or LinuxONE server in order to be used by a GREP11 server.
 These tasks are documented in the Hyper Protect Virtual Servers documentation, or in IBM publications referenced in the Hyper Protect Virtual Servers documentation.</p>
-<p>The version of Hyper Protect Virtual Servers that we will be using in this hosted trial is version 1.2.2.1.</p>
 <p>A GREP11 server communicates with one and only one Crypto Express domain, and vice versa.  You can run multiple GREP11 servers if you have multiple domains configured to your Hyper Protect Virtual Servers LPAR.</p>
 <p>The GREP11 server is stateless, so desired levels of throughput and resilience can be achieved by loading the same master key in one or more domains of one or more Crypto Express 7S cards across one or more CECs across one or more geographies.</p>
 <h2 id="overview-of-grep11-server-setup">Overview of GREP11 server setup<a class="headerlink" href="#overview-of-grep11-server-setup" title="Permanent link">&para;</a></h2>
@@ -1232,14 +1231,14 @@ For more information about creating the openssl.cnf file, <a href="https://www.i
 <span class="c1">#</span>
 <span class="c1"># use this file with the &#39;hpvs deploy&#39; command, e.g.,</span>
 <span class="c1">#</span>
-<span class="c1">#  hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11_80-9876.yml</span>
+<span class="c1">#  hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11.yml</span>
 <span class="c1">#</span>
 type: virtualserver
 virtualservers:
 - name: grep11-08-0016-9876
 host: wsclpar80
 repoid: hpcsKpGrep11_runq
-imagetag: <span class="m">1</span>.2.1
+imagetag: <span class="m">1</span>.2.3
 imagefile: hpcsKpGrep11_runq.tar.gz
 crypto:
     crypto_matrix:
@@ -1289,11 +1288,11 @@ ports:
 </details>
 <h2 id="start-the-grep11-server">Start the GREP11 server<a class="headerlink" href="#start-the-grep11-server" title="Permanent link">&para;</a></h2>
 <p>If you looked carefully at the JSON file and the YAML file in the previous section, you may have noticed that the YAML file contains more information than the JSON file contains.  As a result, the syntax is simpler for the command that uses the YAML file.  The command that uses the JSON file uses command line arguments to provide some of the information that the YAML file contained.  Compare the two methods:</p>
-<details class="example" open="open"><summary>Command to start the GREP11 server with the YAML file</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11_80-9876.yml
+<details class="example" open="open"><summary>Command to start the GREP11 server with the YAML file</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11.yml
 </code></pre></div>
 
 </details>
-<details class="example" open="open"><summary>Command to start the GREP11 server with the JSON file</summary><div class="highlight"><pre><span></span><code>hpvs vs create --name grep11-08-0016-9876 --repo hpcsKpGrep11_runq --tag 1.2.1 --crypto_matrix=08.0016 --cpu 2 --ram 2048 --envjsonpath ${HOME}/hpvs/config/grep11/grep11_env_08.0016.json --ports &quot;{containerport = 9876, protocol = tcp, hostport = 9876}&quot;
+<details class="example" open="open"><summary>Command to start the GREP11 server with the JSON file</summary><div class="highlight"><pre><span></span><code>hpvs vs create --name grep11 --repo hpcsKpGrep11_runq --tag 1.2.3 --crypto_matrix=08.0016 --cpu 2 --ram 2048 --envjsonpath ${HOME}/hpvs/config/grep11/grep11_env_08.0016.json --ports &quot;{containerport = 9876, protocol = tcp, hostport = 9876}&quot;
 </code></pre></div>
 
 </details>

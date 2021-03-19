@@ -786,10 +786,10 @@
 <p>See the topic <a href="../create-server/" target="_blank"><code>Create your Secure Build Server</code></a> for details about the certificate generation.</p>
 </li>
 <li>
-<p>Update the template file <code>$HOME/hpvs/config/templates/virtualserver.template.yml</code> based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. For details of the virtual server template file, see the <a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a>.</p>
+<p>Update the template file <code>$HOME/hpvs/config/templates/virtualserver.template.yml</code> based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. For details about the virtual server template file, see the <a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a>.</p>
 </li>
 <li>
-<p>Create the configuration yaml file <code>securebuild.yml</code> for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The <code>yml</code> has the configuration details for the virtual server and refers to the corresponding sections of the <code>virtualserver.template.yml</code> when you run the <code>hpvs deploy</code> command. For example, the <code>resourcedefinition: ref</code> value refers to the <code>resourcedefinitiontemplate</code> definition in the template file.    </p>
+<p>Create the configuration yaml file <code>securebuild.yml</code> for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The <code>vs_securebuild.yml</code> has the configuration details for the virtual server and refers to the corresponding sections of the <code>virtualserver.template.yml</code> when you run the <code>hpvs deploy</code> command. For example, the <code>resourcedefinition: ref</code> value refers to the <code>resourcedefinitiontemplate</code> definition in the template file.    </p>
 <details class="example"><summary>Example of a Secure Build virtual server configuration file</summary><p><div class="highlight"><pre><span></span><code>version: v1
 type: virtualserver
 virtualservers:
@@ -797,7 +797,7 @@ virtualservers:
   host: test2
   repoid: SecureDockerBuild
   imagetag: 1.2.2.1-release-4dbd783
-  imagefile: /home/hpvs_user/HPVS1221_Production/images/SecureDockerBuild.tar.gz
+  imagefile: /home/hpvs_user/hpvs/config/securebuild/images/SecureDockerBuild.tar.gz
   resourcedefinition:
      ref: small
   environment:
@@ -834,9 +834,9 @@ This Secure Build virtual server is used to build the MongoDB image.</p>
 </li>
 <li>
 <p>Create the Secure Build virtual server by using the configurations in the yaml file.<br />
-     <div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/&lt;containername&gt;/vs_configfile.yml --templatefile ../../templates/virtualserver.template.yml
+     <div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/securebuild/securebuild.yaml --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div></p>
-<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config securebuild.yml --templatefile ../../templates/virtualserver.template.yml
+<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/securebuild/securebuild.yaml --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div>
 
 </details>
@@ -849,7 +849,8 @@ This Secure Build virtual server is used to build the MongoDB image.</p>
 <p>You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the MongoDB virtual server. To run the digital banking application, the digital virtual server requires the MongoDB virtual to be up and running already.</p>
 <ol>
 <li>
-<p>Create the configuration file for the MongoDB virtual server. This following is an example of the configuration file:</p>
+<p>Create the configuration file <code>mongo_demo.yml</code> for the MongoDB virtual server by referring to the example <code>vs_configfile_readme.yaml</code> available in <code>$HOME/home/hpvs/config</code>.
+ The following is an example of the configuration file:</p>
 <details class="example"><summary>mongo_demo.yml</summary><div class="highlight"><pre><span></span><code>version: v1
 type: virtualserver
 virtualservers:
@@ -857,7 +858,7 @@ virtualservers:
   host: test2
   repoid: mongodemo
   imagetag: latest
-  imagefile: /home/hpvs_user/HPVS1221_Production/config/yaml/demo/encryptedRepoRegistration_mongo.enc
+  imagefile: /home/hpvs_user/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_mongo.enc
   resourcedefinition:
      ref: small
   networks:
@@ -874,13 +875,17 @@ virtualservers:
 </code></pre></div>
 
 </details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Step 3 of "Procedure to create the MongoDB image" from the topic <a href="../build/" target="_blank"><code>Securely Build your Application</code></a> generates the encrypted registration file <code>encryptedRepoRegistration_mongo.enc</code> that is used in the above example yaml file.</p>
+</div>
 </li>
 <li>
 <p>Create the MongoDB virtual server by using the configurations in the yaml file (in this step, the MongoDB image is pulled from DockerHub).</p>
-<div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/&lt;containername&gt;/vs_configfile.yml hpvs deploy --config $HOME/hpvs/config/&lt;containername&gt;/vs_configfile.yml
+<div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/vs_configfile_readme.yml --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div>
 
-<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config mongo_demo.yml hpvs deploy --config $HOME/hpvs/config/&lt;containername&gt;/vs_configfile.yml
+<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/mongo_demo.yml --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div>
 
 </details>
@@ -895,7 +900,7 @@ virtualservers:
 <p>You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the digital virtual server.</p>
 <ol>
 <li>
-<p>Create the configuration file for the digital application virtual server. This following is an example of the configuration file:</p>
+<p>Create the configuration file for the digital application virtual server by referring to the example <code>vs_configfile_readme.yaml</code> available in <code>$HOME/home/hpvs/config</code>. This following is an example of the configuration file:</p>
 <details class="example"><summary>digital_demo.yml</summary><div class="highlight"><pre><span></span><code>version: v1
 type: virtualserver
 virtualservers:
@@ -903,7 +908,7 @@ virtualservers:
   host: test2
   repoid: mongodemo
   imagetag: latest
-  imagefile: /home/hpvs_user/HPVS1221_Production/config/yaml/demo/encryptedRepoRegistration_digital.enc
+  imagefile: /home/hpvs_user/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_digital.enc
   resourcedefinition:
      ref: small
   networks:
@@ -936,10 +941,10 @@ virtualservers:
 </li>
 <li>
 <p>Create the digital application virtual server by using the configurations in the yaml file (in this step, the digital banking application image is pulled from DockerHub).</p>
-<div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/&lt;containername&gt;/vs_configfile.yml  --templatefile ../../templates/virtualserver.template.yml
+<div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/vs_configfile_readme.yml  --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div>
 
-<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config digital_demo.yml  --templatefile ../../templates/virtualserver.template.yml
+<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/digital_demo.yml  --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div>
 
 </details>

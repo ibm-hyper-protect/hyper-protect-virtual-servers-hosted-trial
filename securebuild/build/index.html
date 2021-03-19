@@ -821,11 +821,11 @@ signing_key:
 <p>The application required to build the MongoDB application is available in the GitHub repository (details of repository is specified in the <code>github</code> parameters of the configuration file shown in the previous step) by choosing one of the following options:  </p>
 <ul>
 <li>Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
-<div class="highlight"><pre><span></span><code>hpvs sb init --config mongo_secure_build.yml --out encryptedRepoRegistration_mongo.enc --build
+<div class="highlight"><pre><span></span><code>hpvs sb init --config $HOME/hpvs/config/mongo_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_mongo.enc --build
 </code></pre></div></li>
 <li>Use individual commands to perform each step of building the application by using the Secure Build virtual server. This option is recommended if you plan to build the application by using the Secure Build multiple times. In this scenario, you can run the <code>hpvs sb build</code> command for subsequent builds.
-<div class="highlight"><pre><span></span><code>hpvs sb build --config mongo_secure_build.yml
-hpvs sb regfile --config mongo_secure_build.yml --out encryptedRepoRegistration_mongo.enc
+<div class="highlight"><pre><span></span><code>hpvs sb build --config $HOME/hpvs/config/securebuild/mongo_secure_build.yml
+hpvs sb regfile --config $HOME/hpvs/config/securebuild/mongo_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_mongo.enc
 </code></pre></div></li>
 </ul>
 </li>
@@ -883,11 +883,11 @@ signing_key:
 <p>The application required to build the digital banking application is available in the GitHub repository (details of repository is specified in the <code>github</code> parameters of the configuration file shown in the previous step) by choosing one of the following options:  </p>
 <ul>
 <li>Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
-<div class="highlight"><pre><span></span><code>hpvs sb init --config digital_secure_build.yml --out encryptedRepoRegistration_digital.enc --build
+<div class="highlight"><pre><span></span><code>hpvs sb init --config $HOME/hpvs/config/securebuild/digital_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_digital.enc --build
 </code></pre></div></li>
 <li>Use individual commands to perform each step of building the application by using the Secure Build virtual server. This option is recommended if you plan to build the application by using the Secure Build multiple times. In this scenario, you can run the <code>hpvs sb build</code> command for subsequent builds.
-<div class="highlight"><pre><span></span><code>hpvs sb build --config digital_secure_build.yml
-hpvs sb regfile --config digital_secure_build.yml --out encryptedRepoRegistration_digital.enc
+<div class="highlight"><pre><span></span><code>hpvs sb build --config $HOME/hpvs/config/securebuiild/digital_secure_build.yml
+hpvs sb regfile --config $HOME/hpvs/config/securebuild/digital_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_digital.enc
 </code></pre></div></li>
 </ul>
 </li>

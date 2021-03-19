@@ -935,7 +935,7 @@ Successfully signed docker.io/hpvsdemo/hpvsdemo_secureapp:secureapp
       repo: &#39;hpvsdemo/nginx&#39;
       pull_server: &#39;docker_reg&#39;
       # this root.json you will get after once you will push image to DockerHub using Docker Content Trust
-      content_trust_json_file_path: &#39;home/hpvs_user/HPVS1221_Production/config/yaml/demo/root.json&#39;
+      content_trust_json_file_path: &#39;home/hpvs_user/hpvs/config/reg.json&#39;
    env:
       whitelist: [&quot;ROOT_SSH_KEY&quot;,&quot;SERVER_KEY&quot;, &quot;RUNQ_ROOTDISK&quot;, &quot;LOGTARGET&quot;, &quot;ROOTFS_LOCK&quot;]
    signing_key:
@@ -949,10 +949,10 @@ Successfully signed docker.io/hpvsdemo/hpvsdemo_secureapp:secureapp
 <p><strong>Note</strong>: If you want to use your own image instead of the sample application provided, see <a href="https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/byoi.html" target="_blank">Deploying your applications securely</a>, for instructions.</p>
 <ul>
 <li>Generate the repository registration file for your image.
-   <div class="highlight"><pre><span></span><code>hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/encryptedRegfile.enc
+   <div class="highlight"><pre><span></span><code>hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRegfile.enc
 </code></pre></div></li>
 </ul>
-<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs regfile create --config secure_create.yaml --out Ngnix.enc
+<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/securebuild/regfiles/Ngnix.enc
 </code></pre></div>
 
 </details>
@@ -960,7 +960,7 @@ Successfully signed docker.io/hpvsdemo/hpvsdemo_secureapp:secureapp
 <p><strong>Deploy your image</strong></p>
 <p><strong>Complete the following steps to deploy your own image by using the <code>hpvs deploy</code> command.</strong></p>
 <ul>
-<li>Create the "nginx_demo_byoi.yml" file</li>
+<li>Create the "nginx_demo_byoi.yml" file by referring to the example <code>vs_configfile_readme.yaml</code> available in <code>$HOME/home/hpvs/config</code>.</li>
 </ul>
 <details class="example"><summary>Example of the nginx_demo_byoi.yml file</summary><div class="highlight"><pre><span></span><code>version: v1
 type: virtualserver
@@ -969,7 +969,7 @@ virtualservers:
   host: test2
   repoid: Nginx
   imagetag: latest
-  reporegfile: /home/hpvs_user/HPVS1221_Production/config/yaml/demo/Nginx.enc
+  reporegfile: $HOME/hpvs/config/securebuild/regfiles/Nginx.enc
   resourcedefinition:
      ref: small
   networks:
@@ -1001,10 +1001,10 @@ virtualservers:
 </details>
 <ul>
 <li>Deploy the image by using the configurations in the yaml file.<br />
-   <div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/demo_byoi.yml --templatefile ../../templates/virtualserver.template.yml
+   <div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/hpvs/config/vs_configfile_readme.yaml --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div></li>
 </ul>
-<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config nginx_demo.yml --templatefile ../../templates/virtualserver.template.yml
+<details class="example"><summary>Example of the command</summary><div class="highlight"><pre><span></span><code>hpvs deploy --config $HOME/home/hpvs/config/nginx_demo.yml --templatefile ../../templates/virtualserver.template.yml
 </code></pre></div>
 
 </details>
