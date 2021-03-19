@@ -7,7 +7,6 @@ Hyper Protect Virtual Servers runs in an LPAR that is defined in Secure Service 
 The systems administrator must[^1] dedicate one or more domains of one or more Crypto Express cards to the Hyper Protect Virtual Servers LPAR in order to use the GREP11 server. These Crypto Express cards must be defined in EP11 mode to your IBM Z or LinuxONE server in order to be used by a GREP11 server.
 These tasks are documented in the Hyper Protect Virtual Servers documentation, or in IBM publications referenced in the Hyper Protect Virtual Servers documentation.
 
-The version of Hyper Protect Virtual Servers that we will be using in this hosted trial is version 1.2.2.1.
 
 A GREP11 server communicates with one and only one Crypto Express domain, and vice versa.  You can run multiple GREP11 servers if you have multiple domains configured to your Hyper Protect Virtual Servers LPAR.
 
@@ -409,14 +408,14 @@ This is the YAML file for a GREP11 server that will listen for client connection
     #
     # use this file with the 'hpvs deploy' command, e.g.,
     #
-    #  hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11_80-9876.yml
+    #  hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11.yml
     #
     type: virtualserver
     virtualservers:
     - name: grep11-08-0016-9876
     host: wsclpar80
     repoid: hpcsKpGrep11_runq
-    imagetag: 1.2.1
+    imagetag: 1.2.3
     imagefile: hpcsKpGrep11_runq.tar.gz
     crypto:
         crypto_matrix:
@@ -474,13 +473,13 @@ If you looked carefully at the JSON file and the YAML file in the previous secti
 ???+ example "Command to start the GREP11 server with the YAML file"
 
     ```
-    hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11_80-9876.yml
+    hpvs deploy --config $HOME/hpvs/config/grep11/vs_grep11.yml
     ```
 
 ???+ example "Command to start the GREP11 server with the JSON file"
 
     ```
-    hpvs vs create --name grep11-08-0016-9876 --repo hpcsKpGrep11_runq --tag 1.2.1 --crypto_matrix=08.0016 --cpu 2 --ram 2048 --envjsonpath ${HOME}/hpvs/config/grep11/grep11_env_08.0016.json --ports "{containerport = 9876, protocol = tcp, hostport = 9876}"
+    hpvs vs create --name grep11 --repo hpcsKpGrep11_runq --tag 1.2.3 --crypto_matrix=08.0016 --cpu 2 --ram 2048 --envjsonpath ${HOME}/hpvs/config/grep11/grep11_env_08.0016.json --ports "{containerport = 9876, protocol = tcp, hostport = 9876}"
     ```
 
 !!! note "Difference between the two commands"
