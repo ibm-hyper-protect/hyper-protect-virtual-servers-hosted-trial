@@ -20,7 +20,7 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
         - name: test_securebuild
           host: test2
           repoid: SecureDockerBuild
-          imagetag: 1.2.2.1-release-4dbd783
+          imagetag: 1.2.3-release-f78a642
           imagefile: /home/hpvs_user/hpvs/config/securebuild/images/SecureDockerBuild.tar.gz
           resourcedefinition:
              ref: small

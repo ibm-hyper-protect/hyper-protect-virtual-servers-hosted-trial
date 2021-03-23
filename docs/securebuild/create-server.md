@@ -56,7 +56,7 @@ hpvs quotagroup create --name "qg_securebuild" --size=40GB
 
 ``` bash
 hpvs vs create --name test_securebuild --repo SecureDockerBuild \
---tag 1.2.2.1-release-4dbd783 --cpu 2 --ram 2048 \
+--tag 1.2.3-release-f78a642 --cpu 2 --ram 2048 \
 --quotagroup "{quotagroup = qg_securebuild, mountid = new, mount = /newroot, filesystem = ext4, size = 16GB}" \
 --quotagroup "{quotagroup = qg_securebuild, mountid = data, mount = /data, filesystem = ext4, size = 16GB}" \
 --quotagroup "{quotagroup = qg_securebuild, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}" \

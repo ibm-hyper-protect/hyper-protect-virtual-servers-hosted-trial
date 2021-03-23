@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank} for the lab. For more information about creating the certificate and key to securely communicate with Secure Build Server, see [Create your Secure Build Server](create-server.md){target=_blank}.
+See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank}. For more information about creating the certificate and key to securely communicate with Secure Build Server, see [Create your Secure Build Server](create-server.md){target=_blank}.
 
 ## The Big Picture
 
@@ -15,7 +15,7 @@ There are 5 steps of the Secure Build process:
 4. [DEPLOY](#deploy)
 5. [ACCESS](#access)
 6. [CLEAN UP](#cleanup)  
-   These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic: [`Building your application with the Secure Build virtual server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html){target=_blank} for detailed instructions.
+   These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic: [`Building your application with the Secure Build virtual server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html){target=_blank} for detailed instructions.
 
 ### SETUP
 
@@ -27,7 +27,7 @@ Before you build a docker image by using the Hyper Protect base images, you must
 
 ### BUILD
 
-Securely build a Docker Image. See [`Create your HPVS Secure Build Server`](create-server.md){target=_blank}, or [`Create your HPVS Secure Build Server by using a config file`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your Application`](build.md){target=_blank}.
+To securely build a Docker Image. See [`Create your HPVS Secure Build Server`](create-server.md){target=_blank}, or [`Create your HPVS Secure Build Server by using a config file`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your Application`](build.md){target=_blank}.
 
 The Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
 
@@ -47,7 +47,7 @@ Register your securely built Docker image with your Secure Service Container to 
 
 ### DEPLOY
 
-Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}). 
+Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}).
 
 ### ACCESS
 

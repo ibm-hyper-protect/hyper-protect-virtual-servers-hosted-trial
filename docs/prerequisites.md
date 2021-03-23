@@ -1,6 +1,6 @@
 # Prerequisites
 
-The Hosted trial environment already has sample applications that you can try for the Secure Build, and Bring Your Own Image features. However, if you want to experiment with your own applications, then you must complete the tasks detailed in [Setting up the environment](setting_upenv.md){target=_blank}, before you proceed.
+The Hosted trial environment already has sample applications that you can try for the Secure Build, and Bring Your Own Image features. However, if you would like to use your own applications, you must complete the tasks detailed in [Setting up the environment](setting_upenv.md){target=_blank}, before you proceed.
 
 ## Accessing the Linux management server and the Secure Service Container Partition
 You will be provided the details to connect to the Linux management server by using the VPN. The details about the IP addresses, username, and password will be shared with you by email.
@@ -10,9 +10,9 @@ You can contact IBM support personnel by using the slack channel details that ar
 
 ## Creating the server configuration YAML file
 
-You can find examples of the virtual server template file and virtual server configuration files in the *$HOME//hpvs/config/securebuild/* directory. The  virtual server configuration files contain the configuration details of the virtual server, and this configuration file refers to the corresponding sections of the `virtualserver.template.yml` file when you run the `hpvs deploy` command. You can find the `virtualserver.template.yml` file in the *$HOME/hpvs/config/templates/* directory.
+You can find examples of the virtual server template file and virtual server configuration files in the *$HOME/hpvs/config/* directory. The  virtual server configuration files contain the configuration details of the virtual server, and this configuration file refers to the corresponding sections of the `virtualserver.template.yml` file when you run the `hpvs deploy` command.
 
-The following is an example of the `virtualserver.template.yml` file in the *$HOME/hpvs/config/templates/* directory.
+The following is an example of the `virtualserver.template.yml` file that is present in the *$HOME/hpvs/config/templates/* directory.
 
 ??? example "Example of a virtualserver-template file"
 

@@ -2,7 +2,7 @@
 
 
 !!! info
-    In this trial, we will use the Hyper Protect Virtual Servers CLI (`hpvs` command) to interact with our Hyper Protect Virtual Servers Hosting Appliance in order to perform the various actions necessary for the Secure Build, or bring your own image. Here is a quick introduction to the commands available through this CLI.
+    In this trial, you will use the Hyper Protect Virtual Servers CLI (`hpvs` command) to interact with the Hyper Protect Virtual Servers Hosting Appliance in order to perform the various actions necessary for Secure Build, or Bring Your Own Image. Here is a quick introduction to the commands available through this CLI.
 
 1. See the different commands you could enter with:
 
@@ -48,4 +48,4 @@
         Use "hpvs [command] --help" for more information about a command.
         ```
 
-2. For further exploration of the Hyper Protect Virtual Servers CLI [see the Knowledge Center](https://www.ibm.com/support/knowledgecenter/en/SSHPMH_1.2.x/topics/cmd_hpvs.html){target_blank}
+2. For further exploration of the Hyper Protect Virtual Servers CLI [see the Knowledge Center](https://www.ibm.com/support/knowledgecenter/en/SSHPMH_1.2.x/topics/cmd_hpvs.html){target_blank}.
