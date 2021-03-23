@@ -813,7 +813,7 @@
 </details>
 <h2 id="creating-the-secure-build-server">Creating the Secure Build Server<a class="headerlink" href="#creating-the-secure-build-server" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>hpvs vs create --name test_securebuild --repo SecureDockerBuild <span class="se">\</span>
---tag <span class="m">1</span>.2.2.1-release-4dbd783 --cpu <span class="m">2</span> --ram <span class="m">2048</span> <span class="se">\</span>
+--tag <span class="m">1</span>.2.3-release-f78a642 --cpu <span class="m">2</span> --ram <span class="m">2048</span> <span class="se">\</span>
 --quotagroup <span class="s2">&quot;{quotagroup = qg_securebuild, mountid = new, mount = /newroot, filesystem = ext4, size = 16GB}&quot;</span> <span class="se">\</span>
 --quotagroup <span class="s2">&quot;{quotagroup = qg_securebuild, mountid = data, mount = /data, filesystem = ext4, size = 16GB}&quot;</span> <span class="se">\</span>
 --quotagroup <span class="s2">&quot;{quotagroup = qg_securebuild, mountid = docker, mount = /docker, filesystem = ext4, size = 16GB}&quot;</span> <span class="se">\</span>
