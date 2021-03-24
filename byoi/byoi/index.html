@@ -820,6 +820,7 @@
                 
                 <h1 id="deploying-your-applications-securely">Deploying your applications securely<a class="headerlink" href="#deploying-your-applications-securely" title="Permanent link">&para;</a></h1>
 <p>This topic provides information about how you can deploy your own Linux-based container image (bring your own image) as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers.</p>
+<p>The steps detailed here help you deploy the Nginx application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites (<a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a>), then refer the IBM Knowledge Center topic:  <a href="https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/byoi.html" target="_blank">Deploying your applications securely</a>, for instructions.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>The following are the prerequisites for being able to deploy your own image into the IBM Hyper Protect Virtual Servers:</p>
 <ul>
@@ -946,7 +947,6 @@ Successfully signed docker.io/hpvsdemo/hpvsdemo_secureapp:secureapp
 </code></pre></div>
 
 </details>
-<p><strong>Note</strong>: If you want to use your own image instead of the sample application provided, see <a href="https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/byoi.html" target="_blank">Deploying your applications securely</a>, for instructions.</p>
 <ul>
 <li>Generate the repository registration file for your image.
    <div class="highlight"><pre><span></span><code>hpvs regfile create --config $HOME/hpvs/config/securebuild/secure_create.yaml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRegfile.enc
