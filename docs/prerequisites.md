@@ -1,6 +1,6 @@
 # Prerequisites
 
-The Hosted trial environment already has sample applications that you can try for the Secure Build, and Bring Your Own Image features. However, if you would like to use your own applications, you must complete the tasks detailed in [Setting up the environment](setting_upenv.md){target=_blank}, before you proceed.
+The Hosted trial environment already has the environment set by the setup script which creates the `$HOME/hpvs` (working directory) directory structure and copies all the keys, registry files, and all the required config files and creates symbolic links of the images to this folder. It is recommended that you use these directories to save the keys, configuration files, registry files, etc. The hosted trial environment has also has the configuration files required for the digital banking application that showcases the Secure Build feature, and the Nginx application that showcases the Bring Your Own Image feature. However, if you would like to use your own applications, you must complete the tasks detailed in [Setting up the environment](setting_upenv.md){target=_blank}, before you can proceed with [Secure Build overview](securebuild/overview.md){target=_blank}, or [Bring your own image overview](byoi/overview_byoi.md){target=_blank}. 
 
 ## Accessing the Linux management server and the Secure Service Container Partition
 You will be provided the details to connect to the Linux management server by using the VPN. The details about the IP addresses, username, and password will be shared with you by email.
