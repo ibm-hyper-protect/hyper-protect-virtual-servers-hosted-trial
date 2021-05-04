@@ -1,14 +1,43 @@
-# Create your Secure Build Server by using a config file
+# Creating the Secure Build Server
 
 You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command. This is the recommended option to provision the instance because of it's ease of use, and is also an easier method of creating multiple instances quickly.
 
+You can also use the `hpvs vs create` command to create the virtual server, however this method requires you to enter several configuration information using multiple commands. For more information about this method, see [Create a virtual server by using the hpvs image and hpvs vs create commands](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#using-hpvs_create). 
+
+## Prerequisites
+Before you start the Secure Build process, you must create the certificate and key to securely communicate with Secure Build Server. Complete the following steps.
+
+1. Run the following command.
+   ```
+   cd $HOME/hpvs/config/securebuild/keys
+   ```
+
+2. Create the certificate and key to securely communicate with Secure Build Server.
+   ```
+   openssl req -newkey rsa:2048 \
+   -new -nodes -x509 \
+   -days 3650 \
+   -out sbs.cert \
+   -keyout sbs.key \
+   -subj "/C=GB/O=IBM/CN=johndoe.example.com"
+   ```
+
+    !!! note
+
+       If you see errors like `random number generator:RAND_load_file:Cannot open file`, then run the following commands.
+       ```
+       openssl rand -out $HOME/.rnd -hex 256
+       ```
+
+3. Run the following command to change the certificate to base64 encoding.
+   ```
+   echo $(cat sbs.cert | base64) | tr -d ' ' >> sbs_base64.cert
+   ```
+
+
 ## Procedure to create a Secure Build virtual server (for building the MongoDB image)
 
-1. See the topic [`Create your Secure Build Server`](create-server.md){target=_blank} for details about the certificate generation.
-
-2. Update the template file `$HOME/hpvs/config/templates/virtualserver.template.yml` based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. For details about the virtual server template file, see the [`Prerequisites` page](../prerequisites.md){target=_blank}.
-
-3. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
+1. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
 
 
     ??? example "Example of a Secure Build virtual server configuration file"
@@ -57,7 +86,7 @@ You can create the Secure Build virtual server by using the `hpvs deploy` comman
 
         **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
-4. Create the Secure Build virtual server by using the configurations in the yaml file.  
+2. Create the Secure Build virtual server by using the configurations in the yaml file.  
      ```
      hpvs deploy --config $HOME/hpvs/config/securebuild/securebuild.yaml --templatefile ../../templates/virtualserver.template.yml
      ```

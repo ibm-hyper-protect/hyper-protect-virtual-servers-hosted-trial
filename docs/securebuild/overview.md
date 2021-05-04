@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank}. For more information about creating the certificate and key to securely communicate with Secure Build Server, see [Create your Secure Build Server](create-server.md){target=_blank}.
+See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) [GitHub](https://github.com){target=_blank} and the Docker Image Management (Docker Registry) [Docker Hub](https://hub.docker.com/){target=_blank}. For more information about creating the certificate and key to securely communicate with Secure Build Server, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
 
 ## The Big Picture
 
@@ -19,7 +19,7 @@ There are 5 steps of the Secure Build process:
 
 ### SETUP
 
-Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively. Then you must create the certificate and key to securely communicate with the Secure Build Server (for more information see [`Create your Secure Build Server`](create-server.md){target=_blank}).
+Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively. Then you must create the certificate and key to securely communicate with the Secure Build Server (for more information see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}).
 
 ### ENABLEPORTS
 
@@ -27,7 +27,7 @@ Before you build a docker image by using the Hyper Protect base images, you must
 
 ### BUILD
 
-To securely build a Docker Image. See [`Create your HPVS Secure Build Server`](create-server.md){target=_blank}, or [`Create your HPVS Secure Build Server by using a config file`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your Application`](build.md){target=_blank}.
+To securely build a Docker Image, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your Application`](build.md){target=_blank}.
 
 The Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
 

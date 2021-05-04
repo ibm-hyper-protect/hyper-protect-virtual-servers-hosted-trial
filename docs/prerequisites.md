@@ -1,6 +1,6 @@
 # Prerequisites
 
-The Hosted trial environment already has the environment set by the setup script which creates the `$HOME/hpvs` (working directory) directory structure and copies all the keys, registry files, and all the required config files and creates symbolic links of the images to this folder. It is recommended that you use these directories to save the keys, configuration files, registry files, etc. The hosted trial environment has also has the configuration files required for the digital banking application that showcases the Secure Build feature, and the Nginx application that showcases the Bring Your Own Image feature. However, if you would like to use your own applications, you must complete the tasks detailed in [Setting up the environment](setting_upenv.md){target=_blank}, before you can proceed with [Secure Build overview](securebuild/overview.md){target=_blank}, or [Bring your own image overview](byoi/overview_byoi.md){target=_blank}. 
+The Hosted trial already has the environment set by the setup script which creates the `$HOME/hpvs` (working directory) directory structure and copies all the keys, registry files, and all the required config files and creates symbolic links of the images to this folder. It is recommended that you use these directories to save the keys, configuration files, registry files, etc. The hosted trial environment has also has examples of the configuration files that you can use for the digital banking application that showcases the Secure Build feature, and the Nginx application that showcases the Bring Your Own Image feature. However, if you would like to use your own applications, you must complete the tasks detailed in [Setting up the environment](setting_upenv.md){target=_blank}, before you can proceed with [Secure Build overview](securebuild/overview.md){target=_blank}, or [Bring your own image overview](byoi/overview_byoi.md){target=_blank}.
 
 ## Accessing the Linux management server and the Secure Service Container Partition
 You will be provided the details to connect to the Linux management server by using the VPN. The details about the IP addresses, username, and password will be shared with you by email.
@@ -94,5 +94,5 @@ The following is an example of the `virtualserver.template.yml` file that is pre
     ```
 
 You can find examples of the virtual server configuration file in the following topics:  
-- [`Create your HPVS Secure Build Server by using a configuration file`](securebuild/create-server-hpvsdeploy.md){target=_blank}  
+- [`Creating the Secure Build Server`](securebuild/create-server-hpvsdeploy.md){target=_blank}  
 - [`Deploying your applications securely`](byoi/byoi.md){target=_blank}
