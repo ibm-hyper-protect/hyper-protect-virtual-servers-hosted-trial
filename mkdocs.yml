@@ -10,8 +10,8 @@ nav:
       - Hyper Protect Virtual Servers (HPVS) Secure Build overview: securebuild/overview.md
       - Enabling ports: securebuild/sbs-ports-setup.md
       - Creating the Secure Build Server: securebuild/create-server-hpvsdeploy.md
-      - Securely Build your Application: securebuild/build.md
-      - Deploy your Securely Built Application as a Hyper Protect Virtual Server: securebuild/deploy-app.md
+      - Securely Build your application: securebuild/build.md
+      - Deploy your application: securebuild/deploy-app.md
       - Welcome to the Digital Banking Application: securebuild/digital_banking.md
       - Clean up your Environment: securebuild/cleanup.md
     - Bring your own image (BYOI):

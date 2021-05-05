@@ -27,7 +27,7 @@ Before you build a docker image by using the Hyper Protect base images, you must
 
 ### BUILD
 
-To securely build a Docker Image, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your Application`](build.md){target=_blank}.
+To securely build a Docker Image, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your application`](build.md){target=_blank}.
 
 The Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
 
@@ -42,12 +42,12 @@ The table details The full list of the keys used during the Secure Build lifecyc
 
 ### REGISTER
 
-Register your securely built Docker image with your Secure Service Container to verify its validity. See [`Generating the signing keys`](../byoi/gen_sign_key.md){target=_blank}, and [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}.
+Register your securely built Docker image with your Secure Service Container to verify its validity. See [`Generating the signing keys`](../byoi/gen_sign_key.md){target=_blank}, and [`Deploy your application`](deploy-app.md){target=_blank}.
 
 
 ### DEPLOY
 
-Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your Securely Built Application as a Hyper Protect Virtual Server`](deploy-app.md){target=_blank}).
+Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your application`](deploy-app.md){target=_blank}).
 
 ### ACCESS
 

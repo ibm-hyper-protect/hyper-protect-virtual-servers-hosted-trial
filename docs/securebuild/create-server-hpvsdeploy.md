@@ -2,7 +2,7 @@
 
 You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command. This is the recommended option to provision the instance because of it's ease of use, and is also an easier method of creating multiple instances quickly.
 
-You can also use the `hpvs vs create` command to create the virtual server, however this method requires you to enter several configuration information using multiple commands. For more information about this method, see [Create a virtual server by using the hpvs image and hpvs vs create commands](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#using-hpvs_create). 
+You can also use the `hpvs vs create` command to create the virtual server, however this method requires you to enter several configuration information using multiple commands. For more information about this method, see [Create a virtual server by using the hpvs image and hpvs vs create commands](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#using-hpvs_create).
 
 ## Prerequisites
 Before you start the Secure Build process, you must create the certificate and key to securely communicate with Secure Build Server. Complete the following steps.
@@ -139,7 +139,7 @@ You will follow the same steps as mentioned in the section: Procedure to create 
          ```
 
     !!! tip
-        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your Application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file. You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file. You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
 
 2. Create the MongoDB virtual server by using the configurations in the yaml file (in this step, the MongoDB image is pulled from DockerHub).
