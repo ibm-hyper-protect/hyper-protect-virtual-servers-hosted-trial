@@ -15,7 +15,7 @@
     
     
       
-        <title>Deploy your Securely Built Application as a Hyper Protect Virtual Server - Hyper Protect Virtual Servers (HPVS) Hosted Trial</title>
+        <title>Deploy your application - Hyper Protect Virtual Servers (HPVS) Hosted Trial</title>
       
     
     
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Deploy your Securely Built Application as a Hyper Protect Virtual Server
+              Deploy your application
             
           </span>
         </div>
@@ -269,18 +269,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../create-server/" title="Create your Secure Build Server" class="md-nav__link">
-      Create your Secure Build Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../sbs-ports-setup/" title="Enabling ports" class="md-nav__link">
       Enabling ports
     </a>
@@ -293,8 +281,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../create-server-hpvsdeploy/" title="Create your Secure Build Server by using a configuration file" class="md-nav__link">
-      Create your Secure Build Server by using a configuration file
+    <a href="../create-server-hpvsdeploy/" title="Creating the Secure Build Server" class="md-nav__link">
+      Creating the Secure Build Server
     </a>
   </li>
 
@@ -305,8 +293,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../build/" title="Securely Build your Application" class="md-nav__link">
-      Securely Build your Application
+    <a href="../build/" title="Securely Build your application" class="md-nav__link">
+      Securely Build your application
     </a>
   </li>
 
@@ -325,9 +313,38 @@
       
     
     
-    <a href="./" title="Deploy your Securely Built Application as a Hyper Protect Virtual Server" class="md-nav__link md-nav__link--active">
-      Deploy your Securely Built Application as a Hyper Protect Virtual Server
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Deploy your application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Deploy your application" class="md-nav__link md-nav__link--active">
+      Deploy your application
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure-to-deploy-the-banking-application" class="md-nav__link">
+    Procedure to deploy the banking application
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -674,6 +691,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure-to-deploy-the-banking-application" class="md-nav__link">
+    Procedure to deploy the banking application
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -693,25 +725,27 @@
                 
                 
                 <h1 id="deploy-your-securely-built-application-as-a-hyper-protect-virtual-server">Deploy your Securely Built Application as a Hyper Protect Virtual Server<a class="headerlink" href="#deploy-your-securely-built-application-as-a-hyper-protect-virtual-server" title="Permanent link">&para;</a></h1>
-<p>The example application used to showcase the Secure Build virtual server is the digital banking application, that requires two Secure Build virtual servers, one for building the MongoDB application and the second one for the digital banking application. Two virtual servers are created for the images, one for MongoDB, and one for the digital banking application. The following steps are required to deploy this application:  </p>
+<p>The example application used to showcase the Secure Build virtual server is the digital banking application, that requires two Secure Build virtual servers, one for building the MongoDB application and the second one for building the digital banking application. The two application images are deployed in two virtual servers.</p>
+<h2 id="procedure-to-deploy-the-banking-application">Procedure to deploy the banking application<a class="headerlink" href="#procedure-to-deploy-the-banking-application" title="Permanent link">&para;</a></h2>
+<p>Follow the instructions provided here to deploy the banking application:  </p>
 <ol>
 <li>
-<p>Create a Secure Build virtual server for building the MongoDB image. See the section: "Procedure to create a Secure Build virtual server (for building the MongoDB image) in the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Create your HPVS Secure Build Server by using a configuration file</code></a>, or  <a href="../create-server/" target="_blank"><code>Create your HPVS Secure Build Server</code></a>.</p>
+<p>To create a Secure Build virtual server for building the MongoDB image. See these <a href="https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image" target="_blank">instructions</a> from the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>.</p>
 </li>
 <li>
-<p>Build the MongoDB image by using the Secure Build process. See the section: "Procedure to create the MongoDB image" in the topic <a href="../build/" target="_blank"><code>Securely Build your Application</code></a>.</p>
+<p>Build the MongoDB image by using the Secure Build process. See these <a href="https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-mongodb-image" target="_blank">instructions</a> from the topic <a href="../build/" target="_blank"><code>Securely Build your application</code></a>.</p>
 </li>
 <li>
-<p>Create a MongoDB virtual server. This server must be up and running before you create the digital banking virtual server. See the section "Procedure to create the MongoDB virtual server" in the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Create your HPVS Secure Build Server by using a configuration file</code></a>.</p>
+<p>Create a MongoDB virtual server. This server must be up and running before you create the digital banking virtual server. See these <a href="https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-mongodb-virtual-server" target="_blank">instructions</a> from the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>.</p>
 </li>
 <li>
-<p>Create a Secure Build virtual server for building the digital application image. See the section: "Procedure to create a Secure Build virtual server (for building the digital banking application image)" in the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Create your HPVS Secure Build Server by using a configuration file</code></a>.</p>
+<p>Create a Secure Build virtual server for building the digital application image. See these <a href="https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server-for-building-the-digital-banking-application-image" target="_blank">instructions</a> from the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>.</p>
 </li>
 <li>
-<p>Build the digital banking image by using the Secure Build process. See the section: "Procedure to create the digital banking image" in the topic <a href="../build/" target="_blank"><code>Securely Build your Application</code></a>.</p>
+<p>Build the digital banking image by using the Secure Build process. See these <a href="https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-digital-banking-image" target="_blank">instructions</a> from the topic <a href="../build/" target="_blank"><code>Securely Build your application</code></a>.</p>
 </li>
 <li>
-<p>Create a Secure Build virtual server for deploying the digital application image. See the section:  Procedure to create the digital virtual server" in the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Create your HPVS Secure Build Server by using a configuration file</code></a>.</p>
+<p>Create a Secure Build virtual server for deploying the digital application image. See these <a href="https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-digital-virtual-server" target="_blank">instructions</a> from the topic <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>.</p>
 </li>
 </ol>
 <p>When you complete the steps listed above, the application is deployed and you can access the digital banking application. See <a href="../digital_banking/" target="_blank"><code>Welcome to the Digital Banking Application</code></a> for details.</p>
@@ -733,7 +767,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../build/" title="Securely Build your Application" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../build/" title="Securely Build your application" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -742,7 +776,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Securely Build your Application
+                Securely Build your application
               </div>
             </div>
           </a>

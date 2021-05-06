@@ -312,18 +312,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../securebuild/create-server/" title="Create your Secure Build Server" class="md-nav__link">
-      Create your Secure Build Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../securebuild/sbs-ports-setup/" title="Enabling ports" class="md-nav__link">
       Enabling ports
     </a>
@@ -336,8 +324,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../securebuild/create-server-hpvsdeploy/" title="Create your Secure Build Server by using a configuration file" class="md-nav__link">
-      Create your Secure Build Server by using a configuration file
+    <a href="../securebuild/create-server-hpvsdeploy/" title="Creating the Secure Build Server" class="md-nav__link">
+      Creating the Secure Build Server
     </a>
   </li>
 
@@ -348,8 +336,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../securebuild/build/" title="Securely Build your Application" class="md-nav__link">
-      Securely Build your Application
+    <a href="../securebuild/build/" title="Securely Build your application" class="md-nav__link">
+      Securely Build your application
     </a>
   </li>
 
@@ -360,8 +348,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../securebuild/deploy-app/" title="Deploy your Securely Built Application as a Hyper Protect Virtual Server" class="md-nav__link">
-      Deploy your Securely Built Application as a Hyper Protect Virtual Server
+    <a href="../securebuild/deploy-app/" title="Deploy your application" class="md-nav__link">
+      Deploy your application
     </a>
   </li>
 
@@ -749,7 +737,11 @@
                 
                 
                 <h1 id="setting-up-the-environment">Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Permanent link">&para;</a></h1>
-<p>When you want to use your own applications for exploring Secure Build, you must register the base images in the remote registry server (Docker Hub or IBM Cloud Container Registry) by using your Docker Hub or IBM Cloud Container Registry user ID and password. In the hosted trial environment, the base images are located at <code>$HOME/hpvs/config/hpvsopbase/images</code>, and <code>$HOME/hpvs/config/hpvsopbasessh</code>.</p>
+<p>If you want to use your own applications for exploring Secure Build, you must register the base images in the remote registry server (Docker Hub or IBM Cloud Container Registry) by using your Docker Hub or IBM Cloud Container Registry user ID and password.</p>
+<p>The base images are the default Hyper Protect Virtual Server container images that can be used to host your application code, and include two different types of container images for your development and production environments.
+  * <code>HpvsopBaseSSH</code>, which packages the SSH daemon into the default Hyper Protect Virtual Server container image, so that you can log in to the Hyper Protect Virtual Server by using the secure shell and your private key for debugging and development.
+  * <code>HpvsopBase</code>, which excludes the SSH daemon on the default Hyper Protect Virtual Server container image, and can be used in the production environment.
+In the hosted trial environment, the base images are located at <code>$HOME/hpvs/config/hpvsopbase/images</code>(<code>HpvsopBase</code>), and <code>$HOME/hpvs/config/hpvsopbasessh</code>(<code>HpvsopBaseSSH</code>).</p>
 <h2 id="before-you-begin">Before you begin<a class="headerlink" href="#before-you-begin" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Check that you have the account ID and password on the remote docker registry server to create repositories for base images. For example, <code>docker_base_user</code> is your user ID on the remote docker registry server.</li>
@@ -773,14 +765,13 @@
 <li>
 <p>Log in to the remote docker repository.  </p>
 <ul>
-<li>For Docker Hub, run the <code>docker login</code> command. For more information, see <a href="https://docs.docker.com/engine/reference/commandline/login/">Docker Login command</a>.</li>
+<li>For Docker Hub, run the <code>docker login</code> command from the <code>$HOME/hpvs_user</code> directory. For more information, see <a href="https://docs.docker.com/engine/reference/commandline/login/">Docker Login command</a>.</li>
 <li>For IBM Cloud Container Registry, run <code>docker login -u iamapikey -p &lt;iam_api_key&gt; &lt;region&gt;.icr.io</code> command. For more information, see <a href="https://cloud.ibm.com/docs/Registry?topic=registry-registry_access#registry_access_apikey_auth_docker">Using Docker to authenticate with an API key</a>.</li>
 </ul>
 </li>
 <li>
-<p>Run the command: <code>docker images</code>, to check whether the base images are loaded into the local registry successfully.
+<p>From the <code>$HOME/hpvs_user</code> directory, run the command: <code>docker images</code>, to check whether the base images are loaded into the local registry successfully.
    <div class="highlight"><pre><span></span><code>REPOSITORY                       TAG                       IMAGE ID            CREATED             SIZE
-ibmzcontainers/hpvsop-base       1.2.3-release-d0651e4     a53aae01b3ef        13 days ago         1.37GB
 ibmzcontainers/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        13 days ago         1.31GB
 </code></pre></div></p>
 </li>
@@ -788,13 +779,13 @@ ibmzcontainers/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        1
 <p>Create two repositories in your namespace for both the <code>hpvsop-base</code> image and the <code>hpvsop-base-ssh</code> image on the <a href="https://hub.docker.com/">Docker Hub</a>. For example, <code>docker_base_user/hpvsop-base</code> and <code>docker_base_user/hpvsop-base-ssh</code>. Note that the repository name must match the image name.</p>
 </li>
 <li>
-<p>Use the <code>docker tag</code> command to tag base images with the same ID used by the CLI tool. Run the following commands to tag both base images.
+<p>Use the <code>docker tag</code> command to tag base images with the same ID used by the CLI tool. Run the following commands from the <code>$HOME/hpvs_user</code> directory, to tag both base images.
    <div class="highlight"><pre><span></span><code>docker tag ibmzcontainers/hpvsop-base:1.2.3-release-d0651e4 docker_base_user/hpvsop-base:1.2.3-release-d0651e4
 docker tag ibmzcontainers/hpvsop-base-ssh:1.2.3-release-d0651e4 docker_base_user/hpvsop-base-ssh:1.2.3-release-d0651e4
 </code></pre></div></p>
 </li>
 <li>
-<p>Run the <code>docker images</code> command to check whether the tags for the base images are as expected.
+<p>Run the <code>docker images</code> command from the <code>$HOME/hpvs_user</code> directory, to check whether the tags for the base images are as expected.
    <div class="highlight"><pre><span></span><code>REPOSITORY                         TAG                       IMAGE ID            CREATED            SIZE
 ...
 ibmzcontainers/hpvsop-base         1.2.3-release-d0651e4     a53aae01b3ef        6 days ago         1.37GB

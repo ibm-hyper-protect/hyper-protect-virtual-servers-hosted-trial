@@ -369,18 +369,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../create-server/" title="Create your Secure Build Server" class="md-nav__link">
-      Create your Secure Build Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../sbs-ports-setup/" title="Enabling ports" class="md-nav__link">
       Enabling ports
     </a>
@@ -393,8 +381,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../create-server-hpvsdeploy/" title="Create your Secure Build Server by using a configuration file" class="md-nav__link">
-      Create your Secure Build Server by using a configuration file
+    <a href="../create-server-hpvsdeploy/" title="Creating the Secure Build Server" class="md-nav__link">
+      Creating the Secure Build Server
     </a>
   </li>
 
@@ -405,8 +393,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../build/" title="Securely Build your Application" class="md-nav__link">
-      Securely Build your Application
+    <a href="../build/" title="Securely Build your application" class="md-nav__link">
+      Securely Build your application
     </a>
   </li>
 
@@ -417,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../deploy-app/" title="Deploy your Securely Built Application as a Hyper Protect Virtual Server" class="md-nav__link">
-      Deploy your Securely Built Application as a Hyper Protect Virtual Server
+    <a href="../deploy-app/" title="Deploy your application" class="md-nav__link">
+      Deploy your application
     </a>
   </li>
 
@@ -862,7 +850,7 @@
                 
                 <h1 id="hyper-protect-virtual-servers-secure-build-overview">Hyper Protect Virtual Servers Secure Build overview<a class="headerlink" href="#hyper-protect-virtual-servers-secure-build-overview" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>See the <a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a> to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) <a href="https://github.com" target="_blank">GitHub</a> and the Docker Image Management (Docker Registry) <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>. For more information about creating the certificate and key to securely communicate with Secure Build Server, see <a href="../create-server/" target="_blank">Create your Secure Build Server</a>.</p>
+<p>See the <a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a> to complete the prerequisites for this trial if you want to use your own application. This includes creating accounts and credentials to access the Source Code Management (SCM) <a href="https://github.com" target="_blank">GitHub</a> and the Docker Image Management (Docker Registry) <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>. For more information about creating the certificate and key to securely communicate with Secure Build Server, see <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>.</p>
 <h2 id="the-big-picture">The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">&para;</a></h2>
 <p>There are 5 steps of the Secure Build process:</p>
 <ol>
@@ -876,11 +864,11 @@
    These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites (<a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a>), then refer the IBM Knowledge Center topic: <a href="https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html" target="_blank"><code>Building your application with the Secure Build virtual server</code></a> for detailed instructions.</li>
 </ol>
 <h3 id="setup">SETUP<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
-<p>Configure your environment with the necessary credentials to connect to <a href="https://github.com" target="_blank">GitHub</a> and <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> respectively. Then you must create the certificate and key to securely communicate with the Secure Build Server (for more information see <a href="../create-server/" target="_blank"><code>Create your Secure Build Server</code></a>).</p>
+<p>Configure your environment with the necessary credentials to connect to <a href="https://github.com" target="_blank">GitHub</a> and <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> respectively. Then you must create the certificate and key to securely communicate with the Secure Build Server (for more information see <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>).</p>
 <h3 id="enableports">ENABLEPORTS<a class="headerlink" href="#enableports" title="Permanent link">&para;</a></h3>
 <p>Before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see <a href="../sbs-ports-setup/" target="_blank"><code>Enabling ports</code></a>.</p>
 <h3 id="build">BUILD<a class="headerlink" href="#build" title="Permanent link">&para;</a></h3>
-<p>To securely build a Docker Image. See <a href="../create-server/" target="_blank"><code>Create your HPVS Secure Build Server</code></a>, or <a href="../create-server-hpvsdeploy/" target="_blank"><code>Create your HPVS Secure Build Server by using a config file</code></a>, and <a href="../build/" target="_blank"><code>Securely Build your Application</code></a>.</p>
+<p>To securely build a Docker Image, see <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>, and <a href="../build/" target="_blank"><code>Securely Build your application</code></a>.</p>
 <p>The Secure Build Process leverages a <strong>Hyper Protect Virtual Server</strong>, called the Secure Build Server, to establish trust and security in the <a href="https://docs.docker.com/engine/security/trust/content_trust/" target="_blank">Docker Content Trust</a> process. This ensure images verified using the <a href="https://docs.docker.com/notary/service_architecture/" target="_blank">Notary service architecture</a> were safely built and signed. This is done by generating the repository and root keys used to establish trust with the <a href="https://docs.docker.com/notary/service_architecture/" target="_blank">Notary Service</a> inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the <a href="https://en.wikipedia.org/wiki/Trust_on_first_use" target="_blank">TOFU</a> problem).</p>
 <p>The table details The full list of the keys used during the Secure Build lifecycle.</p>
 <table>
@@ -918,9 +906,9 @@
 </tbody>
 </table>
 <h3 id="register">REGISTER<a class="headerlink" href="#register" title="Permanent link">&para;</a></h3>
-<p>Register your securely built Docker image with your Secure Service Container to verify its validity. See <a href="../../byoi/gen_sign_key/" target="_blank"><code>Generating the signing keys</code></a>, and <a href="../deploy-app/" target="_blank"><code>Deploy your Securely Built Application as a Hyper Protect Virtual Server</code></a>.</p>
+<p>Register your securely built Docker image with your Secure Service Container to verify its validity. See <a href="../../byoi/gen_sign_key/" target="_blank"><code>Generating the signing keys</code></a>, and <a href="../deploy-app/" target="_blank"><code>Deploy your application</code></a>.</p>
 <h3 id="deploy">DEPLOY<a class="headerlink" href="#deploy" title="Permanent link">&para;</a></h3>
-<p>Deploy your application <code>(from the verified repository)</code> as a Hyper Protect Virtual Server within its own secure environment (see <a href="../deploy-app/" target="_blank"><code>Deploy your Securely Built Application as a Hyper Protect Virtual Server</code></a>).</p>
+<p>Deploy your application <code>(from the verified repository)</code> as a Hyper Protect Virtual Server within its own secure environment (see <a href="../deploy-app/" target="_blank"><code>Deploy your application</code></a>).</p>
 <h3 id="access">ACCESS<a class="headerlink" href="#access" title="Permanent link">&para;</a></h3>
 <p>Access your application with security built-in. See <a href="../digital_banking/" target="_blank"><code>Welcome to the Digital Banking Application</code></a>.</p>
 <h3 id="cleanup">CLEANUP<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h3>
@@ -958,13 +946,13 @@
           </a>
         
         
-          <a href="../create-server/" title="Create your Secure Build Server" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../sbs-ports-setup/" title="Enabling ports" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Create your Secure Build Server
+                Enabling ports
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

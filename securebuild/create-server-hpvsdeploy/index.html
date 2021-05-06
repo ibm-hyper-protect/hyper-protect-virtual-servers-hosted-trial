@@ -15,7 +15,7 @@
     
     
       
-        <title>Create your Secure Build Server by using a configuration file - Hyper Protect Virtual Servers (HPVS) Hosted Trial</title>
+        <title>Creating the Secure Build Server - Hyper Protect Virtual Servers (HPVS) Hosted Trial</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-your-secure-build-server-by-using-a-config-file" class="md-skip">
+        <a href="#creating-the-secure-build-server" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Create your Secure Build Server by using a configuration file
+              Creating the Secure Build Server
             
           </span>
         </div>
@@ -269,18 +269,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../create-server/" title="Create your Secure Build Server" class="md-nav__link">
-      Create your Secure Build Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../sbs-ports-setup/" title="Enabling ports" class="md-nav__link">
       Enabling ports
     </a>
@@ -302,12 +290,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Create your Secure Build Server by using a configuration file
+        Creating the Secure Build Server
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Create your Secure Build Server by using a configuration file" class="md-nav__link md-nav__link--active">
-      Create your Secure Build Server by using a configuration file
+    <a href="./" title="Creating the Secure Build Server" class="md-nav__link md-nav__link--active">
+      Creating the Secure Build Server
     </a>
     
       
@@ -324,8 +312,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image" class="md-nav__link">
-    Procedure to create a Secure Build virtual server (for building the MongoDB image)
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure-to-create-a-secure-build-virtual-server" class="md-nav__link">
+    Procedure to create a Secure Build virtual server 
   </a>
   
 </li>
@@ -364,8 +359,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../build/" title="Securely Build your Application" class="md-nav__link">
-      Securely Build your Application
+    <a href="../build/" title="Securely Build your application" class="md-nav__link">
+      Securely Build your application
     </a>
   </li>
 
@@ -376,8 +371,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../deploy-app/" title="Deploy your Securely Built Application as a Hyper Protect Virtual Server" class="md-nav__link">
-      Deploy your Securely Built Application as a Hyper Protect Virtual Server
+    <a href="../deploy-app/" title="Deploy your application" class="md-nav__link">
+      Deploy your application
     </a>
   </li>
 
@@ -731,8 +726,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image" class="md-nav__link">
-    Procedure to create a Secure Build virtual server (for building the MongoDB image)
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure-to-create-a-secure-build-virtual-server" class="md-nav__link">
+    Procedure to create a Secure Build virtual server 
   </a>
   
 </li>
@@ -778,16 +780,41 @@
                   
                 
                 
-                <h1 id="create-your-secure-build-server-by-using-a-config-file">Create your Secure Build Server by using a config file<a class="headerlink" href="#create-your-secure-build-server-by-using-a-config-file" title="Permanent link">&para;</a></h1>
+                <h1 id="creating-the-secure-build-server">Creating the Secure Build Server<a class="headerlink" href="#creating-the-secure-build-server" title="Permanent link">&para;</a></h1>
 <p>You can create the Secure Build virtual server by using the <code>hpvs deploy</code> command by specifying a configuration yaml file as an input for the <code>hpvs deploy</code> command. This is the recommended option to provision the instance because of it's ease of use, and is also an easier method of creating multiple instances quickly.</p>
-<h2 id="procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image">Procedure to create a Secure Build virtual server (for building the MongoDB image)<a class="headerlink" href="#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image" title="Permanent link">&para;</a></h2>
+<p>You can also use the <code>hpvs vs create</code> command to create the virtual server, however this method requires you to enter several configuration information using multiple commands. For more information about this method, see <a href="https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#using-hpvs_create">Create a virtual server by using the hpvs image and hpvs vs create commands</a>.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before you start the Secure Build process, you must create the certificate and key to securely communicate with Secure Build Server. Complete the following steps.</p>
 <ol>
 <li>
-<p>See the topic <a href="../create-server/" target="_blank"><code>Create your Secure Build Server</code></a> for details about the certificate generation.</p>
+<p>Run the following command.
+   <div class="highlight"><pre><span></span><code>cd $HOME/hpvs/config/securebuild/keys
+</code></pre></div></p>
 </li>
 <li>
-<p>Update the template file <code>$HOME/hpvs/config/templates/virtualserver.template.yml</code> based on the networking configuration, quotagroup, and resource settings of the Hyper Protect Virtual Server instance if necessary. For details about the virtual server template file, see the <a href="../../prerequisites/" target="_blank"><code>Prerequisites</code> page</a>.</p>
+<p>Create the certificate and key to securely communicate with Secure Build Server.
+   <div class="highlight"><pre><span></span><code>openssl req -newkey rsa:2048 \
+-new -nodes -x509 \
+-days 3650 \
+-out sbs.cert \
+-keyout sbs.key \
+-subj &quot;/C=GB/O=IBM/CN=johndoe.example.com&quot;
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>If you see errors like <code>random number generator:RAND_load_file:Cannot open file</code>, then run the following commands.
+   <div class="highlight"><pre><span></span><code>openssl rand -out $HOME/.rnd -hex 256
+</code></pre></div></p>
 </li>
+<li>
+<p>Run the following command to change the certificate to base64 encoding.
+   <div class="highlight"><pre><span></span><code>echo $(cat sbs.cert | base64) | tr -d &#39; &#39; &gt;&gt; sbs_base64.cert
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="procedure-to-create-a-secure-build-virtual-server">Procedure to create a Secure Build virtual server <!--(for building the MongoDB image) --><a class="headerlink" href="#procedure-to-create-a-secure-build-virtual-server" title="Permanent link">&para;</a></h2>
+<ol>
 <li>
 <p>Create the configuration yaml file <code>securebuild.yml</code> for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The <code>vs_securebuild.yml</code> has the configuration details for the virtual server and refers to the corresponding sections of the <code>virtualserver.template.yml</code> when you run the <code>hpvs deploy</code> command. For example, the <code>resourcedefinition: ref</code> value refers to the <code>resourcedefinitiontemplate</code> definition in the template file.    </p>
 <details class="example"><summary>Example of a Secure Build virtual server configuration file</summary><p><div class="highlight"><pre><span></span><code>version: v1
@@ -878,7 +905,7 @@ virtualservers:
 </details>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Step 3 of "Procedure to create the MongoDB image" from the topic <a href="../build/" target="_blank"><code>Securely Build your Application</code></a> generates the encrypted registration file <code>encryptedRepoRegistration_mongo.enc</code> that is used in the above example yaml file. You can view the example configuration files at <code>home/hpvs_user/HPVS1221_Production/config/yaml</code>.</p>
+<p>Step 3 of "Procedure to create the MongoDB image" from the topic <a href="../build/" target="_blank"><code>Securely Build your application</code></a> generates the encrypted registration file <code>encryptedRepoRegistration_mongo.enc</code> that is used in the above example yaml file. You can view the example configuration files at <code>home/hpvs_user/HPVS1221_Production/config/yaml</code>.</p>
 </div>
 </li>
 <li>
@@ -995,13 +1022,13 @@ virtualservers:
           </a>
         
         
-          <a href="../build/" title="Securely Build your Application" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../build/" title="Securely Build your application" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Securely Build your Application
+                Securely Build your application
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
