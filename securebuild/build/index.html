@@ -766,7 +766,7 @@
 <p>To generate the signing keys, follow the instructions listed in the topic <a href="../../byoi/gen_sign_key/" target="_blank"><code>Generating the signing keys</code></a>.</p>
 </li>
 <li>
-<p>Create the configuration <code>mongo_secure_build.yml</code> file for MongoDB. You can use the <code>$HOME/hpvs/config/securebuild/secure_build.yml.example</code> example file as a reference when updating the file.</p>
+<p>Create the configuration <code>mongo_secure_build.yml</code> file for MongoDB. You can use the <code>$HOME/hpvs/config/securebuild/secure_build.yml.example</code> example file as a reference when updating the file. The source for the MongoDB is present in <a href="https://github.com/hpvshostedtrail2022/bank_App/tree/mongo_sbs" target="_blank">this GitHub repository</a>.</p>
 <details class="example" open="open"><summary>mongo_secure_build.yml</summary><div class="highlight"><pre><span></span><code>secure_build_workers:
 sbs:
    url: &#39;https://129.40.15.77&gt;&#39;
@@ -807,7 +807,7 @@ signing_key:
 </details>
 </li>
 <li>
-<p>The application required to build the MongoDB application is available in the GitHub repository (details of repository is specified in the <code>github</code> parameters of the configuration file shown in the previous step) by choosing one of the following options:  </p>
+<p>The application required to build the MongoDB application is available in the GitHub repository (details of repository is specified in the <code>github</code> and the <code>branch</code> parameters of the configuration file shown in the previous step) by choosing one of the following options:  </p>
 <ul>
 <li>Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
 <div class="highlight"><pre><span></span><code>hpvs sb init --config $HOME/hpvs/config/mongo_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_mongo.enc --build
@@ -824,7 +824,7 @@ hpvs sb regfile --config $HOME/hpvs/config/securebuild/mongo_secure_build.yml --
 </details>
 <p>After the Secure build process completes, the MongoDB image is pushed to the DockerHub repository, from where it will be later pulled to create the MongoDB virtual server.</p>
 <h2 id="procedure-to-create-the-digital-banking-image">Procedure to create the digital banking image<a class="headerlink" href="#procedure-to-create-the-digital-banking-image" title="Permanent link">&para;</a></h2>
-<p>You will follow the same steps as mentioned in the section above but use a configuration file that specifies the details that are required for the MongoDB virtual server.</p>
+<p>You will follow the same steps as mentioned in the section above but use a configuration file that specifies the details that are required for the digital banking application.</p>
 <ol>
 <li>
 <p>Create the configuration <code>digital_secure_build.yml</code> file for the digital application. You can use the <code>$HOME/hpvs/config/securebuild/secure_build.yml.example</code> example file as a reference when updating the file.</p>
@@ -870,7 +870,7 @@ signing_key:
 </details>
 </li>
 <li>
-<p>The application required to build the digital banking application is available in the GitHub repository (details of repository is specified in the <code>github</code> parameters of the configuration file shown in the previous step) by choosing one of the following options:  </p>
+<p>The application required to build the digital banking application is available in the GitHub repository (details of repository is specified in the <code>github</code> and the <code>branch</code> parameters of the configuration file shown in the previous step) by choosing one of the following options:  </p>
 <ul>
 <li>Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
 <div class="highlight"><pre><span></span><code>hpvs sb init --config $HOME/hpvs/config/securebuild/digital_secure_build.yml --out $HOME/hpvs/config/securebuild/regfiles/encryptedRepoRegistration_digital.enc --build
