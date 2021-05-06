@@ -2,7 +2,7 @@
 
 You can create the Secure Build virtual server by using the `hpvs deploy` command by specifying a configuration yaml file as an input for the `hpvs deploy` command. This is the recommended option to provision the instance because of it's ease of use, and is also an easier method of creating multiple instances quickly.
 
-You can also use the `hpvs vs create` command to create the virtual server, however this method requires you to enter several configuration information using multiple commands. For more information about this method, see [Create a virtual server by using the hpvs image and hpvs vs create commands](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#using-hpvs_create).
+You can also use the `hpvs vs create` command to create the virtual server, however this method requires you to enter several configuration information using multiple commands. For more information about this method, see [Create a virtual server by using the hpvs image and hpvs vs create commands](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#using-hpvs_create){target=_blank}.
 
 ## Prerequisites
 Before you start the Secure Build process, you must create the certificate and key to securely communicate with Secure Build Server. Complete the following steps.
@@ -37,7 +37,7 @@ Before you start the Secure Build process, you must create the certificate and k
 
 ## Procedure to create a Secure Build virtual server <!--(for building the MongoDB image) -->
 
-1. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
+1. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. The virtual server template file contains the definitions of the resources, volumes, environment templates, and networks that are required to create a virtual server. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
 
 
     ??? example "Example of a Secure Build virtual server configuration file"
@@ -97,7 +97,8 @@ Before you start the Secure Build process, you must create the certificate and k
         hpvs deploy --config $HOME/hpvs/config/securebuild/securebuild.yaml --templatefile ../../templates/virtualserver.template.yml
         ```
 
-Your Secure Build Server is now up and running. It is available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified. This Secure Build virtual Server will be used to build the MongoDB image.
+   The deploy process automates creation of the quotagroup, network, and loads the Secure Dockerbuild image to the Secure Service Container LPAR. After the command completes execution, the Secure Build Server will be available at the IP Address of the Hyper Protect Virtual Server LPAR and port (GuestPort) specified.
+   To showcase the sample application, this Secure Build virtual Server will be used to build the [MongoDB image](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-mongodb-image) later in this trial. You can follow the same procedure listed above, for creating a Secure Build virtual Server that will be used to build the [digital banking application](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-digital-banking-image){target=_blank} image later in this trial.
 
 
 ???+ example "Example Output"
@@ -105,11 +106,9 @@ Your Secure Build Server is now up and running. It is available at the IP Addres
 
 
 
-## Procedure to create the MongoDB virtual server
+## Procedure to create the virtual server for MongoDB
 
-You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the MongoDB virtual server. To run the digital banking application, the digital virtual server requires the MongoDB virtual to be up and running already.
-
-1. Create the configuration file `mongo_demo.yml` for the MongoDB virtual server by referring to the example `vs_configfile_readme.yaml` available in `$HOME/home/hpvs/config`.
+1. Create the configuration file `mongo_demo.yml` for the MongoDB virtual server by referring to the example `vs_configfile_readme.yaml` available at `$HOME/home/hpvs/config`.
  The following is an example of the configuration file:
 
     ??? example "mongo_demo.yml"
@@ -159,18 +158,23 @@ You will follow the same steps as mentioned in the section: Procedure to create 
         ![Mongo Server](securebuild-Images/mongo_vs.png)
 
 
-## Procedure to create a Secure Build virtual server (for building the digital banking application image)
+## Procedure to create a Secure Build virtual server to build the digital banking application
 
-You can use the same configuration file that had you created earlier for deploying the Secure Build virtual server by deleting the virtual server that was created (test_securebuild), and running the same steps as listed in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image). The Secure Build virtual server thus created is used to build the digital banking application image.    
+You can complete the [same steps](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server){target=_blank} for creating the Secure Build virtual server to build the digital banking application image.
 
-Alternatively, you can also create another configuration file with the details of the Secure Build Server and create another virtual server, and use this virtual server to build the digital banking application image.
+After you create the virtual server, this server is used to build the digital banking application image, later in this trial.
 
 
-## Procedure to create the digital virtual server
+!!! tip
+    If you do not want to create another configuration file, you can delete the Secure Build virtual server that was earlier created (test_securebuild) for building the MongoDB image, and follow the same steps for creating a Secure Build virtual server .You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
-You will follow the same steps as mentioned in the section: Procedure to create a Secure Build virtual server (for building the MongoDB image), but use a configuration file that specifies the details that are required for the digital virtual server.
+    
 
-1. Create the configuration file for the digital application virtual server by referring to the example `vs_configfile_readme.yaml` available in `$HOME/home/hpvs/config`. This following is an example of the configuration file:
+## Procedure to create the virtual server for the digital banking application
+
+The procedure is the same as the one you would use to create the virtual server for MongoDB, but use a configuration file that specifies the details that are required for the digital virtual server.
+
+1. Create the configuration file for the digital banking application virtual server by referring to the example `vs_configfile_readme.yaml` available at `$HOME/home/hpvs/config`. This following is an example of the configuration file:
 
     ??? example "digital_demo.yml"
 

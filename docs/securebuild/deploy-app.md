@@ -4,18 +4,18 @@ The example application used to showcase the Secure Build virtual server is the 
 
 
 ## Procedure to deploy the banking application
-Follow the instructions provided here to deploy the banking application:  
+Follow the instructions provided here to deploy the digital banking application:  
 
-1. To create a Secure Build virtual server for building the MongoDB image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image){target=_blank} from the topic [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
+1. Create a Secure Build virtual server for building the MongoDB image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server){target=_blank} for creating the Secure Build virtual server.
 
-2. Build the MongoDB image by using the Secure Build process. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-mongodb-image){target=_blank} from the topic [`Securely Build your application`](build.md){target=_blank}.
+2. Build the MongoDB image by using the Secure Build process. You will use the Secure Build virtual server that you created in step 1, to build the MongoDB image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-mongodb-image){target=_blank} to build the MongoDB application.
 
-3. Create a MongoDB virtual server. This server must be up and running before you create the digital banking virtual server. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-mongodb-virtual-server){target=_blank} from the topic [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
+3. Create a virtual server to deploy the MongoDB image. This server must be available and in the running state before you create the virtual server that runs the digital banking application. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-mongodb-virtual-server){target=_blank} to create the virtual server with the MongoDB image.
 
-4. Create a Secure Build virtual server for building the digital application image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server-for-building-the-digital-banking-application-image){target=_blank} from the topic [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
+4. Create a Secure Build virtual server for building the digital banking application image. See these [instructions](ttps://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-virtual-server-for-the-digital-banking-application){target=_blank} for creating the Secure Build virtual server.
 
-5. Build the digital banking image by using the Secure Build process. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-digital-banking-image){target=_blank} from the topic [`Securely Build your application`](build.md){target=_blank}.
+5. Build the digital banking image by using the Secure Build process. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-digital-banking-image){target=_blank} to build the digital banking application.
 
-6. Create a Secure Build virtual server for deploying the digital application image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-digital-virtual-server){target=_blank} from the topic [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
+6. Create a virtual server to deploy the digital application image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-the-virtual-server-for-the-digital-banking-application){target=_blank} to create the virtual server with the digital banking application image.
 
 When you complete the steps listed above, the application is deployed and you can access the digital banking application. See [`Welcome to the Digital Banking Application`](digital_banking.md){target=_blank} for details.

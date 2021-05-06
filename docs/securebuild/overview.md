@@ -6,28 +6,28 @@ See the [`Prerequisites` page](../prerequisites.md){target=_blank} to complete t
 
 ## The Big Picture
 
-There are 5 steps of the Secure Build process:
+There are the steps of the Secure Build process:
 
 1. [SETUP](#setup)
-2. [ENABLEPORTS](#enableports)
 2. [BUILD](#build)
-3. [REGISTER](#register)
-4. [DEPLOY](#deploy)
-5. [ACCESS](#access)
-6. [CLEAN UP](#cleanup)  
+3. [DEPLOY](#deploy)
+4. [ACCESS](#access)
+5. [CLEAN UP](#cleanup)  
    These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic: [`Building your application with the Secure Build virtual server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html){target=_blank} for detailed instructions.
 
 ### SETUP
 
-Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively. Then you must create the certificate and key to securely communicate with the Secure Build Server (for more information see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}).
+Complete the following steps:
+- Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively.
+- Create the certificate and key to securely communicate with the Secure Build Server (for more information, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}).
 
-### ENABLEPORTS
-
-Before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see [`Enabling ports`](sbs-ports-setup.md){target=_blank}.
 
 ### BUILD
 
-To securely build a Docker Image, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}, and [`Securely Build your application`](build.md){target=_blank}.
+Complete the following steps:
+- Create the Secure Build virtual servers for the MongoDB and the digital banking applications (for more information, see
+[`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
+- Build the MongoDB and the digital banking application images (for more information, see)[`Securely Build your application`](build.md){target=_blank}).
 
 The Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
 
@@ -40,14 +40,9 @@ The table details The full list of the keys used during the Secure Build lifecyc
 | Client certificate and Key | Used by the cloud administrator to securely interact with the Secure Build REST API, contains certificate and private key | Client | Created on creation of the Secure Build container and provided to the client as the file specified in their CLIENT_CRT_KEY setting | Cloud administrator |
 
 
-### REGISTER
-
-Register your securely built Docker image with your Secure Service Container to verify its validity. See [`Generating the signing keys`](../byoi/gen_sign_key.md){target=_blank}, and [`Deploy your application`](deploy-app.md){target=_blank}.
-
-
 ### DEPLOY
 
-Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (see [`Deploy your application`](deploy-app.md){target=_blank}).
+Deploy your application `(from the verified repository)` as a Hyper Protect Virtual Server within its own secure environment (for more information, see [`Deploy your application`](deploy-app.md){target=_blank}).
 
 ### ACCESS
 

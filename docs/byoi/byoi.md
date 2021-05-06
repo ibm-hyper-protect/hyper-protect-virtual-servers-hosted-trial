@@ -166,7 +166,7 @@ To generate the signing keys, follow the instructions listed in the topic [`Gene
 
 **Complete the following steps to deploy your own image by using the `hpvs deploy` command.**
 
-- Create the "nginx_demo_byoi.yml" file by referring to the example `vs_configfile_readme.yaml` available in `$HOME/home/hpvs/config`.
+- Create the "nginx_demo_byoi.yml" file by referring to the example `vs_configfile_readme.yaml` available at `$HOME/home/hpvs/config`.
 
 ??? example "Example of the nginx_demo_byoi.yml file"
 

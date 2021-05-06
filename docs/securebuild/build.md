@@ -13,7 +13,7 @@ On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management ser
 
 1. To generate the signing keys, follow the instructions listed in the topic [`Generating the signing keys`](../byoi/gen_sign_key.md){target=_blank}.
 
-2. Create the configuration `mongo_secure_build.yml` file for MongoDB. You can use the `$HOME/hpvs/config/securebuild/secure_build.yml.example` example file as a reference when updating the file.
+2. Create the configuration `mongo_secure_build.yml` file for MongoDB. You can use the `$HOME/hpvs/config/securebuild/secure_build.yml.example` example file as a reference when updating the file. The source for the MongoDB is present in [this GitHub repository](https://github.com/hpvshostedtrail2022/bank_App/tree/mongo_sbs){target=_blank}.
 
 
     ???+ example "mongo_secure_build.yml"
@@ -58,7 +58,7 @@ On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management ser
 
         **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
-3. The application required to build the MongoDB application is available in the GitHub repository (details of repository is specified in the `github` parameters of the configuration file shown in the previous step) by choosing one of the following options:  
+3. The application required to build the MongoDB application is available in the GitHub repository (details of repository is specified in the `github` and the `branch` parameters of the configuration file shown in the previous step) by choosing one of the following options:  
 
     - Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
     ```
@@ -82,7 +82,7 @@ After the Secure build process completes, the MongoDB image is pushed to the Doc
 
 ## Procedure to create the digital banking image
 
-You will follow the same steps as mentioned in the section above but use a configuration file that specifies the details that are required for the MongoDB virtual server.
+You will follow the same steps as mentioned in the section above but use a configuration file that specifies the details that are required for the digital banking application.
 
 1. Create the configuration `digital_secure_build.yml` file for the digital application. You can use the `$HOME/hpvs/config/securebuild/secure_build.yml.example` example file as a reference when updating the file.
 
@@ -131,7 +131,7 @@ You will follow the same steps as mentioned in the section above but use a confi
         **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
 
 
-3. The application required to build the digital banking application is available in the GitHub repository (details of repository is specified in the `github` parameters of the configuration file shown in the previous step) by choosing one of the following options:  
+3. The application required to build the digital banking application is available in the GitHub repository (details of repository is specified in the `github` and the `branch` parameters of the configuration file shown in the previous step) by choosing one of the following options:  
 
     - Use one command to perform all the Secure Build actions including initialization, build, and generating the encrypted repository registration file. This option is recommended if you are building the application by using the Secure Build for the first time. The passphrase used is "over-the-lazy-dog".
     ```
