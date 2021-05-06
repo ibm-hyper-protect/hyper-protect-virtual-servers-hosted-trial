@@ -7,7 +7,7 @@ nav:
     - Setting up the environment: setting_upenv.md
     - Explore the Hyper Protect Virtual Servers CLI: setenv.md
     - Secure Build Server (SBS):
-      - Hyper Protect Virtual Servers (HPVS) Secure Build overview: securebuild/overview.md
+      - Secure Build overview: securebuild/overview.md
       - Enabling ports: securebuild/sbs-ports-setup.md
       - Creating the Secure Build Server: securebuild/create-server-hpvsdeploy.md
       - Securely Build your application: securebuild/build.md

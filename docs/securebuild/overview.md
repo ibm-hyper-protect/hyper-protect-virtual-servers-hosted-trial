@@ -18,7 +18,7 @@ There are the steps of the Secure Build process:
 ### SETUP
 
 Complete the following steps:
-- Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively.
+- Configure your environment with the necessary credentials to connect to [GitHub](https://github.com){target=_blank} and [Docker Hub](https://hub.docker.com/){target=_blank} respectively.  
 - Create the certificate and key to securely communicate with the Secure Build Server (for more information, see [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}).
 
 
@@ -26,8 +26,8 @@ Complete the following steps:
 
 Complete the following steps:
 - Create the Secure Build virtual servers for building the MongoDB and the digital banking application Docker images (for more information, see
-[`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
-- Build the MongoDB and the digital banking application Docker images (for more information, see)[`Securely Build your application`](build.md){target=_blank}).
+[`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.  
+- Build the MongoDB and the digital banking application Docker images (for more information, see)[`Securely Build your application`](build.md){target=_blank}).  
 
 The Secure Build Process leverages a **Hyper Protect Virtual Server**, called the Secure Build Server, to establish trust and security in the [Docker Content Trust](https://docs.docker.com/engine/security/trust/content_trust/){target=_blank} process. This ensure images verified using the [Notary service architecture](https://docs.docker.com/notary/service_architecture/){target=_blank} were safely built and signed. This is done by generating the repository and root keys used to establish trust with the [Notary Service](https://docs.docker.com/notary/service_architecture/){target=_blank} inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the [TOFU](https://en.wikipedia.org/wiki/Trust_on_first_use){target=_blank} problem).
 
