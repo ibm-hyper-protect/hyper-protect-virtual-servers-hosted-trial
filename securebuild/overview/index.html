@@ -839,9 +839,9 @@
 - Create the certificate and key to securely communicate with the Secure Build Server (for more information, see <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>).</p>
 <h3 id="build">BUILD<a class="headerlink" href="#build" title="Permanent link">&para;</a></h3>
 <p>Complete the following steps:
-- Create the Secure Build virtual servers for the MongoDB and the digital banking applications (for more information, see
+- Create the Secure Build virtual servers for building the MongoDB and the digital banking application Docker images (for more information, see
 <a href="../create-server-hpvsdeploy/" target="_blank"><code>Creating the Secure Build Server</code></a>.
-- Build the MongoDB and the digital banking application images (for more information, see)<a href="../build/" target="_blank"><code>Securely Build your application</code></a>).</p>
+- Build the MongoDB and the digital banking application Docker images (for more information, see)<a href="../build/" target="_blank"><code>Securely Build your application</code></a>).</p>
 <p>The Secure Build Process leverages a <strong>Hyper Protect Virtual Server</strong>, called the Secure Build Server, to establish trust and security in the <a href="https://docs.docker.com/engine/security/trust/content_trust/" target="_blank">Docker Content Trust</a> process. This ensure images verified using the <a href="https://docs.docker.com/notary/service_architecture/" target="_blank">Notary service architecture</a> were safely built and signed. This is done by generating the repository and root keys used to establish trust with the <a href="https://docs.docker.com/notary/service_architecture/" target="_blank">Notary Service</a> inside of the Secure Build Server to guarantee that the initial keys used for a repository are trusted on first use (solving the <a href="https://en.wikipedia.org/wiki/Trust_on_first_use" target="_blank">TOFU</a> problem).</p>
 <p>The table details The full list of the keys used during the Secure Build lifecycle.</p>
 <table>
