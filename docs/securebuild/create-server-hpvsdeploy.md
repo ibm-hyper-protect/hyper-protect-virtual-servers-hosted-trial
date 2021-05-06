@@ -35,7 +35,7 @@ Before you start the Secure Build process, you must create the certificate and k
    ```
 
 
-## Procedure to create a Secure Build virtual server (for building the MongoDB image)
+## Procedure to create a Secure Build virtual server <!--(for building the MongoDB image) -->
 
 1. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
 

@@ -1,8 +1,12 @@
 # Deploy your Securely Built Application as a Hyper Protect Virtual Server
 
-The example application used to showcase the Secure Build virtual server is the digital banking application, that requires two Secure Build virtual servers, one for building the MongoDB application and the second one for the digital banking application. Two virtual servers are created for the images, one for MongoDB, and one for the digital banking application. The following steps are required to deploy this application:  
+The example application used to showcase the Secure Build virtual server is the digital banking application, that requires two Secure Build virtual servers, one for building the MongoDB application and the second one for building the digital banking application. The two application images are deployed in two virtual servers.
 
-1. Create a Secure Build virtual server for building the MongoDB image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image){target=_blank} from the topic [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
+
+## Procedure to deploy the banking application
+Follow the instructions provided here to deploy the banking application:  
+
+1. To create a Secure Build virtual server for building the MongoDB image. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server-for-building-the-mongodb-image){target=_blank} from the topic [`Creating the Secure Build Server`](create-server-hpvsdeploy.md){target=_blank}.
 
 2. Build the MongoDB image by using the Secure Build process. See these [instructions](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/build/#procedure-to-create-the-mongodb-image){target=_blank} from the topic [`Securely Build your application`](build.md){target=_blank}.
 
