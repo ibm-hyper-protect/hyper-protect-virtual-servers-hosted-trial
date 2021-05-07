@@ -7,7 +7,7 @@ You will use the Secure Build process to build the two virtual servers that are 
 - Ensure that you have all the user IDs and passwords to pull the base images, push the built images, and pull the built images from the remote Docker registry server.
 - Before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see [`Enabling ports`](sbs-ports-setup.md){target=_blank}.
 
-## Procedure to create the MongoDB image
+## Creating the MongoDB image
 
 On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management server, complete the following steps with root user authority.
 
@@ -80,7 +80,7 @@ On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management ser
 After the Secure build process completes, the MongoDB image is pushed to the DockerHub repository, from where it will be later pulled to create the MongoDB virtual server.
 
 
-## Procedure to create the digital banking image
+## Creating the digital banking image
 
 You will follow the same steps as mentioned in the section above but use a configuration file that specifies the details that are required for the digital banking application.
 

@@ -1,4 +1,4 @@
-# Hyper Protect Virtual Servers Secure Build overview
+# Secure Build overview
 
 ## Prerequisites
 

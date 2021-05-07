@@ -35,7 +35,7 @@ Before you start the Secure Build process, you must create the certificate and k
    ```
 
 
-## Procedure to create a Secure Build virtual server <!--(for building the MongoDB image) -->
+## Creating a Secure Build virtual server
 
 1. Create the configuration yaml file `securebuild.yml` for the instance by referring to the example file $HOME/hpvs/config/securebuild/vs_securebuild.yml. The `vs_securebuild.yml` has the configuration details for the virtual server and refers to the corresponding sections of the `virtualserver.template.yml` when you run the `hpvs deploy` command. The virtual server template file contains the definitions of the resources, volumes, environment templates, and networks that are required to create a virtual server. For example, the `resourcedefinition: ref` value refers to the `resourcedefinitiontemplate` definition in the template file.    
 
@@ -106,7 +106,7 @@ Before you start the Secure Build process, you must create the certificate and k
 
 
 
-## Procedure to create the virtual server for MongoDB
+## Creating the virtual server for MongoDB
 
 1. Create the configuration file `mongo_demo.yml` for the MongoDB virtual server by referring to the example `vs_configfile_readme.yaml` available at `$HOME/home/hpvs/config`.
  The following is an example of the configuration file:
@@ -158,9 +158,9 @@ Before you start the Secure Build process, you must create the certificate and k
         ![Mongo Server](securebuild-Images/mongo_vs.png)
 
 
-## Procedure to create a Secure Build virtual server to build the digital banking application
+## Creating a Secure Build virtual server to build the digital banking application
 
-You can complete the [same steps](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#procedure-to-create-a-secure-build-virtual-server){target=_blank} for creating the Secure Build virtual server to build the digital banking application Docker image.
+You can complete the [same steps](https://ibm-hyper-protect.github.io/hyper-protect-virtual-servers-hosted-trial/securebuild/create-server-hpvsdeploy/#creating-a-secure-build-virtual-server){target=_blank} for creating the Secure Build virtual server to build the digital banking application Docker image.
 
 After you complete the steps to create the virtual server, this server is used to build the digital banking application Docker image, later in this trial.
 
