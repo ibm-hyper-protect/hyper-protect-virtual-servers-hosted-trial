@@ -1045,7 +1045,7 @@ L8hGSs4CEpCvdLmBNAzdtw/8iEnWN9Alck3htWmgebQ4AkfBMM9rFBLo2Lnixmhg
 <p>The certificate signing request will be passed to our certification authority which will use the information to create an X.509 certificate.  We used <em>openssl</em> for this, too:</p>
 <p><div class="highlight"><pre><span></span><code>openssl x509 -sha256 -req -in server80-9876-19876.csr -CA ca.pem -CAkey ca.key -set_serial <span class="m">8086</span> -extfile openssl.cnf -extensions server -days <span class="m">365</span> -outform PEM -out server80-9876-19876.pem
 </code></pre></div>
-For more information about creating the openssl.cnf file, <a href="https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/openssl_conf_files.html" target="_blank">see OpenSSL configuration examples</a>.</p>
+For more information about creating the openssl.cnf file, <a href="https://www.ibm.com/docs/en/hpvs/1.2.x?topic=120-openssl-configuration-examples" target="_blank">see OpenSSL configuration examples</a>.</p>
 <p>The file name of the certificate that was created by the preceding command is the value of the <code>-out</code> argument, <code>server80-9876-19876.pem</code>.  <code>openssl</code> allows us to list this certificate in human-friendly form:</p>
 <div class="highlight"><pre><span></span><code>openssl x509 -in server80-9876-19876.pem -noout -text
 </code></pre></div>

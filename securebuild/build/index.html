@@ -331,15 +331,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#procedure-to-create-the-mongodb-image" class="md-nav__link">
-    Procedure to create the MongoDB image
+  <a href="#creating-the-mongodb-image" class="md-nav__link">
+    Creating the MongoDB image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#procedure-to-create-the-digital-banking-image" class="md-nav__link">
-    Procedure to create the digital banking image
+  <a href="#creating-the-digital-banking-image" class="md-nav__link">
+    Creating the digital banking image
   </a>
   
 </li>
@@ -719,15 +719,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#procedure-to-create-the-mongodb-image" class="md-nav__link">
-    Procedure to create the MongoDB image
+  <a href="#creating-the-mongodb-image" class="md-nav__link">
+    Creating the MongoDB image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#procedure-to-create-the-digital-banking-image" class="md-nav__link">
-    Procedure to create the digital banking image
+  <a href="#creating-the-digital-banking-image" class="md-nav__link">
+    Creating the digital banking image
   </a>
   
 </li>
@@ -759,7 +759,7 @@
 <li>Ensure that you have all the user IDs and passwords to pull the base images, push the built images, and pull the built images from the remote Docker registry server.</li>
 <li>Before you build a docker image by using the Hyper Protect base images, you must open the required ports for your application. For more information, see <a href="../sbs-ports-setup/" target="_blank"><code>Enabling ports</code></a>.</li>
 </ul>
-<h2 id="procedure-to-create-the-mongodb-image">Procedure to create the MongoDB image<a class="headerlink" href="#procedure-to-create-the-mongodb-image" title="Permanent link">&para;</a></h2>
+<h2 id="creating-the-mongodb-image">Creating the MongoDB image<a class="headerlink" href="#creating-the-mongodb-image" title="Permanent link">&para;</a></h2>
 <p>On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management server, complete the following steps with root user authority.</p>
 <ol>
 <li>
@@ -823,7 +823,7 @@ hpvs sb regfile --config $HOME/hpvs/config/securebuild/mongo_secure_build.yml --
 <details class="example" open="open"><summary>Example Output</summary><p><img alt="Create mongo" src="../securebuild-Images/mongo.png" /></p>
 </details>
 <p>After the Secure build process completes, the MongoDB image is pushed to the DockerHub repository, from where it will be later pulled to create the MongoDB virtual server.</p>
-<h2 id="procedure-to-create-the-digital-banking-image">Procedure to create the digital banking image<a class="headerlink" href="#procedure-to-create-the-digital-banking-image" title="Permanent link">&para;</a></h2>
+<h2 id="creating-the-digital-banking-image">Creating the digital banking image<a class="headerlink" href="#creating-the-digital-banking-image" title="Permanent link">&para;</a></h2>
 <p>You will follow the same steps as mentioned in the section above but use a configuration file that specifies the details that are required for the digital banking application.</p>
 <ol>
 <li>
