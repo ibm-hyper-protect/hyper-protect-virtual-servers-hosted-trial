@@ -170,7 +170,7 @@ After you complete the steps to create the virtual server, this server is used t
 
 
 
-## Procedure to create the virtual server for the digital banking application
+## Creating the virtual server for the digital banking application
 
 The procedure is the same as the one you would use to create the virtual server for MongoDB, but use a configuration file that specifies the details that are required for the digital virtual server.
 

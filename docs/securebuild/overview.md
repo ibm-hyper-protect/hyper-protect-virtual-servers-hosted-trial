@@ -13,7 +13,7 @@ There are the steps of the Secure Build process:
 3. [DEPLOY](#deploy)
 4. [ACCESS](#access)
 5. [CLEAN UP](#cleanup)  
-   These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic: [`Building your application with the Secure Build virtual server`](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/build_app_withsb.html){target=_blank} for detailed instructions.
+   These points are explained in more detail in their respective sections below. The steps detailed here help you deploy the digital banking application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic: [`Building your application with the Secure Build virtual server`]https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server){target=_blank} for detailed instructions.
 
 ### SETUP
 

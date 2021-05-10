@@ -1,6 +1,6 @@
 # IBM Hyper Protect Virtual Servers GREP11 Overview
 
-You will be working with the GREP11 feature of the [Hyper Protect Virtual Servers on-premises](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/create_grp11.html){target=_blank} offering.
+You will be working with the GREP11 feature of the [Hyper Protect Virtual Servers on-premises](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-working-grep11-virtual-servers){target=_blank} offering.
 
 GREP11 is a shorthand term for *gRPC protocol-based Enterprise PKCS#11*.
 

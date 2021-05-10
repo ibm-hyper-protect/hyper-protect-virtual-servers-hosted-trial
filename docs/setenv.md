@@ -48,4 +48,4 @@
         Use "hpvs [command] --help" for more information about a command.
         ```
 
-2. For further exploration of the Hyper Protect Virtual Servers CLI [see the Knowledge Center](https://www.ibm.com/support/knowledgecenter/en/SSHPMH_1.2.x/topics/cmd_hpvs.html){target_blank}.
+2. For further exploration of the Hyper Protect Virtual Servers CLI see the [Knowledge Center](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=reference-commands-in-hyper-protect-virtual-servers){target_blank}.

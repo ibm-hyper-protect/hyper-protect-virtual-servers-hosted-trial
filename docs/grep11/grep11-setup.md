@@ -208,7 +208,7 @@ The certificate signing request will be passed to our certification authority wh
 ```bash
 openssl x509 -sha256 -req -in server80-9876-19876.csr -CA ca.pem -CAkey ca.key -set_serial 8086 -extfile openssl.cnf -extensions server -days 365 -outform PEM -out server80-9876-19876.pem
 ```
-For more information about creating the openssl.cnf file, [see OpenSSL configuration examples](https://www.ibm.com/support/knowledgecenter/SSHPMH_1.2.x/topics/openssl_conf_files.html){target=_blank}.
+For more information about creating the openssl.cnf file, [see OpenSSL configuration examples](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=120-openssl-configuration-examples){target=_blank}.
 
 The file name of the certificate that was created by the preceding command is the value of the `-out` argument, `server80-9876-19876.pem`.  `openssl` allows us to list this certificate in human-friendly form:
 
