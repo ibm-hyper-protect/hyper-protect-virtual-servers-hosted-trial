@@ -31,33 +31,39 @@ Complete the following steps.
 
 5. From the `$HOME/hpvs_user` directory, run the command: `docker images`, to check whether the base images are loaded into the local registry successfully.
    ```
-   REPOSITORY                       TAG                       IMAGE ID            CREATED             SIZE
-   ibmzcontainers/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        13 days ago         1.31GB
+   REPOSITORY                                              TAG     IMAGE ID       CREATED            SIZE
+   sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+   swg-devops.com/zaas/hyperpvsop-base-image               1.2.4   c6a593192565   3 days ago         1.04GB
+   sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+   swg-devops.com/zaas/hyperpvsop-base-ssh-image           1.2.4   a6252e869355   3 days ago         1.04GB   
+
    ```
 
 6. Create two repositories in your namespace for both the `hpvsop-base` image and the `hpvsop-base-ssh` image on the [Docker Hub](https://hub.docker.com/). For example, `docker_base_user/hpvsop-base` and `docker_base_user/hpvsop-base-ssh`. Note that the repository name must match the image name.
 
 7. Use the `docker tag` command to tag base images with the same ID used by the CLI tool. Run the following commands from the `$HOME/hpvs_user` directory, to tag both base images.
    ```
-   docker tag ibmzcontainers/hpvsop-base:1.2.3-release-d0651e4 docker_base_user/hpvsop-base:1.2.3-release-d0651e4
-   docker tag ibmzcontainers/hpvsop-base-ssh:1.2.3-release-d0651e4 docker_base_user/hpvsop-base-ssh:1.2.3-release-d0651e4
+   docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.swg-devops.com/zaas/hyperpvsop-base-image:1.2.4 docker_base_user/hyperpvsop-base-image:1.2.4
+   docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.swg-devops.com/zaas/hyperpvsop-base-ssh-image :1.2.4 docker_base_user/hpvsop-base-ssh-image:1.2.4
    ```
 
 8. Run the `docker images` command from the `$HOME/hpvs_user` directory, to check whether the tags for the base images are as expected.
    ```
-   REPOSITORY                         TAG                       IMAGE ID            CREATED            SIZE
+   REPOSITORY                                                          TAG      IMAGE ID       CREATED       SIZE
    ...
-   ibmzcontainers/hpvsop-base         1.2.3-release-d0651e4     a53aae01b3ef        6 days ago         1.37GB
-   docker_base_user/hpvsop-base       1.2.3-release-d0651e4     a53aae01b3ef        6 days ago         1.37GB
-   ibmzcontainers/hpvsop-base-ssh     1.2.3-release-d0651e4     cd4e5704ae92        6 days ago         1.31GB
-   docker_base_user/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        6 days ago         1.31GB
+   docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+   swg-devops.com/zaas/hyperpvsop-base-image                          1.2.4    c6a593192565   3 days ago     1.04GB
+   docker_base_user/hyperpvsop-base-image                             1.2.4    a6252e869355   3 days ago     1.04GB
+   docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+   swg-devops.com/zaas/hyperpvsop-base-ssh-image                      1.2.4    c6a593192565   3 days ago     1.04GB
+   docker_base_user/hyperpvsop-base-ssh-image                         1.2.4    a6252e869355   3 days ago     1.04GB
    ...
    ```
 9. Push the base images to your remote docker repositories. For example:
    ```
    docker login
-   docker push docker_base_user/hpvsop-base:1.2.3-release-d0651e4
-   docker push docker_base_user/hpvsop-base-ssh:1.2.3-release-d0651e4
+   docker push docker_base_user/hyperpvsop-base-image:1.2.4
+   docker push docker_base_user/hyperpvsop-base-ssh-image:1.2.4
    ```
 
 10. Document the credentials you will use to build your application with the Secure Build container.

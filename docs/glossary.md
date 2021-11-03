@@ -51,13 +51,13 @@ The abbreviation of Enterprise PKCS #11, which is specifically designed for cust
 The process of encrypting data with a data encryption key and then encrypting the key with a root key that can be fully managed.
 
 ## FIPS 140-2 compliance
-An organization’s adherence to the Federal Information Processing Standards (FIPS) 140-2 standards. This standard specifies the security requirements that will be satisfied by a cryptographic module utilized within a security system protecting sensitive information.  FIPS 140-2 outlines four levels of security: 
+An organization’s adherence to the Federal Information Processing Standards (FIPS) 140-2 standards. This standard specifies the security requirements that will be satisfied by a cryptographic module utilized within a security system protecting sensitive information.  FIPS 140-2 outlines four levels of security:
 
 Level 1 - the lowest level of security. It covers the basic security features in a cryptographic module.
 
-Level 2 - improves the physical security aspects of cryptographic modules. Examples of required physical security             measures are tamper-evident coatings, seals, or pick-resistant locks. Role-based authentication is included in this security level and ensures the operator accessing the module is authorized and is limited to their assigned actions. 
+Level 2 - improves the physical security aspects of cryptographic modules. Examples of required physical security             measures are tamper-evident coatings, seals, or pick-resistant locks. Role-based authentication is included in this security level and ensures the operator accessing the module is authorized and is limited to their assigned actions.
 
-Level 3 - requires enhanced physical security, potentially with products available from the private sector. A multi-chip embedded module has to be contained in a strong enclosure that zeroizes critical security parameters when it is removed. This security level also uses identity-based authentication. 
+Level 3 - requires enhanced physical security, potentially with products available from the private sector. A multi-chip embedded module has to be contained in a strong enclosure that zeroizes critical security parameters when it is removed. This security level also uses identity-based authentication.
 
 Level 4 - requires tamper detection circuits to be able to detect any device penetration. This level is best for when cryptographic modules are in a physically unprotected environment that intruders can access. Modules must be able to detect fluctuations and zeroize themselves. Level 4 also protects against security compromises due to environmental conditions.
 
@@ -89,7 +89,7 @@ The abbreviation of Independent Software Vendor, who provides software solutions
 An encryption key that is used to protect a crypto unit. The master key provides full control of the hardware security module and ownership of the root of trust that encrypts the chain keys, including the root key and standard key.
 
 ## Management Utilities
-A set of applications to provide an alternate way of configuring Hyper Protect Crypto Services service instances using signature keys and master key parts stored on smart cards. 
+A set of applications to provide an alternate way of configuring Hyper Protect Crypto Services service instances using signature keys and master key parts stored on smart cards.
 
 ## Management server
 An x86 or s390x Linux management server used to run the commands provided by the Hyper Protect Virtual Servers offering, and administer the offering.
@@ -182,7 +182,7 @@ A storage pool is a uniquely named collection of storage disks on which the appl
 This role includes the system administrator of a machine, storage administrators, and network administrators.
 
 ## tag
-A tag is used to version images in a repository. For example, latest, 1.2.3.4-develop-a0d3aea, or s390x-develop-54a9045.
+A tag is used to version images in a repository. For example, latest, 1.2.4-develop-a0d3aea, or s390x-develop-54a9045.
 
 ## Trusted Key Entry application
 The application installed as part of the Management Utilities. It uses smart cards to load master keys in service instances and to perform other configuration tasks for service instances.

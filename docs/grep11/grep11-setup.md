@@ -415,7 +415,7 @@ This is the YAML file for a GREP11 server that will listen for client connection
     - name: grep11-08-0016-9876
     host: wsclpar80
     repoid: hpcsKpGrep11_runq
-    imagetag: 1.2.3
+    imagetag: 1.2.4
     imagefile: hpcsKpGrep11_runq.tar.gz
     crypto:
         crypto_matrix:
@@ -479,7 +479,7 @@ If you looked carefully at the JSON file and the YAML file in the previous secti
 ???+ example "Command to start the GREP11 server with the JSON file"
 
     ```
-    hpvs vs create --name grep11 --repo hpcsKpGrep11_runq --tag 1.2.3 --crypto_matrix=08.0016 --cpu 2 --ram 2048 --envjsonpath ${HOME}/hpvs/config/grep11/grep11_env_08.0016.json --ports "{containerport = 9876, protocol = tcp, hostport = 9876}"
+    hpvs vs create --name grep11 --repo hpcsKpGrep11_runq --tag 1.2.4 --crypto_matrix=08.0016 --cpu 2 --ram 2048 --envjsonpath ${HOME}/hpvs/config/grep11/grep11_env_08.0016.json --ports "{containerport = 9876, protocol = tcp, hostport = 9876}"
     ```
 
 !!! note "Difference between the two commands"

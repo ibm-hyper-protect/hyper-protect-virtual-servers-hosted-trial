@@ -49,7 +49,7 @@ Before you start the Secure Build process, you must create the certificate and k
         - name: test_securebuild
           host: test2
           repoid: SecureDockerBuild
-          imagetag: 1.2.3-release-f78a642
+          imagetag: 1.2.4
           imagefile: /home/hpvs_user/hpvs/config/securebuild/images/SecureDockerBuild.tar.gz
           resourcedefinition:
              ref: small
