@@ -84,7 +84,7 @@ Before you start the Secure Build process, you must create the certificate and k
         ```
         This Secure Build virtual server is used to build the MongoDB image.
 
-        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS12x_Production/config/yaml`.
 
 2. Create the Secure Build virtual server by using the configurations in the yaml file.  
      ```
@@ -138,7 +138,7 @@ Before you start the Secure Build process, you must create the certificate and k
          ```
 
     !!! tip
-        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file. You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+        Step 3 of "Procedure to create the MongoDB image" from the topic [`Securely Build your application`](build.md){target=_blank} generates the encrypted registration file `encryptedRepoRegistration_mongo.enc` that is used in the above example yaml file. You can view the example configuration files at `home/hpvs_user/HPVS12x_Production/config/yaml`.
 
 
 2. Create the MongoDB virtual server by using the configurations in the yaml file (in this step, the MongoDB image is pulled from DockerHub).
@@ -166,7 +166,7 @@ After you complete the steps to create the virtual server, this server is used t
 
 
 !!! tip
-    If you do not want to create another configuration file, you can delete the Secure Build virtual server that was earlier created (test_securebuild) for building the MongoDB image, and follow the same steps for creating a Secure Build virtual server .You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+    If you do not want to create another configuration file, you can delete the Secure Build virtual server that was earlier created (test_securebuild) for building the MongoDB image, and follow the same steps for creating a Secure Build virtual server .You can view the example configuration files at `home/hpvs_user/HPVS12x_Production/config/yaml`.
 
 
 
@@ -216,7 +216,7 @@ The procedure is the same as the one you would use to create the virtual server 
          ```
 
 
-         **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+         **Note**: You can view the example configuration files at `home/hpvs_user/HPVS12x_Production/config/yaml`.
 
 2. Create the digital application virtual server by using the configurations in the yaml file (in this step, the digital banking application image is pulled from DockerHub).
 

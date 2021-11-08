@@ -56,7 +56,7 @@ On your x86 or Linux on IBM Z/LinuxONE (i.e., s390x architecture) management ser
         ```
 
 
-        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS12x_Production/config/yaml`.
 
 3. The application required to build the MongoDB application is available in the GitHub repository (details of repository is specified in the `github` and the `branch` parameters of the configuration file shown in the previous step) by choosing one of the following options:  
 
@@ -128,7 +128,7 @@ You will follow the same steps as mentioned in the section above but use a confi
            public_key_path: '/home/hpvs_user/.ssh/hpvs_user/isv_user.pub'
         ```
 
-        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS1221_Production/config/yaml`.
+        **Note**: You can view the example configuration files at `home/hpvs_user/HPVS12x_Production/config/yaml`.
 
 
 3. The application required to build the digital banking application is available in the GitHub repository (details of repository is specified in the `github` and the `branch` parameters of the configuration file shown in the previous step) by choosing one of the following options:  
