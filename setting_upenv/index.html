@@ -771,8 +771,11 @@ In the hosted trial environment, the base images are located at <code>$HOME/hpvs
 </li>
 <li>
 <p>From the <code>$HOME/hpvs_user</code> directory, run the command: <code>docker images</code>, to check whether the base images are loaded into the local registry successfully.
-   <div class="highlight"><pre><span></span><code>REPOSITORY                       TAG                       IMAGE ID            CREATED             SIZE
-ibmzcontainers/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        13 days ago         1.31GB
+   <div class="highlight"><pre><span></span><code>REPOSITORY                                              TAG     IMAGE ID       CREATED            SIZE
+sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+swg-devops.com/zaas/hyperpvsop-base-image               1.2.4   c6a593192565   3 days ago         1.04GB
+sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+swg-devops.com/zaas/hyperpvsop-base-ssh-image           1.2.4   a6252e869355   3 days ago         1.04GB   
 </code></pre></div></p>
 </li>
 <li>
@@ -780,26 +783,28 @@ ibmzcontainers/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        1
 </li>
 <li>
 <p>Use the <code>docker tag</code> command to tag base images with the same ID used by the CLI tool. Run the following commands from the <code>$HOME/hpvs_user</code> directory, to tag both base images.
-   <div class="highlight"><pre><span></span><code>docker tag ibmzcontainers/hpvsop-base:1.2.3-release-d0651e4 docker_base_user/hpvsop-base:1.2.3-release-d0651e4
-docker tag ibmzcontainers/hpvsop-base-ssh:1.2.3-release-d0651e4 docker_base_user/hpvsop-base-ssh:1.2.3-release-d0651e4
+   <div class="highlight"><pre><span></span><code>docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.swg-devops.com/zaas/hyperpvsop-base-image:1.2.4 docker_base_user/hyperpvsop-base-image:1.2.4
+docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.swg-devops.com/zaas/hyperpvsop-base-ssh-image :1.2.4 docker_base_user/hpvsop-base-ssh-image:1.2.4
 </code></pre></div></p>
 </li>
 <li>
 <p>Run the <code>docker images</code> command from the <code>$HOME/hpvs_user</code> directory, to check whether the tags for the base images are as expected.
-   <div class="highlight"><pre><span></span><code>REPOSITORY                         TAG                       IMAGE ID            CREATED            SIZE
+   <div class="highlight"><pre><span></span><code>REPOSITORY                                                          TAG      IMAGE ID       CREATED       SIZE
 ...
-ibmzcontainers/hpvsop-base         1.2.3-release-d0651e4     a53aae01b3ef        6 days ago         1.37GB
-docker_base_user/hpvsop-base       1.2.3-release-d0651e4     a53aae01b3ef        6 days ago         1.37GB
-ibmzcontainers/hpvsop-base-ssh     1.2.3-release-d0651e4     cd4e5704ae92        6 days ago         1.31GB
-docker_base_user/hpvsop-base-ssh   1.2.3-release-d0651e4     cd4e5704ae92        6 days ago         1.31GB
+docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+swg-devops.com/zaas/hyperpvsop-base-image                          1.2.4    c6a593192565   3 days ago     1.04GB
+docker_base_user/hyperpvsop-base-image                             1.2.4    a6252e869355   3 days ago     1.04GB
+docker tag sys-zaas-team-hpvsop-dev-docker-local.artifactory.\
+swg-devops.com/zaas/hyperpvsop-base-ssh-image                      1.2.4    c6a593192565   3 days ago     1.04GB
+docker_base_user/hyperpvsop-base-ssh-image                         1.2.4    a6252e869355   3 days ago     1.04GB
 ...
 </code></pre></div></p>
 </li>
 <li>
 <p>Push the base images to your remote docker repositories. For example:
    <div class="highlight"><pre><span></span><code>docker login
-docker push docker_base_user/hpvsop-base:1.2.3-release-d0651e4
-docker push docker_base_user/hpvsop-base-ssh:1.2.3-release-d0651e4
+docker push docker_base_user/hyperpvsop-base-image:1.2.4
+docker push docker_base_user/hyperpvsop-base-ssh-image:1.2.4
 </code></pre></div></p>
 </li>
 <li>

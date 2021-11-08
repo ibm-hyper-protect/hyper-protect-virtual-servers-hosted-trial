@@ -823,7 +823,7 @@ virtualservers:
 - name: test_securebuild
   host: test2
   repoid: SecureDockerBuild
-  imagetag: 1.2.3-release-f78a642
+  imagetag: 1.2.4
   imagefile: /home/hpvs_user/hpvs/config/securebuild/images/SecureDockerBuild.tar.gz
   resourcedefinition:
      ref: small
@@ -857,7 +857,7 @@ virtualservers:
      reset_root: false
 </code></pre></div>
 This Secure Build virtual server is used to build the MongoDB image.</p>
-<p><strong>Note</strong>: You can view the example configuration files at <code>home/hpvs_user/HPVS1221_Production/config/yaml</code>.</p>
+<p><strong>Note</strong>: You can view the example configuration files at <code>home/hpvs_user/HPVS12x_Production/config/yaml</code>.</p>
 </details>
 </li>
 <li>
@@ -905,7 +905,7 @@ virtualservers:
 </details>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Step 3 of "Procedure to create the MongoDB image" from the topic <a href="../build/" target="_blank"><code>Securely Build your application</code></a> generates the encrypted registration file <code>encryptedRepoRegistration_mongo.enc</code> that is used in the above example yaml file. You can view the example configuration files at <code>home/hpvs_user/HPVS1221_Production/config/yaml</code>.</p>
+<p>Step 3 of "Procedure to create the MongoDB image" from the topic <a href="../build/" target="_blank"><code>Securely Build your application</code></a> generates the encrypted registration file <code>encryptedRepoRegistration_mongo.enc</code> that is used in the above example yaml file. You can view the example configuration files at <code>home/hpvs_user/HPVS12x_Production/config/yaml</code>.</p>
 </div>
 </li>
 <li>
@@ -926,7 +926,7 @@ virtualservers:
 <p>After you complete the steps to create the virtual server, this server is used to build the digital banking application Docker image, later in this trial.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you do not want to create another configuration file, you can delete the Secure Build virtual server that was earlier created (test_securebuild) for building the MongoDB image, and follow the same steps for creating a Secure Build virtual server .You can view the example configuration files at <code>home/hpvs_user/HPVS1221_Production/config/yaml</code>.</p>
+<p>If you do not want to create another configuration file, you can delete the Secure Build virtual server that was earlier created (test_securebuild) for building the MongoDB image, and follow the same steps for creating a Secure Build virtual server .You can view the example configuration files at <code>home/hpvs_user/HPVS12x_Production/config/yaml</code>.</p>
 </div>
 <h2 id="creating-the-virtual-server-for-the-digital-banking-application">Creating the virtual server for the digital banking application<a class="headerlink" href="#creating-the-virtual-server-for-the-digital-banking-application" title="Permanent link">&para;</a></h2>
 <p>The procedure is the same as the one you would use to create the virtual server for MongoDB, but use a configuration file that specifies the details that are required for the digital virtual server.</p>
@@ -969,7 +969,7 @@ virtualservers:
      ref: np-medium
 </code></pre></div>
 
-<p><strong>Note</strong>: You can view the example configuration files at <code>home/hpvs_user/HPVS1221_Production/config/yaml</code>.</p>
+<p><strong>Note</strong>: You can view the example configuration files at <code>home/hpvs_user/HPVS12x_Production/config/yaml</code>.</p>
 </details>
 </li>
 <li>
