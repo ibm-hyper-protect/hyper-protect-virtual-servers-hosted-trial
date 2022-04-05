@@ -2,7 +2,7 @@
 
 This topic provides information about how you can deploy your own Linux-based container image (bring your own image) as a Hyper Protect Virtual Server on the IBM Hyper Protect Virtual Servers.
 
-The steps detailed here help you deploy the Nginx application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Knowledge Center topic:  [Deploying your applications securely](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-deploying-your-applications-securely){target=_blank}, for instructions.
+The steps detailed here help you deploy the Nginx application that is provided as an example as a part of the hosted trial environment. To deploy your own application, complete the prerequisites ([`Prerequisites` page](../prerequisites.md){target=_blank}), then refer the IBM Documentation topic:  [Deploying your applications securely](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-deploying-your-applications-securely){target=_blank}, for instructions.
 
 ## Prerequisites
 The following are the prerequisites for being able to deploy your own image into the IBM Hyper Protect Virtual Servers:
