@@ -182,7 +182,7 @@ A storage pool is a uniquely named collection of storage disks on which the appl
 This role includes the system administrator of a machine, storage administrators, and network administrators.
 
 ## tag
-A tag is used to version images in a repository. For example, latest, 1.2.4-develop-a0d3aea, or s390x-develop-54a9045.
+A tag is used to version images in a repository. For example, latest, 1.2.5-develop-a0d3aea, or s390x-develop-54a9045.
 
 ## Trusted Key Entry application
 The application installed as part of the Management Utilities. It uses smart cards to load master keys in service instances and to perform other configuration tasks for service instances.
